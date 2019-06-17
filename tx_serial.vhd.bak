@@ -1,0 +1,50 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+--------------------------------------------------------
+entity tx_serial is
+ 
+	generic (
+--		N  : natural := 4 
+	);
+	
+	port(
+		--------------in--------------
+		clk_tx         : in std_logic;
+		rst_tx         : in std_logic;
+		load_tx        : in std_logic;
+		sel_paridade_tx: in std_logic;
+		sel_baudrate_tx: in std_logic;
+		--------------out--------------
+		out_tx         : out std_logic_vector(10 downto 0);--
+		ssd_tx         : out std_logic_vector(6 downto 0); --
+		baudrate_tx    : out std_logic;                    -- Essa eh a saida de 'clock'para a placa de recepcao
+		led_baudrate_tx: out std_logic_vector(3 downto 0)  -- Indica qual dos 4 baudrates est´a selecionado
+	);
+	
+end entity;
+--------------------------------------------------------
+architecture ifsc of tx_serial is
+--	signal cnt: unsigned(N-1 downto 0);
+begin
+ 
+--	process(clk, rst) is
+--	begin
+--		if rst = '1' then
+--			cnt <= (others => '0');
+--		elsif rising_edge(clk) then
+--			if cnt = lmt then
+--				cnt <= (others => '0');
+--			else
+--				cnt <= cnt + 1;
+--			end if;	
+--		end if;
+--	end process;
+-- 
+--	q <= std_logic_vector(cnt);
+	
+end architecture;
+--------------------------------------------------------
+
+
+

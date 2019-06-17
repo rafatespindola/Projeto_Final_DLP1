@@ -1,0 +1,29 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+--------------------------------------------------------
+entity entrada is
+  
+	generic (
+--		N  : natural := 4 
+	);
+	
+	port(
+		--------------in--------------
+		
+		--------------out--------------
+		
+	);
+	
+end entity;
+--------------------------------------------------------
+architecture ifsc of entrada is
+	signal tmp1: std_logic_vector(6 downto 0); -- Passa o caractere em ASCII para o "Conversor para serial"
+	signal tmp2: std_logic;                    -- Passa o clock ja "Dividivo" para o baudrate escolhido
+begin
+ 	
+end architecture;
+--------------------------------------------------------
+
+
+
