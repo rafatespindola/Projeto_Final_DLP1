@@ -5,7 +5,7 @@ use ieee.std_logic_1164.all;
 entity conv_paralelo_serial is -- Entradas e saidas com "conv" no final
   
 	generic (
---		N: integer := 4 
+		N: integer := 4 
 	);
 	
 	port(

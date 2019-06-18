@@ -5,7 +5,7 @@ use ieee.std_logic_1164.all;
 entity gera_baudrate is -- Entradas e saidas com "gbd" no final
   
 	generic (
---		N: integer := 4 
+		N: integer := 4 
 	);
 	
 	port(
