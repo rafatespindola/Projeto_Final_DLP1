@@ -1,6 +1,6 @@
 Flow report for tx_serial
-Tue Jun 18 20:30:48 2019
-Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+Mon Jun 24 16:44:08 2019
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
 ---------------------
@@ -21,45 +21,38 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Copyright (C) 1991-2013 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Altera Program License 
-Subscription Agreement, the Altera Quartus Prime License Agreement,
-the Altera MegaCore Function License Agreement, or other 
-applicable license agreement, including, without limitation, 
-that your use is for the sole purpose of programming logic 
-devices manufactured by Altera and sold by Altera or its 
-authorized distributors.  Please refer to the applicable 
-agreement for further details.
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
 
 
 
-+--------------------------------------------------------------------------------------+
-; Flow Summary                                                                         ;
-+------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Tue Jun 18 20:30:48 2019           ;
-; Quartus Prime Version              ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
-; Revision Name                      ; tx_serial                                       ;
-; Top-level Entity Name              ; gerador_paridade                                ;
-; Family                             ; Cyclone IV GX                                   ;
-; Total logic elements               ; 679                                             ;
-;     Total combinational functions  ; 679                                             ;
-;     Dedicated logic registers      ; 0                                               ;
-; Total registers                    ; 0                                               ;
-; Total pins                         ; 10                                              ;
-; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0                                               ;
-; Embedded Multiplier 9-bit elements ; 0                                               ;
-; Total GXB Receiver Channel PCS     ; 0                                               ;
-; Total GXB Receiver Channel PMA     ; 0                                               ;
-; Total GXB Transmitter Channel PCS  ; 0                                               ;
-; Total GXB Transmitter Channel PMA  ; 0                                               ;
-; Total PLLs                         ; 0                                               ;
-+------------------------------------+-------------------------------------------------+
++------------------------------------------------------------------------------+
+; Flow Summary                                                                 ;
++---------------------------+--------------------------------------------------+
+; Flow Status               ; Successful - Mon Jun 24 16:44:08 2019            ;
+; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name             ; tx_serial                                        ;
+; Top-level Entity Name     ; gerador_paridade                                 ;
+; Family                    ; Cyclone                                          ;
+; Device                    ; EP1C3T100A8                                      ;
+; Timing Models             ; Final                                            ;
+; Total logic elements      ; 3                                                ;
+; Total pins                ; 10                                               ;
+; Total virtual pins        ; 0                                                ;
+; Total memory bits         ; 0                                                ;
+; Total PLLs                ; 0                                                ;
++---------------------------+--------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -67,26 +60,27 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/18/2019 20:30:35 ;
+; Start date & time ; 06/24/2019 16:44:07 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; tx_serial           ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                        ;
-+-------------------------------------+-------------------------------+---------------+------------------+----------------+
-; Assignment Name                     ; Value                         ; Default Value ; Entity Name      ; Section Id     ;
-+-------------------------------------+-------------------------------+---------------+------------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 2482659527284.156090063407939 ; --            ; --               ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                          ; --            ; --               ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)        ; <None>        ; --               ; --             ;
-; PARTITION_COLOR                     ; 16764057                      ; --            ; gerador_paridade ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING         ; --            ; gerador_paridade ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                        ; --            ; gerador_paridade ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                  ; --            ; --               ; --             ;
-; TOP_LEVEL_ENTITY                    ; gerador_paridade              ; tx_serial     ; --               ; --             ;
-+-------------------------------------+-------------------------------+---------------+------------------+----------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                         ;
++-------------------------------------+--------------------------------+---------------+------------------+----------------+
+; Assignment Name                     ; Value                          ; Default Value ; Entity Name      ; Section Id     ;
++-------------------------------------+--------------------------------+---------------+------------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 27116745658899.156140544705685 ; --            ; --               ; --             ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                             ; --            ; --               ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                    ; --            ; --               ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)      ; <None>        ; --               ; --             ;
+; PARTITION_COLOR                     ; 16764057                       ; --            ; gerador_paridade ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING          ; --            ; gerador_paridade ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                         ; --            ; gerador_paridade ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                   ; --            ; --               ; --             ;
+; TOP_LEVEL_ENTITY                    ; gerador_paridade               ; tx_serial     ; --               ; --             ;
++-------------------------------------+--------------------------------+---------------+------------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -94,18 +88,18 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 1308 MB             ; 00:00:26                           ;
-; Total                ; 00:00:13     ; --                      ; --                  ; 00:00:26                           ;
+; Analysis & Synthesis ; 00:00:02     ; 1.0                     ; 346 MB              ; 00:00:01                           ;
+; Total                ; 00:00:02     ; --                      ; --                  ; 00:00:01                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                          ;
-+----------------------+------------------+------------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name          ; OS Version ; Processor type ;
-+----------------------+------------------+------------------+------------+----------------+
-; Analysis & Synthesis ; labalu-cli6      ; Debian GNU/Linux ; 9          ; x86_64         ;
-+----------------------+------------------+------------------+------------+----------------+
++--------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                            ;
++----------------------+--------------------+------------------+------------+----------------+
+; Module Name          ; Machine Hostname   ; OS Name          ; OS Version ; Processor type ;
++----------------------+--------------------+------------------+------------+----------------+
+; Analysis & Synthesis ; sj-lin-sidi-703882 ; Debian GNU/Linux ; 9          ; x86_64         ;
++----------------------+--------------------+------------------+------------+----------------+
 
 
 ------------

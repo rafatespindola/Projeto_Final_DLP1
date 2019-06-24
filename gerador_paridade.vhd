@@ -21,10 +21,10 @@ architecture gerador_paridade_v1 of gerador_paridade is
 begin
 
  	process(entrada)
-		variable cont, resto: integer:= 0;
-		
+		variable cont, resto: integer;
 		begin
-			for i in 0 to N-1 loop
+			cont := 0;
+			for i in N-1 downto 0 loop
 				if (entrada(i) = '1') then
 					cont := cont +1;
 				end if;

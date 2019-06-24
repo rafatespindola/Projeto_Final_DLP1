@@ -1,18 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue Jun 18 20:30:48 2019
-Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+Analysis & Synthesis Status : Successful - Mon Jun 24 16:44:08 2019
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : tx_serial
 Top-level Entity Name : gerador_paridade
-Family : Cyclone IV GX
-Total logic elements : 679
-    Total combinational functions : 679
-    Dedicated logic registers : 0
-Total registers : 0
+Family : Cyclone
+Total logic elements : 3
 Total pins : 10
 Total virtual pins : 0
 Total memory bits : 0
-Embedded Multiplier 9-bit elements : 0
-Total GXB Receiver Channel PCS : 0
-Total GXB Receiver Channel PMA : 0
-Total GXB Transmitter Channel PCS : 0
-Total GXB Transmitter Channel PMA : 0
 Total PLLs : 0

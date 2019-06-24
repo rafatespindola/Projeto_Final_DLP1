@@ -7,7 +7,7 @@ entity tx_serial is -- Entradas e saidas com "tx" no final
 	generic (
 		N  : natural := 4 
 	);
-	
+
 	port(
 		--------------in--------------
 		clk_tx         : in std_logic;
@@ -27,8 +27,64 @@ end entity;
 architecture ifsc of tx_serial is
 	signal tmp1: std_logic_vector(6 downto 0); -- Passa o caractere em ASCII para o "Conversor para serial"
 	signal tmp2: std_logic;                    -- Passa o clock ja "Dividivo" para o baudrate escolhido
+	
+	component gera_baudrate
+		generic
+		(N: integer := 4);
+		port(
+			--------------in--------------
+			clk_gbd         : in  std_logic;                    -- clock de 50M
+			sel_baudrate_gbd: in  std_logic_vector(1 downto 0); -- chaves H selecionam o baudrate desejado. (4 possibilidades) 
+			--------------out--------------
+			baudrate_gbd    : out std_logic;
+			led_baudrate_gbd: out std_logic_vector(3 downto 0)
+		);
+	end component;
+	
+	component conv_paralelo_serial
+		generic (N: integer := 4);
+		port(
+			--------------in--------------
+			clk_conv     : in std_logic;							-- clock de 50M
+			load_conv    : in std_logic; 							-- button para carregar a palavra ao conversor paralelo serial
+			ascii_conv   : in std_logic_vector(6 downto 0); -- palavra em formato ascii chegando  
+			baudrate_conv: in std_logic;                    -- clock ja convertido para o baudrate selecionado
+			--------------out--------------
+			out_ent      : out std_logic                    -- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
+		);
+	
+	end component;
+	
+	component entrada
+		generic(N: natural:= 8);
+		port(
+			--------------in--------------
+			clk_ent  : in  std_logic;
+			load_ent : in  std_logic; -- button para carregar a palavra ao conversor serial
+			msg : in String := "teste123";
+			--------------out--------------
+			load_saida : out std_logic_vector(6 downto 0) -- Saida para conversor serial apos traducao
+		);
+	
+	end component;
+
+	component gerador_paridade
+		generic(N: natural:= 8);
+		port(
+			--------------in--------------
+			entrada: in std_logic_vector(N-1 downto 0);
+			sel_par: in std_logic; -- 0 -> paridade par e 1-> paridade impar
+			--------------out--------------
+			par_out: out std_logic
+		);
+	
+	end component;
+	
 begin
  	
+	
+	
+	
 end architecture;
 --------------------------------------------------------
 

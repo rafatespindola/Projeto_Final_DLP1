@@ -1,0 +1,233 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "06/24/2019 16:29:55"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    gerador_paridade
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module gerador_paridade_vlg_sample_tst(
+	entrada,
+	sel_par,
+	sampler_tx
+);
+input [7:0] entrada;
+input  sel_par;
+output sampler_tx;
+
+reg sample;
+time current_time;
+always @(entrada or sel_par)
+                                                                                
+begin                                                 
+ if ($realtime > 0)                                   
+ begin                                                
+	if ($realtime == 0 || $realtime != current_time)  
+	begin									          
+		if (sample === 1'bx)                          
+			sample = 0;                               
+		else                                          
+			sample = ~sample;                         
+	end										          
+	current_time = $realtime;					      
+ end                                                  
+end                                                   
+
+assign sampler_tx = sample;
+endmodule
+
+module gerador_paridade_vlg_check_tst (
+	par_out,
+	sampler_rx
+);
+input  par_out;
+input sampler_rx;
+
+reg  par_out_expected;
+
+reg  par_out_prev;
+
+reg  par_out_expected_prev;
+
+reg  last_par_out_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:1] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 1'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	par_out_prev = par_out;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	par_out_expected_prev = par_out_expected;
+end
+
+
+
+// expected par_out
+initial
+begin
+	par_out_expected = 1'bX;
+end 
+// generate trigger
+always @(par_out_expected or par_out)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected par_out = %b | ",par_out_expected_prev);
+	$display("| real par_out = %b | ",par_out_prev);
+`endif
+	if (
+		( par_out_expected_prev !== 1'bx ) && ( par_out_prev !== par_out_expected_prev )
+		&& ((par_out_expected_prev !== last_par_out_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port par_out :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", par_out_expected_prev);
+		$display ("     Real value = %b", par_out_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		last_par_out_exp = par_out_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#1000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$finish;
+end 
+endmodule
+
+module gerador_paridade_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg [7:0] entrada;
+reg sel_par;
+// wires                                               
+wire par_out;
+
+wire sampler;                             
+
+// assign statements (if any)                          
+gerador_paridade i1 (
+// port map - connection between master ports and signals/registers   
+	.entrada(entrada),
+	.par_out(par_out),
+	.sel_par(sel_par)
+);
+// entrada[ 7 ]
+initial
+begin
+	entrada[7] = 1'b1;
+end 
+// entrada[ 6 ]
+initial
+begin
+	entrada[6] = 1'b0;
+end 
+// entrada[ 5 ]
+initial
+begin
+	entrada[5] = 1'b1;
+end 
+// entrada[ 4 ]
+initial
+begin
+	entrada[4] = 1'b0;
+end 
+// entrada[ 3 ]
+initial
+begin
+	entrada[3] = 1'b1;
+end 
+// entrada[ 2 ]
+initial
+begin
+	entrada[2] = 1'b0;
+end 
+// entrada[ 1 ]
+initial
+begin
+	entrada[1] = 1'b1;
+end 
+// entrada[ 0 ]
+initial
+begin
+	entrada[0] = 1'b0;
+	entrada[0] = #110000 1'b1;
+	entrada[0] = #120000 1'b0;
+end 
+
+// sel_par
+initial
+begin
+	sel_par = 1'b0;
+	sel_par = #180000 1'b1;
+	sel_par = #340000 1'b0;
+end 
+
+gerador_paridade_vlg_sample_tst tb_sample (
+	.entrada(entrada),
+	.sel_par(sel_par),
+	.sampler_tx(sampler)
+);
+
+gerador_paridade_vlg_check_tst tb_out(
+	.par_out(par_out),
+	.sampler_rx(sampler)
+);
+endmodule
+
