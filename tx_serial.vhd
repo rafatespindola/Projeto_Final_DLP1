@@ -47,7 +47,7 @@ architecture ifsc of tx_serial is
 			--------------in--------------
 			clk_conv     : in std_logic;							-- clock de 50M
 			load_conv    : in std_logic; 							-- button para carregar a palavra ao conversor paralelo serial
-			ascii_conv   : in std_logic_vector(6 downto 0); -- palavra em formato ascii chegando  
+			ascii_conv   : in std_logic_vector(6 downto 0); -- caractere em ASCII chegando  
 			baudrate_conv: in std_logic;                    -- clock ja convertido para o baudrate selecionado
 			--------------out--------------
 			out_ent      : out std_logic                    -- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
@@ -63,28 +63,22 @@ architecture ifsc of tx_serial is
 			load_ent : in  std_logic; -- button para carregar a palavra ao conversor serial
 			msg : in String := "teste123";
 			--------------out--------------
-			load_saida : out std_logic_vector(6 downto 0) -- Saida para conversor serial apos traducao
+			ssd1_ent : out std_logic_vector(6 downto 0); -- Primeiro display
+			ssd2_ent : out std_logic_vector(6 downto 0); -- Segundo  display
+			ssd3_ent : out std_logic_vector(6 downto 0); -- Terceiro display
+			ssd4_ent : out std_logic_vector(6 downto 0); -- Quarto   display
+			ssd5_ent : out std_logic_vector(6 downto 0); -- Quinto   display
+			ssd6_ent : out std_logic_vector(6 downto 0); -- Sexto    display
+			ssd7_ent : out std_logic_vector(6 downto 0); -- Setimo   display
+			ssd8_ent : out std_logic_vector(6 downto 0); -- Oitavo   display
+			load_out_ent : out std_logic_vector(6 downto 0) -- Saida para conversor serial apos traducao
 		);
 	
 	end component;
 
-	component gerador_paridade
-		generic(N: natural:= 8);
-		port(
-			--------------in--------------
-			entrada: in std_logic_vector(N-1 downto 0);
-			sel_par: in std_logic; -- 0 -> paridade par e 1-> paridade impar
-			--------------out--------------
-			par_out: out std_logic
-		);
-	
-	end component;
-	
 begin
  	
-	
-	
-	
+		
 end architecture;
 --------------------------------------------------------
 
