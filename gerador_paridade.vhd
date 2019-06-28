@@ -2,9 +2,9 @@ library ieee;
 use ieee.numeric_std.all;
 use ieee.std_logic_1164.all;
 --------------------------------------------------------
-entity gerador_paridade is -- Entradas e saidas com "ent" no final
+entity gerador_paridade is
 	generic(
-		N: natural:= 8
+		N: natural:= 7
 	);
 	port(
 		--------------in--------------

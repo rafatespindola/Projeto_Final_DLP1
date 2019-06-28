@@ -11,7 +11,7 @@ entity tx_serial is -- Entradas e saidas com "tx" no final
 	port(
 		--------------in--------------
 		clk_tx         : in std_logic;
-		rst_tx         : in std_logic;
+		--rst_tx         : in std_logic;
 		load_tx        : in std_logic;
 		sel_paridade_tx: in std_logic;
 		sel_baudrate_tx: in std_logic_vector(1 downto 0);
@@ -59,7 +59,8 @@ architecture ifsc of tx_serial is
 		generic (N: integer := 4);
 		port(
 			--------------in--------------
-			clk_conv     : in std_logic;							-- clock de 50M
+			sel_par_conv : in std_logic;
+			--clk_conv     : in std_logic;							-- clock de 50M
 			--load_conv    : in std_logic; 							-- button para carregar a palavra ao conversor paralelo serial
 			ascii_conv   : in std_logic_vector(6 downto 0); -- caractere em ASCII chegando  
 			--baudrate_conv: in std_logic;                    -- clock ja convertido para o baudrate selecionado
@@ -101,7 +102,7 @@ begin
 	
 	conv: conv_paralelo_serial
 		generic map(N=> 4)
-		port map(clk_conv => clk_baud, ascii_conv => to_conv, out_ent => out_tx);
+		port map(sel_par_conv => sel_paridade_tx, ascii_conv => to_conv, out_ent => out_tx);
 		
 	gdb: gera_baudrate
 		generic map(N=> 4)

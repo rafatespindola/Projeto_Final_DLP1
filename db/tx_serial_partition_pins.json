@@ -2,7 +2,44 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "out_tx[1]",
+					"strict" : false
+				},
+				{
+					"name" : "out_tx[2]",
+					"strict" : false
+				},
+				{
+					"name" : "out_tx[3]",
+					"strict" : false
+				},
+				{
+					"name" : "out_tx[5]",
+					"strict" : false
+				},
+				{
+					"name" : "out_tx[7]",
+					"strict" : false
+				},
+				{
+					"name" : "out_tx[8]",
+					"strict" : false
+				},
+				{
+					"name" : "sel_paridade_tx",
+					"strict" : false
+				},
+				{
+					"name" : "clk_tx",
+					"strict" : false
+				},
+				{
+					"name" : "load_tx",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

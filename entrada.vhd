@@ -31,8 +31,8 @@ end entity;
 architecture ifsc of entrada is
 	type ssd_array is array (7 downto 0) of std_logic_vector(6 downto 0); -- Array de caracteres ASCII
 	signal ssd: ssd_array;
-begin
-	
+begin		--letra_slv <= std_logic_vector(to_unsigned(character'pos(letra1),N));
+
 	process(msg) is
 		variable char_to_ssd: std_logic_vector(0 to 6);
 		variable c: character;
@@ -69,7 +69,7 @@ begin
 				end case;
 				ssd(i-1)<= char_to_ssd;
 			end loop;
-end process;
+	end process;
 		ssd1_ent <= ssd(0);
 		ssd2_ent <= ssd(1);
 		ssd3_ent <= ssd(2);
@@ -79,6 +79,22 @@ end process;
 		ssd7_ent <= ssd(6);
 		ssd8_ent <= ssd(7);
  	
+	process(clk_ent, load_ent) is 
+		variable cont: integer:= 1; 
+		variable letra_slv: std_logic_vector(6 downto 0);
+		variable char: character;
+	begin 
+		if(rising_edge(clk_ent) and load_ent = '1') then
+			char := msg(cont);
+			letra_slv := std_logic_vector(to_unsigned(character'pos(char),7));
+			load_out_ent <= letra_slv;
+			if (cont = 8) then
+				cont := 1;		
+			else cont:= cont + 1;
+			end if;
+		end if;
+	end process; 
+	
 end architecture;
 --------------------------------------------------------
 
