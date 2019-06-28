@@ -11,11 +11,11 @@ entity conv_paralelo_serial is -- Entradas e saidas com "conv" no final
 	port(
 		--------------in--------------
 		clk_conv     : in std_logic;							-- clock de 50M
-		load_conv    : in std_logic; 							-- button para carregar a palavra ao conversor paralelo serial
+		--load_conv    : in std_logic; 							-- button para carregar a palavra ao conversor paralelo serial
 		ascii_conv   : in std_logic_vector(6 downto 0); -- palavra em formato ascii chegando  
-		baudrate_conv: in std_logic;                    -- clock ja convertido para o baudrate selecionado
+		--baudrate_conv: in std_logic;                    -- clock ja convertido para o baudrate selecionado
 		--------------out--------------
-		out_ent      : out std_logic                    -- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
+		out_ent      : out std_logic_vector(10 downto 0) -- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
 	);
 	
 end entity;

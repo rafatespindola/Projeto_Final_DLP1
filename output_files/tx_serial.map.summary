@@ -1,10 +1,14 @@
-Analysis & Synthesis Status : Successful - Wed Jun 26 12:57:46 2019
-Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+Analysis & Synthesis Status : Successful - Fri Jun 28 13:27:45 2019
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Standard Edition
 Revision Name : tx_serial
-Top-level Entity Name : gerador_paridade
-Family : Cyclone
-Total logic elements : 3
-Total pins : 10
+Top-level Entity Name : tx_serial
+Family : Cyclone IV E
+Total logic elements : 0
+    Total combinational functions : 0
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 78
 Total virtual pins : 0
 Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0

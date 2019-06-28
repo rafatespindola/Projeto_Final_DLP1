@@ -14,7 +14,10 @@ entity gera_baudrate is -- Entradas e saidas com "gbd" no final
 		sel_baudrate_gbd: in  std_logic_vector(1 downto 0); -- chaves H selecionam o baudrate desejado. (4 possibilidades) 
 		--------------out--------------
 		baudrate_gbd    : out std_logic;
-		led_baudrate_gbd: out std_logic_vector(3 downto 0)
+		led_baudrate_gbd1: out std_logic;
+		led_baudrate_gbd2: out std_logic;
+		led_baudrate_gbd3: out std_logic;
+		led_baudrate_gbd4: out std_logic
 	);
 	
 end entity;

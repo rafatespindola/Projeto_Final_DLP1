@@ -17,9 +17,20 @@ entity tx_serial is -- Entradas e saidas com "tx" no final
 		sel_baudrate_tx: in std_logic_vector(1 downto 0);
 		--------------out--------------
 		out_tx         : out std_logic_vector(10 downto 0);--
-		ssd_tx         : out std_logic_vector(6 downto 0); --
-		baudrate_tx    : out std_logic;                    -- Essa eh a saida de 'clock'para a placa de recepcao
-		led_baudrate_tx: out std_logic_vector(3 downto 0)  -- Indica qual dos 4 baudrates esta selecionado
+		ssd1_tx        : out std_logic_vector(6 downto 0); -- Primeiro display
+		ssd2_tx        : out std_logic_vector(6 downto 0); -- Segundo  display
+		ssd3_tx        : out std_logic_vector(6 downto 0); -- Terceiro display
+		ssd4_tx        : out std_logic_vector(6 downto 0); -- Quarto   display
+		ssd5_tx        : out std_logic_vector(6 downto 0); -- Quinto   display
+		ssd6_tx        : out std_logic_vector(6 downto 0); -- Sexto    display
+		ssd7_tx        : out std_logic_vector(6 downto 0); -- Setimo   display
+		ssd8_tx        : out std_logic_vector(6 downto 0); -- Oitavo   display
+		--ssd_tx         : out std_logic_vector(6 downto 0); --
+		baudrate_tx    : out std_logic;  -- Essa eh a saida de 'clock'para a placa de recepcao
+		led_baudrate_tx1: out std_logic; -- Baudrate 9600
+		led_baudrate_tx2: out std_logic; -- Baudrate 1
+		led_baudrate_tx3: out std_logic; -- Baudrate 1/2
+		led_baudrate_tx4: out std_logic  -- Baudrate 1/4
 	);
 	
 end entity;
@@ -37,7 +48,10 @@ architecture ifsc of tx_serial is
 			sel_baudrate_gbd: in  std_logic_vector(1 downto 0); -- chaves H selecionam o baudrate desejado. (4 possibilidades) 
 			--------------out--------------
 			baudrate_gbd    : out std_logic;
-			led_baudrate_gbd: out std_logic_vector(3 downto 0)
+			led_baudrate_gbd1: out std_logic;
+			led_baudrate_gbd2: out std_logic;
+			led_baudrate_gbd3: out std_logic;
+			led_baudrate_gbd4: out std_logic
 		);
 	end component;
 	
@@ -46,11 +60,11 @@ architecture ifsc of tx_serial is
 		port(
 			--------------in--------------
 			clk_conv     : in std_logic;							-- clock de 50M
-			load_conv    : in std_logic; 							-- button para carregar a palavra ao conversor paralelo serial
+			--load_conv    : in std_logic; 							-- button para carregar a palavra ao conversor paralelo serial
 			ascii_conv   : in std_logic_vector(6 downto 0); -- caractere em ASCII chegando  
-			baudrate_conv: in std_logic;                    -- clock ja convertido para o baudrate selecionado
+			--baudrate_conv: in std_logic;                    -- clock ja convertido para o baudrate selecionado
 			--------------out--------------
-			out_ent      : out std_logic                    -- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
+			out_ent      : out std_logic_vector (10 downto 0)                   -- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
 		);
 	
 	end component;
@@ -76,8 +90,22 @@ architecture ifsc of tx_serial is
 	
 	end component;
 
+signal to_conv: std_logic_vector(6 downto 0);
+signal clk_baud: std_logic;
+	
 begin
  	
+	ent: entrada
+		generic map(N=> 8)
+		port map(clk_ent => clk_tx, load_ent => load_tx, msg => "teste123", ssd1_ent => ssd1_tx, ssd2_ent => ssd2_tx, ssd3_ent => ssd3_tx, ssd4_ent => ssd4_tx, ssd5_ent => ssd5_tx, ssd6_ent => ssd6_tx, ssd7_ent => ssd7_tx, ssd8_ent => ssd8_tx, load_out_ent => to_conv);
+	
+	conv: conv_paralelo_serial
+		generic map(N=> 4)
+		port map(clk_conv => clk_baud, ascii_conv => to_conv, out_ent => out_tx);
+		
+	gdb: gera_baudrate
+		generic map(N=> 4)
+		port map(clk_gbd => clk_tx, sel_baudrate_gbd => sel_baudrate_tx, baudrate_gbd => clk_baud, led_baudrate_gbd1 => led_baudrate_tx1, led_baudrate_gbd2 => led_baudrate_tx2, led_baudrate_gbd3 => led_baudrate_tx3, led_baudrate_gbd4 => led_baudrate_tx4);
 		
 end architecture;
 --------------------------------------------------------
