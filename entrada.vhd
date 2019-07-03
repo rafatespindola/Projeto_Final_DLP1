@@ -12,7 +12,7 @@ entity entrada is -- Entradas e saidas com "ent" no final
 		--------------in--------------
 		clk_ent  : in  std_logic;
 		load_ent : in  std_logic; -- button para carregar a palavra ao conversor serial
-		msg : in String (1 to 8):= "teste123";
+		msg      : in String (1 to 8):= "dlP12345";
 		--------------out--------------
 		ssd1_ent : out std_logic_vector(6 downto 0); -- Primeiro display
 		ssd2_ent : out std_logic_vector(6 downto 0); -- Segundo  display
@@ -70,6 +70,7 @@ begin		--letra_slv <= std_logic_vector(to_unsigned(character'pos(letra1),N));
 				ssd(i-1)<= char_to_ssd;
 			end loop;
 	end process;
+	
 		ssd1_ent <= ssd(0);
 		ssd2_ent <= ssd(1);
 		ssd3_ent <= ssd(2);

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tx_serial
-Mon Jul  1 17:30:04 2019
+Wed Jul  3 14:43:54 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -10,7 +10,15 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -36,20 +44,20 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Mon Jul  1 17:30:04 2019                ;
+; Analysis & Synthesis Status        ; Successful - Wed Jul  3 14:43:54 2019            ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; tx_serial                                        ;
-; Top-level Entity Name              ; tx_serial                                        ;
+; Top-level Entity Name              ; gera_baudrate                                    ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; N/A until Partition Merge                        ;
-;     Total combinational functions  ; N/A until Partition Merge                        ;
-;     Dedicated logic registers      ; N/A until Partition Merge                        ;
-; Total registers                    ; N/A until Partition Merge                        ;
-; Total pins                         ; N/A until Partition Merge                        ;
-; Total virtual pins                 ; N/A until Partition Merge                        ;
-; Total memory bits                  ; N/A until Partition Merge                        ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                        ;
-; Total PLLs                         ; N/A until Partition Merge                        ;
+; Total logic elements               ; 163                                              ;
+;     Total combinational functions  ; 163                                              ;
+;     Dedicated logic registers      ; 83                                               ;
+; Total registers                    ; 83                                               ;
+; Total pins                         ; 8                                                ;
+; Total virtual pins                 ; 0                                                ;
+; Total memory bits                  ; 0                                                ;
+; Embedded Multiplier 9-bit elements ; 0                                                ;
+; Total PLLs                         ; 0                                                ;
 +------------------------------------+--------------------------------------------------+
 
 
@@ -58,7 +66,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                                      ; tx_serial          ; tx_serial          ;
+; Top-level entity name                                                      ; gera_baudrate      ; tx_serial          ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -144,16 +152,136 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 40          ;
+; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-40        ;   0.0%      ;
 +----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                         ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
+; gera_baudrate.vhd                ; yes             ; User VHDL File  ; /home/rafael.te/Projeto_Final_DLP1/gera_baudrate.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 163           ;
+;                                             ;               ;
+; Total combinational functions               ; 163           ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 45            ;
+;     -- 3 input functions                    ; 3             ;
+;     -- <=2 input functions                  ; 115           ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 80            ;
+;     -- arithmetic mode                      ; 83            ;
+;                                             ;               ;
+; Total registers                             ; 83            ;
+;     -- Dedicated logic registers            ; 83            ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 8             ;
+; Embedded Multiplier 9-bit elements          ; 0             ;
+; Maximum fan-out node                        ; clk_gbd~input ;
+; Maximum fan-out                             ; 83            ;
+; Total fan-out                               ; 594           ;
+; Average fan-out                             ; 2.27          ;
++---------------------------------------------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |gera_baudrate             ; 163 (163)         ; 83 (83)      ; 0           ; 0            ; 0       ; 0         ; 8    ; 0            ; |gera_baudrate      ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------+
+; Registers Removed During Synthesis                               ;
++----------------------------------------+-------------------------+
+; Register name                          ; Reason for Removal      ;
++----------------------------------------+-------------------------+
+; cnt_05[0]                              ; Merged with cnt_9600[0] ;
+; cnt_1[0]                               ; Merged with cnt_9600[0] ;
+; cnt_025[0]                             ; Merged with cnt_9600[0] ;
+; cnt_1[1]                               ; Merged with cnt_9600[1] ;
+; cnt_05[1]                              ; Merged with cnt_9600[1] ;
+; cnt_025[1]                             ; Merged with cnt_9600[1] ;
+; cnt_05[2]                              ; Merged with cnt_1[2]    ;
+; cnt_025[2]                             ; Merged with cnt_1[2]    ;
+; cnt_05[3]                              ; Merged with cnt_1[3]    ;
+; cnt_025[3]                             ; Merged with cnt_1[3]    ;
+; cnt_05[4]                              ; Merged with cnt_1[4]    ;
+; cnt_025[4]                             ; Merged with cnt_1[4]    ;
+; cnt_05[5]                              ; Merged with cnt_1[5]    ;
+; cnt_025[5]                             ; Merged with cnt_1[5]    ;
+; cnt_025[6]                             ; Merged with cnt_05[6]   ;
+; Total Number of Removed Registers = 15 ;                         ;
++----------------------------------------+-------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 83    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; clk_05                                 ; 2       ;
+; clk_1                                  ; 2       ;
+; clk_9600                               ; 2       ;
+; clk_025                                ; 2       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |gera_baudrate|led_baudrate_gbd2~reg0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -162,9 +290,9 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Jul  1 17:30:03 2019
+    Info: Processing started: Wed Jul  3 14:43:46 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tx_serial -c tx_serial
-Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (11104): Parallel Compilation has detected 40 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 16 of the 20 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file gera_baudrate.vhd
     Info (12022): Found design unit 1: gera_baudrate-ifsc
     Info (12023): Found entity 1: gera_baudrate
@@ -180,28 +308,18 @@ Info (12021): Found 2 design units, including 1 entities, in source file tx_seri
 Info (12021): Found 2 design units, including 1 entities, in source file gerador_paridade.vhd
     Info (12022): Found design unit 1: gerador_paridade-gerador_paridade_v1
     Info (12023): Found entity 1: gerador_paridade
-Info (12127): Elaborating entity "tx_serial" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at tx_serial.vhd(29): used implicit default value for signal "baudrate_tx" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at tx_serial.vhd(95): object "clk_baud" assigned a value but never read
-Info (12128): Elaborating entity "entrada" for hierarchy "entrada:ent"
-Info (12128): Elaborating entity "conv_paralelo_serial" for hierarchy "conv_paralelo_serial:conv"
-Info (12128): Elaborating entity "gerador_paridade" for hierarchy "conv_paralelo_serial:conv|gerador_paridade:paridade"
-Info (12128): Elaborating entity "gera_baudrate" for hierarchy "gera_baudrate:gdb"
-Warning (10445): VHDL Subtype or Type Declaration warning at gera_baudrate.vhd(41): subtype or type has null range
-Warning (10541): VHDL Signal Declaration warning at gera_baudrate.vhd(13): used implicit default value for signal "led_baudrate_gbd1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at gera_baudrate.vhd(14): used implicit default value for signal "led_baudrate_gbd2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at gera_baudrate.vhd(15): used implicit default value for signal "led_baudrate_gbd3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at gera_baudrate.vhd(16): used implicit default value for signal "led_baudrate_gbd4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10540): VHDL Signal Declaration warning at gera_baudrate.vhd(23): used explicit default value for signal "N_9600" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at gera_baudrate.vhd(24): used explicit default value for signal "N_1" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at gera_baudrate.vhd(25): used explicit default value for signal "N_05" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at gera_baudrate.vhd(26): used explicit default value for signal "N_025" because signal was never assigned a value
-Error (10454): VHDL syntax error at gera_baudrate.vhd(41): right bound of range must be a constant File: /home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd Line: 41
-Error (12152): Can't elaborate user hierarchy "gera_baudrate:gdb" File: /home/aluno/Projeto_Final_DLP1/tx_serial.vhd Line: 107
-Error: Quartus II 32-bit Analysis & Synthesis was unsuccessful. 2 errors, 11 warnings
-    Error: Peak virtual memory: 354 megabytes
-    Error: Processing ended: Mon Jul  1 17:30:04 2019
-    Error: Elapsed time: 00:00:01
-    Error: Total CPU time (on all processors): 00:00:01
+Info (12127): Elaborating entity "gera_baudrate" for the top level hierarchy
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 171 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 5 output pins
+    Info (21061): Implemented 163 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 426 megabytes
+    Info: Processing ended: Wed Jul  3 14:43:54 2019
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:03
 
 
