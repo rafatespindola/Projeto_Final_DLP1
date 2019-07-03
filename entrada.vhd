@@ -4,7 +4,8 @@ use ieee.std_logic_1164.all;
 --------------------------------------------------------
 entity entrada is 							   			   -- Entradas e saidas com "ent" no final
   
-	generic (N: natural:= 8);
+	generic (
+		N: natural:= 8);
 	
 	port(
 		--------------in--------------
@@ -82,7 +83,7 @@ begin
 		variable letra_slv: std_logic_vector(6 downto 0);
 		variable char: character;
 	begin 
-		if(rising_edge(clk_ent) and load_ent = '1') then
+		if(clk_ent'event and clk_ent='1' and load_ent'event and load_ent = '1') then
 			char := msg(cont);
 			letra_slv := std_logic_vector(to_unsigned(character'pos(char),7));
 			load_out_ent <= letra_slv;

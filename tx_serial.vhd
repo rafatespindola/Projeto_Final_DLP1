@@ -8,13 +8,13 @@ entity tx_serial is 											      -- Entradas e saidas com "tx" no final
 
 	port(
 		--------------in--------------
-		clk_tx         : in std_logic;
-		rst_tx         : in std_logic;
-		load_tx        : in std_logic;
-		sel_paridade_tx: in std_logic;
-		sel_baudrate_tx: in std_logic_vector(1 downto 0);
+		clk_tx          : in std_logic;
+		rst_tx          : in std_logic;
+		load_tx         : in std_logic;
+		sel_paridade_tx : in std_logic;
+		sel_baudrate_tx : in std_logic_vector(1 downto 0);
 		--------------out--------------
-		out_tx          : out std_logic_vector(10 downto 0);-- Saida com os 11 bits em serie
+		out_tx          : out std_logic;-- Saida com os 11 bits em serie 1 por vez
 		ssd1_tx         : out std_logic_vector(6 downto 0); -- Primeiro display
 		ssd2_tx         : out std_logic_vector(6 downto 0); -- Segundo  display
 		ssd3_tx         : out std_logic_vector(6 downto 0); -- Terceiro display
@@ -40,6 +40,7 @@ architecture ifsc of tx_serial is
 		port(
 			--------------in--------------
 			clk_gbd          : in  std_logic;                   -- clock de 50M
+			rst_gbd          : in  std_logic;
 			sel_baudrate_gbd : in  std_logic_vector(1 downto 0);-- Escolhe baudrate (4 possibilidades) 
 			--------------out--------------
 			baudrate_gbd     : out std_logic;
@@ -55,11 +56,11 @@ architecture ifsc of tx_serial is
 		port(
 			--------------in--------------
 			sel_par_conv: in std_logic;
+			clk_conv  : in std_logic;
 			ascii_conv  : in std_logic_vector(6 downto 0); -- caractere em ASCII chegando  
 			--------------out--------------
-			out_ent     : out std_logic_vector(10 downto 0)-- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
+			out_conv     : out std_logic-- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
 		);
-	
 	end component;
 	
 	component entrada
@@ -80,24 +81,25 @@ architecture ifsc of tx_serial is
 			ssd8_ent : out std_logic_vector(6 downto 0);   -- Oitavo   display
 			load_out_ent : out std_logic_vector(6 downto 0)-- Saida para conversor serial apos traducao
 		);
-	
 	end component;
 
 	signal to_conv : std_logic_vector(6 downto 0);
 	signal clk_baud: std_logic;
 	
 begin
- 	 
+ 
 	ent : entrada
 		generic map(N=> 8)
 		port map(clk_ent => clk_tx, load_ent => load_tx, msg => "dlP12345", ssd1_ent => ssd1_tx, ssd2_ent => ssd2_tx, ssd3_ent => ssd3_tx, ssd4_ent => ssd4_tx, ssd5_ent => ssd5_tx, ssd6_ent => ssd6_tx, ssd7_ent => ssd7_tx, ssd8_ent => ssd8_tx, load_out_ent => to_conv);
 	
 	conv: conv_paralelo_serial
 		generic map(N=> 4)
-		port map(sel_par_conv => sel_paridade_tx, ascii_conv => to_conv, out_ent => out_tx);
-		
+		port map(sel_par_conv => sel_paridade_tx, clk_conv => clk_baud, ascii_conv => to_conv, out_conv => out_tx);
+
 	gdb : gera_baudrate
 		port map(clk_gbd => clk_tx, rst_gbd => rst_tx, sel_baudrate_gbd => sel_baudrate_tx, baudrate_gbd => clk_baud, led_baudrate_gbd1 => led_baudrate_tx1, led_baudrate_gbd2 => led_baudrate_tx2, led_baudrate_gbd3 => led_baudrate_tx3, led_baudrate_gbd4 => led_baudrate_tx4);
+
+	baudrate_tx <= clk_baud;
 		
 end architecture;
 --------------------------------------------------------

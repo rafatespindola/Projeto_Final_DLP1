@@ -9,9 +9,10 @@ entity conv_paralelo_serial is                         -- Entradas e saidas com 
 	port(
 		--------------in--------------
 		sel_par_conv : in  std_logic;
+		clk_conv     : in  std_logic; -- clock de baudrate
 		ascii_conv   : in  std_logic_vector(6 downto 0); -- palavra em formato ascii chegando  
 		--------------out--------------
-		out_ent      : out std_logic_vector(10 downto 0) -- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
+		out_conv      : out std_logic -- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
 	);
 	
 end entity;
@@ -30,6 +31,8 @@ architecture ifsc of conv_paralelo_serial is
 	end component;
 	
 	signal par_conv: std_logic;
+	signal paralelo: std_logic_vector(10 downto 0);
+	signal serie: std_logic;
 	
 begin
 
@@ -37,7 +40,22 @@ begin
 		generic map(N=> 7)
 		port map(entrada => ascii_conv, sel_par => sel_par_conv, par_out => par_conv);
 		
-	out_ent <= "11" & par_conv & ascii_conv & '0';
+	paralelo <= "11" & par_conv & ascii_conv & '0';
+	
+	process(clk_conv, serie) is 
+		variable cont : integer := 0; 
+	begin 
+		if(rising_edge(clk_conv)) then
+			serie <= paralelo(cont);
+			if (cont < 10) then
+				cont:= cont + 1;
+			elsif (cont = 10) then
+				cont:= 0;
+			end if;
+		end if;
+		out_conv <= serie;
+	end process; 
+
 	
 end architecture;
 --------------------------------------------------------

@@ -36,9 +36,9 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "Cyclone IV E"
-set_global_assignment -name DEVICE Auto
-set_global_assignment -name TOP_LEVEL_ENTITY gera_baudrate
+set_global_assignment -name FAMILY Cyclone
+set_global_assignment -name DEVICE EP1C3T100A8
+set_global_assignment -name TOP_LEVEL_ENTITY tx_serial
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:56:34  JUNE 17, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"

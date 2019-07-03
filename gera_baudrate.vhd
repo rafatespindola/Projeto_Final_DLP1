@@ -30,7 +30,7 @@ begin
 	
 	process(clk_gbd,rst_gbd, sel_baudrate_gbd) is
 
-		variable cnt_9600: natural range 0 to 2604-1; 
+		variable cnt_9600: natural range 0 to 2604-1;
 		variable cnt_1   : natural range 0 to 25000000-1;
 		variable cnt_05  : natural range 0 to 50000000-1;
 		variable cnt_025 : natural range 0 to 100000000-1;	
