@@ -3,13 +3,13 @@ use ieee.numeric_std.all;
 use ieee.std_logic_1164.all;
 --------------------------------------------------------
 entity gerador_paridade is
-	generic(
-		N: natural:= 7
-	);
+	
+	generic(N: natural:= 7);
+	
 	port(
 		--------------in--------------
 		entrada: in std_logic_vector(N-1 downto 0);
-		sel_par: in std_logic; -- 0 -> paridade par e 1-> paridade impar
+		sel_par: in std_logic;                           -- 0 -> paridade par e 1-> paridade impar
 		--------------out--------------
 		par_out: out std_logic
 	);

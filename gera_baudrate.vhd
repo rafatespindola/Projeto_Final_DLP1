@@ -6,8 +6,9 @@ entity gera_baudrate is 											 -- Entradas e saidas com "gbd" no final
   
   port(
 		--------------in--------------
-		clk_gbd         : in  std_logic;                    -- clock de 50M
-		sel_baudrate_gbd: in  std_logic_vector(1 downto 0); -- chaves H selecionam o baudrate desejado. (4 possibilidades) 
+		clk_gbd         : in std_logic;                    -- clock de 50M
+		rst_gbd         : in std_logic;							-- para teste no modelsim
+		sel_baudrate_gbd: in std_logic_vector(1 downto 0); -- chaves H selecionam o baudrate desejado. (4 possibilidades) 
 		--------------out--------------
 		baudrate_gbd     : out std_logic;
 		led_baudrate_gbd1: out std_logic;
@@ -17,7 +18,7 @@ entity gera_baudrate is 											 -- Entradas e saidas com "gbd" no final
 	);
 	
 end entity;
------------------------------------------------------------
+----------------------------------------------------------
 architecture ifsc of gera_baudrate is
 	
 	signal clk_9600: std_logic := '1'; 
@@ -27,7 +28,7 @@ architecture ifsc of gera_baudrate is
 
 begin
 	
-	process(clk_gbd, sel_baudrate_gbd) is
+	process(clk_gbd,rst_gbd, sel_baudrate_gbd) is
 
 		variable cnt_9600: natural range 0 to 2604-1; 
 		variable cnt_1   : natural range 0 to 25000000-1;
@@ -35,8 +36,18 @@ begin
 		variable cnt_025 : natural range 0 to 100000000-1;	
 		
 	begin	
+		
+		if(rst_gbd = '1' and rising_edge(clk_gbd)) then
+			cnt_9600 :=  0;
+			cnt_1    :=  0;
+			cnt_05   :=  0;
+			cnt_025  :=  0;
+			clk_9600 <= '1';
+			clk_1    <= '1';
+			clk_05   <= '1';
+			clk_025  <= '1';
 			
-		if (rising_edge(clk_gbd)) then
+		elsif (rising_edge(clk_gbd)) then
 			if (cnt_9600 = 2604-1) then
 				cnt_9600 := 0;
 				clk_9600 <= not clk_9600;
