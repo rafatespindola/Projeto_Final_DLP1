@@ -10,7 +10,7 @@ entity entrada is 							   			   -- Entradas e saidas com "ent" no final
 	port(
 		--------------in--------------
 		clk_ent  : in  std_logic;
-		load_ent : in  std_logic;                       -- button para carregar a palavra ao conversor serial
+		load_ent : in  std_logic;                       -- chave H p carregar a palavra ao conversor serial
 		msg      : in String (1 to 8):= "dlP12345";
 		--------------out--------------
 		ssd1_ent : out std_logic_vector(6 downto 0);    -- Primeiro display
@@ -80,16 +80,21 @@ begin
  	
 	process(clk_ent, load_ent) is 
 		variable cont: integer:= 1; 
+		variable cont2: integer:= 0; -- contador migue
 		variable letra_slv: std_logic_vector(6 downto 0);
 		variable char: character;
 	begin 
-		if(clk_ent'event and clk_ent='1' and load_ent'event and load_ent = '1') then
+		if(rising_edge(clk_ent) and load_ent = '1') then
 			char := msg(cont);
 			letra_slv := std_logic_vector(to_unsigned(character'pos(char),7));
 			load_out_ent <= letra_slv;
-			if (cont = 8) then
-				cont := 1;		
-			else cont:= cont + 1;
+			if (cont2 = 12) then
+				cont2:= 0;
+				if (cont = 8) then
+					cont := 1;		
+				else cont:= cont + 1;
+				end if;
+			else cont2:= cont2 +1;
 			end if;
 		end if;
 	end process; 

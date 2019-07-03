@@ -90,7 +90,7 @@ begin
  
 	ent : entrada
 		generic map(N=> 8)
-		port map(clk_ent => clk_tx, load_ent => load_tx, msg => "dlP12345", ssd1_ent => ssd1_tx, ssd2_ent => ssd2_tx, ssd3_ent => ssd3_tx, ssd4_ent => ssd4_tx, ssd5_ent => ssd5_tx, ssd6_ent => ssd6_tx, ssd7_ent => ssd7_tx, ssd8_ent => ssd8_tx, load_out_ent => to_conv);
+		port map(clk_ent => clk_baud, load_ent => load_tx, msg => "dlP12345", ssd1_ent => ssd1_tx, ssd2_ent => ssd2_tx, ssd3_ent => ssd3_tx, ssd4_ent => ssd4_tx, ssd5_ent => ssd5_tx, ssd6_ent => ssd6_tx, ssd7_ent => ssd7_tx, ssd8_ent => ssd8_tx, load_out_ent => to_conv);
 	
 	conv: conv_paralelo_serial
 		generic map(N=> 4)
