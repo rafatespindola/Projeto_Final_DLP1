@@ -17,9 +17,41 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity gera_baudrate
 # -- Compiling architecture ifsc of gera_baudrate
+# vcom -93 -work work {/home/rafael.te/Projeto_Final_DLP1/entrada.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity entrada
+# -- Compiling architecture ifsc of entrada
+# vcom -93 -work work {/home/rafael.te/Projeto_Final_DLP1/conv_paralelo_serial.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity conv_paralelo_serial
+# -- Compiling architecture ifsc of conv_paralelo_serial
+# vcom -93 -work work {/home/rafael.te/Projeto_Final_DLP1/tx_serial.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tx_serial
+# -- Compiling architecture ifsc of tx_serial
+# vcom -93 -work work {/home/rafael.te/Projeto_Final_DLP1/gerador_paridade.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity gerador_paridade
+# -- Compiling architecture gerador_paridade_v1 of gerador_paridade
 # 
-vsim work.gera_baudrate(ifsc)
-# vsim work.gera_baudrate(ifsc) 
+do tb.do
+# vsim work.tx_serial 
 # //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.15.18-14-pve
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation
@@ -33,40 +65,22 @@ vsim work.gera_baudrate(ifsc)
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
+# Loading work.tx_serial(ifsc)
+# Loading work.entrada(ifsc)
+# Loading work.conv_paralelo_serial(ifsc)
+# Loading work.gerador_paridade(gerador_paridade_v1)
 # Loading work.gera_baudrate(ifsc)
-add wave -position insertpoint sim:/gera_baudrate/*
-force -freeze sim:/gera_baudrate/clk_gbd 1 0, 0 {10000 ps} -r 20ns
-run 19ns
-run 1ns
-run 1ns
-force -freeze sim:/gera_baudrate/rst_gbd 1 0 -cancel 40ns
-run 20ns
-run 20ns
-run 20ns
-
-
-run 20ns
-run 20ns
-run 20ns
-run 20ns
-run 20ns
-run 20ns
-force -freeze sim:/gera_baudrate/rst_gbd 1 0
-run 20ns
-run 20ns
-run 20ns
-run 20ns
-force -freeze sim:/gera_baudrate/rst_gbd 0 0
-run 20ns
-run 20ns
-run 20ns
-run 20ns
-run 20ns
-run 3s
-# Invalid time value: 3s
-run 1s
-# Invalid time value: 1s
-run 500ms
-force -freeze sim:/gera_baudrate/sel_baudrate_gbd 11 0
-run 999ms
-# WARNING: No extended dataflow license exists
+force -freeze sim:/tx_serial/load_tx 1 0
+do tb.do
+# vsim work.tx_serial 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tx_serial(ifsc)
+# Loading work.entrada(ifsc)
+# Loading work.conv_paralelo_serial(ifsc)
+# Loading work.gerador_paridade(gerador_paridade_v1)
+# Loading work.gera_baudrate(ifsc)
+force -freeze sim:/tx_serial/load_tx 1 0
+run 50 ms

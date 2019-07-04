@@ -2,40 +2,28 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'clk_gbd'
-Slack : -2.939
-TNS   : -223.720
+Type  : Setup 'sel_baudrate_tx[0]'
+Slack : -3.895
+TNS   : -193.826
 
-Type  : Slow 1200mV 85C Model Hold 'clk_gbd'
-Slack : 0.355
+Type  : Setup 'clk_tx'
+Slack : -3.885
+TNS   : -314.160
+
+Type  : Hold 'clk_tx'
+Slack : 0.273
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_gbd'
-Slack : -3.000
-TNS   : -101.000
-
-Type  : Slow 1200mV 0C Model Setup 'clk_gbd'
-Slack : -2.581
-TNS   : -193.790
-
-Type  : Slow 1200mV 0C Model Hold 'clk_gbd'
-Slack : 0.310
+Type  : Hold 'sel_baudrate_tx[0]'
+Slack : 0.888
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_gbd'
-Slack : -3.000
-TNS   : -101.000
+Type  : Minimum Pulse Width 'clk_tx'
+Slack : -1.155
+TNS   : -145.019
 
-Type  : Fast 1200mV 0C Model Setup 'clk_gbd'
-Slack : -1.191
-TNS   : -82.208
-
-Type  : Fast 1200mV 0C Model Hold 'clk_gbd'
-Slack : 0.186
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_gbd'
-Slack : -3.000
-TNS   : -107.969
+Type  : Minimum Pulse Width 'sel_baudrate_tx[0]'
+Slack : -1.155
+TNS   : -121.455
 
 ------------------------------------------------------------

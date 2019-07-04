@@ -9,6 +9,7 @@ entity conv_paralelo_serial is                         -- Entradas e saidas com 
 	port(
 		--------------in--------------
 		sel_par_conv : in  std_logic;
+		load_conv    : in  std_logic;
 		clk_conv     : in  std_logic; -- clock de baudrate
 		ascii_conv   : in  std_logic_vector(6 downto 0); -- palavra em formato ascii chegando  
 		--------------out--------------
@@ -42,19 +43,24 @@ begin
 		
 	paralelo <= "11" & par_conv & ascii_conv & '0';
 	
-	process(clk_conv, serie) is 
+	process(clk_conv, serie, load_conv) is 
 		variable cont : integer := 0; 
 	begin 
-		if(rising_edge(clk_conv)) then
+		if(rising_edge(clk_conv) and load_conv = '1') then
 			serie <= paralelo(cont);
 			if (cont < 10) then
 				cont:= cont + 1;
 			elsif (cont = 10) then
 				cont:= 0;
 			end if;
+		elsif(rising_edge(clk_conv) and load_conv = '0') then
+			serie <= '1';
 		end if;
 		out_conv <= serie;
 	end process; 
+	
+	
+	
 
 	
 end architecture;

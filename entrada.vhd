@@ -11,7 +11,7 @@ entity entrada is 							   			   -- Entradas e saidas com "ent" no final
 		--------------in--------------
 		clk_ent  : in  std_logic;
 		load_ent : in  std_logic;                       -- chave H p carregar a palavra ao conversor serial
-		msg      : in String (1 to 8):= "dlP12345";
+		msg      : in String (1 to 8):= "dLP12345";
 		--------------out--------------
 		ssd1_ent : out std_logic_vector(6 downto 0);    -- Primeiro display
 		ssd2_ent : out std_logic_vector(6 downto 0);    -- Segundo  display
@@ -40,8 +40,8 @@ begin
 				case c is
 					when 'A' => char_to_ssd := "1110111";
 					when 'b' => char_to_ssd := "0011111";
-					when 'C' => char_to_ssd := "1001010";
-					when 'd' => char_to_ssd := "0101101";
+					when 'C' => char_to_ssd := "1001110";
+					when 'd' => char_to_ssd := "0111101";
 					when 'E' => char_to_ssd := "1001111";
 					when 'F' => char_to_ssd := "1000111";
 					when 'G' => char_to_ssd := "1011110";
@@ -62,7 +62,7 @@ begin
 					when '6' => char_to_ssd := "1011111";
 					when '7' => char_to_ssd := "1110000";
 					when '8' => char_to_ssd := "1111111";
-					when '9' => char_to_ssd := "1111011";
+					when '9' => char_to_ssd := "1110011";
 					when others => char_to_ssd := "0000001";
 				end case;
 				ssd(i-1)<= char_to_ssd;

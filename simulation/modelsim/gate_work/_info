@@ -1,0 +1,25 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/rafael.te/Projeto_Final_DLP1/simulation/modelsim
+vtx_serial
+!i10b 1
+!s100 =]I[JealJz>YTQM0dNNiP1
+IFZVYI]B`[YLKXiB;of@Em1
+VKnM93cg9[5h`68bHn?M^J2
+Z1 d/home/rafael.te/Projeto_Final_DLP1/simulation/modelsim
+w1562261712
+8tx_serial.vo
+Ftx_serial.vo
+L0 31
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1562261732.649138
+!s107 tx_serial.vo|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|tx_serial.vo|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+. -O0

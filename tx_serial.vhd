@@ -56,10 +56,11 @@ architecture ifsc of tx_serial is
 		port(
 			--------------in--------------
 			sel_par_conv: in std_logic;
-			clk_conv  : in std_logic;
+			load_conv   : in  std_logic;
+			clk_conv    : in std_logic;
 			ascii_conv  : in std_logic_vector(6 downto 0); -- caractere em ASCII chegando  
 			--------------out--------------
-			out_conv     : out std_logic-- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
+			out_conv    : out std_logic-- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
 		);
 	end component;
 	
@@ -69,7 +70,7 @@ architecture ifsc of tx_serial is
 			--------------in--------------
 			clk_ent  : in  std_logic;
 			load_ent : in  std_logic;                      -- button para carregar a palavra ao conversor serial
-			msg : in String := "teste123";
+			msg : in String := "dLP12345";
 			--------------out--------------
 			ssd1_ent : out std_logic_vector(6 downto 0);   -- Primeiro display
 			ssd2_ent : out std_logic_vector(6 downto 0);   -- Segundo  display
@@ -87,20 +88,22 @@ architecture ifsc of tx_serial is
 	signal clk_baud: std_logic;
 	
 begin
- 
+
 	ent : entrada
 		generic map(N=> 8)
-		port map(clk_ent => clk_baud, load_ent => load_tx, msg => "dlP12345", ssd1_ent => ssd1_tx, ssd2_ent => ssd2_tx, ssd3_ent => ssd3_tx, ssd4_ent => ssd4_tx, ssd5_ent => ssd5_tx, ssd6_ent => ssd6_tx, ssd7_ent => ssd7_tx, ssd8_ent => ssd8_tx, load_out_ent => to_conv);
+		port map(clk_ent => clk_baud, load_ent => load_tx, msg => "dLP12345", ssd1_ent => ssd1_tx, ssd2_ent => ssd2_tx, ssd3_ent => ssd3_tx, ssd4_ent => ssd4_tx, ssd5_ent => ssd5_tx, ssd6_ent => ssd6_tx, ssd7_ent => ssd7_tx, ssd8_ent => ssd8_tx, load_out_ent => to_conv);
 	
 	conv: conv_paralelo_serial
 		generic map(N=> 4)
-		port map(sel_par_conv => sel_paridade_tx, clk_conv => clk_baud, ascii_conv => to_conv, out_conv => out_tx);
+		port map(sel_par_conv => sel_paridade_tx, load_conv => load_tx, clk_conv => clk_baud, ascii_conv => to_conv, out_conv => out_tx);
 
 	gdb : gera_baudrate
 		port map(clk_gbd => clk_tx, rst_gbd => rst_tx, sel_baudrate_gbd => sel_baudrate_tx, baudrate_gbd => clk_baud, led_baudrate_gbd1 => led_baudrate_tx1, led_baudrate_gbd2 => led_baudrate_tx2, led_baudrate_gbd3 => led_baudrate_tx3, led_baudrate_gbd4 => led_baudrate_tx4);
 
 	baudrate_tx <= clk_baud;
-		
+	
+	
+	
 end architecture;
 --------------------------------------------------------
 

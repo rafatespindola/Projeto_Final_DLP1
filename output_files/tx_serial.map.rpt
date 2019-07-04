@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tx_serial
-Wed Jul  3 18:42:57 2019
+Thu Jul  4 18:11:39 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -49,12 +49,12 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +-----------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Wed Jul  3 18:42:57 2019            ;
+; Analysis & Synthesis Status ; Successful - Thu Jul  4 18:11:38 2019            ;
 ; Quartus II 32-bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name               ; tx_serial                                        ;
 ; Top-level Entity Name       ; tx_serial                                        ;
 ; Family                      ; Cyclone                                          ;
-; Total logic elements        ; 309                                              ;
+; Total logic elements        ; 310                                              ;
 ; Total pins                  ; 68                                               ;
 ; Total virtual pins          ; 0                                                ;
 ; Total memory bits           ; 0                                                ;
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP1C3T100A8        ;                    ;
+; Device                                                                     ; EP1C3T144C6        ;                    ;
 ; Top-level entity name                                                      ; tx_serial          ; tx_serial          ;
 ; Family name                                                                ; Cyclone            ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
@@ -179,24 +179,24 @@ applicable agreement for further details.
 +---------------------------------------------+--------+
 ; Resource                                    ; Usage  ;
 +---------------------------------------------+--------+
-; Total logic elements                        ; 309    ;
-;     -- Combinational with no register       ; 136    ;
-;     -- Register only                        ; 31     ;
-;     -- Combinational with a register        ; 142    ;
+; Total logic elements                        ; 310    ;
+;     -- Combinational with no register       ; 137    ;
+;     -- Register only                        ; 32     ;
+;     -- Combinational with a register        ; 141    ;
 ;                                             ;        ;
 ; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 89     ;
-;     -- 3 input functions                    ; 24     ;
-;     -- 2 input functions                    ; 157    ;
+;     -- 4 input functions                    ; 87     ;
+;     -- 3 input functions                    ; 19     ;
+;     -- 2 input functions                    ; 164    ;
 ;     -- 1 input functions                    ; 8      ;
 ;     -- 0 input functions                    ; 0      ;
 ;                                             ;        ;
 ; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 159    ;
+;     -- normal mode                          ; 160    ;
 ;     -- arithmetic mode                      ; 150    ;
 ;     -- qfbk mode                            ; 0      ;
 ;     -- register cascade mode                ; 0      ;
-;     -- synchronous clear/load mode          ; 90     ;
+;     -- synchronous clear/load mode          ; 91     ;
 ;     -- asynchronous clear/load mode         ; 0      ;
 ;                                             ;        ;
 ; Total registers                             ; 173    ;
@@ -204,8 +204,8 @@ applicable agreement for further details.
 ; I/O pins                                    ; 68     ;
 ; Maximum fan-out node                        ; clk_tx ;
 ; Maximum fan-out                             ; 98     ;
-; Total fan-out                               ; 1096   ;
-; Average fan-out                             ; 2.91   ;
+; Total fan-out                               ; 1089   ;
+; Average fan-out                             ; 2.88   ;
 +---------------------------------------------+--------+
 
 
@@ -214,8 +214,8 @@ applicable agreement for further details.
 +-----------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node        ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                            ; Library Name ;
 +-----------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------+--------------+
-; |tx_serial                        ; 309 (0)     ; 173          ; 0           ; 68   ; 0            ; 136 (0)      ; 31 (0)            ; 142 (0)          ; 157 (0)         ; 0 (0)      ; |tx_serial                                                     ; work         ;
-;    |conv_paralelo_serial:conv|    ; 87 (85)     ; 33           ; 0           ; 0    ; 0            ; 54 (52)      ; 0 (0)             ; 33 (33)          ; 32 (32)         ; 0 (0)      ; |tx_serial|conv_paralelo_serial:conv                           ; work         ;
+; |tx_serial                        ; 310 (0)     ; 173          ; 0           ; 68   ; 0            ; 137 (0)      ; 32 (0)            ; 141 (0)          ; 157 (0)         ; 0 (0)      ; |tx_serial                                                     ; work         ;
+;    |conv_paralelo_serial:conv|    ; 88 (86)     ; 33           ; 0           ; 0    ; 0            ; 55 (53)      ; 1 (1)             ; 32 (32)          ; 32 (32)         ; 0 (0)      ; |tx_serial|conv_paralelo_serial:conv                           ; work         ;
 ;       |gerador_paridade:paridade| ; 2 (2)       ; 0            ; 0           ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |tx_serial|conv_paralelo_serial:conv|gerador_paridade:paridade ; work         ;
 ;    |entrada:ent|                  ; 88 (88)     ; 42           ; 0           ; 0    ; 0            ; 46 (46)      ; 31 (31)           ; 11 (11)          ; 35 (35)         ; 0 (0)      ; |tx_serial|entrada:ent                                         ; work         ;
 ;    |gera_baudrate:gdb|            ; 134 (134)   ; 98           ; 0           ; 0    ; 0            ; 36 (36)      ; 0 (0)             ; 98 (98)          ; 90 (90)         ; 0 (0)      ; |tx_serial|gera_baudrate:gdb                                   ; work         ;
@@ -255,7 +255,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Total registers                              ; 173   ;
 ; Number of registers using Synchronous Clear  ; 90    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 46    ;
@@ -272,7 +272,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; gera_baudrate:gdb|clk_1                ; 2       ;
 ; gera_baudrate:gdb|clk_05               ; 2       ;
 ; gera_baudrate:gdb|clk_025              ; 2       ;
-; entrada:ent|cont[0]                    ; 9       ;
+; entrada:ent|cont[0]                    ; 8       ;
 ; Total number of inverted registers = 5 ;         ;
 +----------------------------------------+---------+
 
@@ -346,7 +346,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Wed Jul  3 18:42:41 2019
+    Info: Processing started: Thu Jul  4 18:11:29 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tx_serial -c tx_serial
 Info (11104): Parallel Compilation has detected 40 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 16 of the 20 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file gera_baudrate.vhd
@@ -376,13 +376,13 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "ssd1_tx[1]" is stuck at GND
     Warning (13410): Pin "ssd1_tx[2]" is stuck at VCC
     Warning (13410): Pin "ssd1_tx[3]" is stuck at VCC
-    Warning (13410): Pin "ssd1_tx[4]" is stuck at GND
+    Warning (13410): Pin "ssd1_tx[4]" is stuck at VCC
     Warning (13410): Pin "ssd1_tx[5]" is stuck at VCC
     Warning (13410): Pin "ssd1_tx[6]" is stuck at GND
-    Warning (13410): Pin "ssd2_tx[0]" is stuck at VCC
-    Warning (13410): Pin "ssd2_tx[1]" is stuck at GND
-    Warning (13410): Pin "ssd2_tx[2]" is stuck at GND
-    Warning (13410): Pin "ssd2_tx[3]" is stuck at GND
+    Warning (13410): Pin "ssd2_tx[0]" is stuck at GND
+    Warning (13410): Pin "ssd2_tx[1]" is stuck at VCC
+    Warning (13410): Pin "ssd2_tx[2]" is stuck at VCC
+    Warning (13410): Pin "ssd2_tx[3]" is stuck at VCC
     Warning (13410): Pin "ssd2_tx[4]" is stuck at GND
     Warning (13410): Pin "ssd2_tx[5]" is stuck at GND
     Warning (13410): Pin "ssd2_tx[6]" is stuck at GND
@@ -431,14 +431,14 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (17049): 29 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 377 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 378 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 62 output pins
-    Info (21061): Implemented 309 logic cells
+    Info (21061): Implemented 310 logic cells
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 59 warnings
     Info: Peak virtual memory: 353 megabytes
-    Info: Processing ended: Wed Jul  3 18:42:57 2019
-    Info: Elapsed time: 00:00:16
+    Info: Processing ended: Thu Jul  4 18:11:39 2019
+    Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:03
 
 
