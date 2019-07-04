@@ -44,7 +44,7 @@ begin
 	paralelo <= "11" & par_conv & ascii_conv & '0';
 	
 	process(clk_conv, serie, load_conv) is 
-		variable cont : integer := 0; 
+		variable cont : integer range 0 to 10 := 0; 
 	begin 
 		if(rising_edge(clk_conv) and load_conv = '1') then
 			serie <= paralelo(cont);

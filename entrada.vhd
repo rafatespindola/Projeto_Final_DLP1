@@ -88,7 +88,7 @@ begin
 			char := msg(cont);
 			letra_slv := std_logic_vector(to_unsigned(character'pos(char),7));
 			load_out_ent <= letra_slv;
-			if (cont2 = 12) then
+			if (cont2 = 10) then
 				cont2:= 0;
 				if (cont = 8) then
 					cont := 1;		
@@ -101,6 +101,3 @@ begin
 	
 end architecture;
 --------------------------------------------------------
-
-
-

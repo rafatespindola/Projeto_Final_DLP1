@@ -33,9 +33,9 @@ begin
 			cont_out <= resto;
 		end process;
 		par_out <=
-			'1' when sel_par ='0' AND cont_out = 0 else
-			'0' when sel_par ='0' AND cont_out = 1 else
-			'1' when sel_par ='1' AND cont_out = 1 else
+			'0' when sel_par ='0' AND cont_out = 0 else
+			'1' when sel_par ='0' AND cont_out = 1 else
+			'0' when sel_par ='1' AND cont_out = 1 else
 			'0';
 end gerador_paridade_v1;
 --------------------------------------------------------

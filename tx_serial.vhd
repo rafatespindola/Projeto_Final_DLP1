@@ -33,8 +33,8 @@ entity tx_serial is 											      -- Entradas e saidas com "tx" no final
 end entity;
 --------------------------------------------------------
 architecture ifsc of tx_serial is
-	signal tmp1: std_logic_vector(6 downto 0);             -- Passa o caractere em ASCII para o "Conversor para serial"
-	signal tmp2: std_logic;                                -- Passa o clock ja "Dividivo" para o baudrate escolhido
+	--signal tmp1: std_logic_vector(6 downto 0);             -- Passa o caractere em ASCII para o "Conversor para serial"
+	--signal tmp2: std_logic;                                -- Passa o clock ja "Dividivo" para o baudrate escolhido
 	
 	component gera_baudrate
 		port(
