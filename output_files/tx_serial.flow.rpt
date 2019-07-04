@@ -1,5 +1,5 @@
 Flow report for tx_serial
-Thu Jul  4 16:47:19 2019
+Thu Jul  4 17:51:17 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +---------------------------+--------------------------------------------------+
-; Flow Status               ; Successful - Thu Jul  4 16:47:19 2019            ;
+; Flow Status               ; Successful - Thu Jul  4 17:51:17 2019            ;
 ; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name             ; tx_serial                                        ;
-; Top-level Entity Name     ; tx_serial                                        ;
+; Top-level Entity Name     ; shift_register                                   ;
 ; Family                    ; Cyclone                                          ;
 ; Device                    ; EP1C3T144C6                                      ;
 ; Timing Models             ; Final                                            ;
-; Total logic elements      ; 232 / 2,910 ( 8 % )                              ;
-; Total pins                ; 68 / 104 ( 65 % )                                ;
+; Total logic elements      ; 11 / 2,910 ( < 1 % )                             ;
+; Total pins                ; 15 / 104 ( 14 % )                                ;
 ; Total virtual pins        ; 0                                                ;
 ; Total memory bits         ; 0 / 59,904 ( 0 % )                               ;
 ; Total PLLs                ; 0 / 1 ( 0 % )                                    ;
@@ -60,26 +60,27 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/04/2019 16:47:07 ;
+; Start date & time ; 07/04/2019 17:51:07 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; tx_serial           ;
 +-------------------+---------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                    ;
-+-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
-+-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 27116745658592.156226962707746 ; --            ; --          ; --             ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                             ; --            ; --          ; eda_simulation ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                    ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)      ; <None>        ; --          ; --             ;
-; PARTITION_COLOR                     ; 16764057                       ; --            ; --          ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING          ; --            ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                         ; --            ; --          ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                   ; --            ; --          ; --             ;
-+-------------------------------------+--------------------------------+---------------+-------------+----------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                       ;
++-------------------------------------+--------------------------------+---------------+----------------+----------------+
+; Assignment Name                     ; Value                          ; Default Value ; Entity Name    ; Section Id     ;
++-------------------------------------+--------------------------------+---------------+----------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 27116745658592.156227346714031 ; --            ; --             ; --             ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                             ; --            ; --             ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                    ; --            ; --             ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)      ; <None>        ; --             ; --             ;
+; PARTITION_COLOR                     ; 16764057                       ; --            ; shift_register ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING          ; --            ; shift_register ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                         ; --            ; shift_register ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                   ; --            ; --             ; --             ;
+; TOP_LEVEL_ENTITY                    ; shift_register                 ; tx_serial     ; --             ; --             ;
++-------------------------------------+--------------------------------+---------------+----------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -87,12 +88,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 354 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:03     ; 2.5                     ; 466 MB              ; 00:00:04                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 309 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 321 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 293 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:07     ; --                      ; --                  ; 00:00:09                           ;
+; Analysis & Synthesis      ; 00:00:01     ; 1.0                     ; 354 MB              ; 00:00:01                           ;
+; Fitter                    ; 00:00:02     ; 1.0                     ; 468 MB              ; 00:00:02                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 321 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 305 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 282 MB              ; 00:00:00                           ;
+; Total                     ; 00:00:06     ; --                      ; --                  ; 00:00:05                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

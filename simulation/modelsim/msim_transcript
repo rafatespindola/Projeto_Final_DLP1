@@ -9,49 +9,16 @@
 # ** Warning: Copied /opt/altera/13.0sp1/modelsim_ae/linuxaloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd}
+# vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/shift_register.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity gera_baudrate
-# -- Compiling architecture ifsc of gera_baudrate
-# vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/entrada.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity entrada
-# -- Compiling architecture ifsc of entrada
-# vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/conv_paralelo_serial.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity conv_paralelo_serial
-# -- Compiling architecture ifsc of conv_paralelo_serial
-# vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/tx_serial.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity tx_serial
-# -- Compiling architecture ifsc of tx_serial
-# vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity gerador_paridade
-# -- Compiling architecture gerador_paridade_v1 of gerador_paridade
+# -- Compiling entity shift_register
+# -- Compiling architecture v1 of shift_register
 # 
-do tb.do
-# vsim work.tx_serial 
+vsim work.shift_register(v1)
+# vsim work.shift_register(v1) 
 # //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.9.0-9-amd64
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation
@@ -64,13 +31,33 @@ do tb.do
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.tx_serial(ifsc)
-# Loading work.entrada(ifsc)
-# Loading work.conv_paralelo_serial(ifsc)
-# Loading work.gerador_paridade(gerador_paridade_v1)
-# Loading work.gera_baudrate(ifsc)
-force -freeze sim:/tx_serial/load_tx 1 0
-run 50ms
-# ** Note: (vish-4074) File /home/aluno/Projeto_Final_DLP1/simulation/modelsim/vsim.wlf is still open, viewing file in live viewing mode.
-# 
+# Loading work.shift_register(v1)
+add wave sim:/shift_register/*
+force -freeze sim:/shift_register/din 00010011111 0
+force -freeze sim:/shift_register/load 1 0
+force -freeze sim:/shift_register/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/shift_register/rst 1 0
+do tb_shift.do
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity shift_register
+# -- Compiling architecture v1 of shift_register
+# vsim work.shift_register(v1) 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.shift_register(v1)
+do tb_shift.do
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity shift_register
+# -- Compiling architecture v1 of shift_register
+# vsim work.shift_register(v1) 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.shift_register(v1)

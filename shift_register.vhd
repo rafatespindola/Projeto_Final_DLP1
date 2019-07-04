@@ -1,0 +1,34 @@
+library ieee;
+use ieee.std_logic_1164.all;
+-----------------------------------
+entity shift_register is
+	
+	generic( N	: natural := 11);
+	port( 
+		din : in std_logic_vector(N-1 downto 0);
+		dout: out std_logic;
+		load, rst, clk: in std_logic
+		
+	);
+end shift_register;
+
+architecture v1 of shift_register is
+
+begin
+
+	process (clk, rst)
+		variable q: std_logic_vector(N-1 downto 0);
+	begin
+		if(rst = '1') then
+			q := (others => '1');
+		elsif (rising_edge(clk)) then
+			if (load = '1') then
+				q := din;
+			else 
+				q := '1' & q(N-1 downto 1);
+			end if;
+		end if;
+		dout <= q(0);
+	end process;
+
+end v1;
