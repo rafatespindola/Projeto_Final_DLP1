@@ -79,8 +79,8 @@ GND*                         : 11        :        :                   :         
 DATA0                        : 13        : input  :                   :         : 1         :                
 nCONFIG                      : 14        :        :                   :         : 1         :                
 VCCA_PLL1                    : 15        : power  :                   : 1.5V    :           :                
-rst                          : 16        : input  : 3.3-V LVTTL       :         : 1         : N              
-clk                          : 17        : input  : 3.3-V LVTTL       :         : 1         : N              
+rst_sft                      : 16        : input  : 3.3-V LVTTL       :         : 1         : N              
+clk_sft                      : 17        : input  : 3.3-V LVTTL       :         : 1         : N              
 GNDA_PLL1                    : 18        : gnd    :                   :         :           :                
 GNDG_PLL1                    : 19        : gnd    :                   :         :           :                
 nCEO                         : 20        :        :                   :         : 1         :                
@@ -101,23 +101,23 @@ GND*                         : 34        :        :                   :         
 GND*                         : 35        :        :                   :         : 1         :                
 GND*                         : 36        :        :                   :         : 1         :                
 GND*                         : 37        :        :                   :         : 4         :                
-din[10]                      : 38        : input  : 3.3-V LVTTL       :         : 4         : N              
-din[9]                       : 39        : input  : 3.3-V LVTTL       :         : 4         : N              
-din[5]                       : 40        : input  : 3.3-V LVTTL       :         : 4         : N              
-din[8]                       : 41        : input  : 3.3-V LVTTL       :         : 4         : N              
-load                         : 42        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[10]                  : 38        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[9]                   : 39        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[5]                   : 40        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[8]                   : 41        : input  : 3.3-V LVTTL       :         : 4         : N              
+load_sft                     : 42        : input  : 3.3-V LVTTL       :         : 4         : N              
 GND                          : 43        : gnd    :                   :         :           :                
 VCCIO4                       : 44        : power  :                   : 3.3V    : 4         :                
 GND                          : 45        : gnd    :                   :         :           :                
 VCCINT                       : 46        : power  :                   : 1.5V    :           :                
-din[0]                       : 47        : input  : 3.3-V LVTTL       :         : 4         : N              
-din[7]                       : 48        : input  : 3.3-V LVTTL       :         : 4         : N              
-din[3]                       : 49        : input  : 3.3-V LVTTL       :         : 4         : N              
-din[4]                       : 50        : input  : 3.3-V LVTTL       :         : 4         : N              
-din[6]                       : 51        : input  : 3.3-V LVTTL       :         : 4         : N              
-dout                         : 52        : output : 3.3-V LVTTL       :         : 4         : N              
-din[1]                       : 53        : input  : 3.3-V LVTTL       :         : 4         : N              
-din[2]                       : 54        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[0]                   : 47        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[7]                   : 48        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[3]                   : 49        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[4]                   : 50        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[6]                   : 51        : input  : 3.3-V LVTTL       :         : 4         : N              
+dout_sft                     : 52        : output : 3.3-V LVTTL       :         : 4         : N              
+din_sft[1]                   : 53        : input  : 3.3-V LVTTL       :         : 4         : N              
+din_sft[2]                   : 54        : input  : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : 55        :        :                   :         : 4         :                
 GND*                         : 56        :        :                   :         : 4         :                
 GND*                         : 57        :        :                   :         : 4         :                

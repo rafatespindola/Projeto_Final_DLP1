@@ -9,7 +9,7 @@
 # ** Warning: Copied /opt/altera/13.0sp1/modelsim_ae/linuxaloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/shift_register.vhd}
+# vcom -93 -work work {/home/rafael.te/Projeto_Final_DLP1/shift_register.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -19,7 +19,7 @@
 # 
 vsim work.shift_register(v1)
 # vsim work.shift_register(v1) 
-# //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.9.0-9-amd64
+# //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.15.18-14-pve
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation
 # //  All Rights Reserved.
@@ -33,31 +33,33 @@ vsim work.shift_register(v1)
 # Loading ieee.std_logic_1164(body)
 # Loading work.shift_register(v1)
 add wave sim:/shift_register/*
-force -freeze sim:/shift_register/din 00010011111 0
-force -freeze sim:/shift_register/load 1 0
-force -freeze sim:/shift_register/clk 1 0, 0 {50 ps} -r 100
-force -freeze sim:/shift_register/rst 1 0
-do tb_shift.do
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity shift_register
-# -- Compiling architecture v1 of shift_register
-# vsim work.shift_register(v1) 
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.shift_register(v1)
-do tb_shift.do
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity shift_register
-# -- Compiling architecture v1 of shift_register
-# vsim work.shift_register(v1) 
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.shift_register(v1)
+force -freeze sim:/shift_register/din_sft 11001100110 0
+force -freeze sim:/shift_register/load_sft 1 0
+force -freeze sim:/shift_register/rst_sft 0 0
+force -freeze sim:/shift_register/clk_sft 1 0, 0 {50 ps} -r 100
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/shift_register/load_sft 0 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run

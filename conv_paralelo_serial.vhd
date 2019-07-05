@@ -10,8 +10,8 @@ entity conv_paralelo_serial is                         -- Entradas e saidas com 
 		--------------in--------------
 		sel_par_conv : in  std_logic;
 		load_conv    : in  std_logic;
-		clk_conv     : in  std_logic; -- clock de baudrate
-		ascii_conv   : in  std_logic_vector(6 downto 0); -- palavra em formato ascii chegando  
+		clk_conv, rst_conv : in  std_logic; -- clock de baudrate
+		ascii_conv   : in  std_logic_vector(6 downto 0); -- palavra em formato ascii chegando		
 		--------------out--------------
 		out_conv      : out std_logic -- Saida com o caractere e mais os bits de controle. No total 11 bits por caractere
 	);
@@ -31,6 +31,16 @@ architecture ifsc of conv_paralelo_serial is
 		);
 	end component;
 	
+	entity shift_register is
+	
+	generic( N	: natural := 11);
+	port( 
+		din_sft : in std_logic_vector(N-1 downto 0);
+		dout_sft: out std_logic;
+		load_sft, rst_sft, clk_sft: in std_logic
+	);
+	end shift_register;
+	
 	signal par_conv: std_logic;
 	signal paralelo: std_logic_vector(10 downto 0);
 	signal serie: std_logic;
@@ -43,25 +53,27 @@ begin
 		
 	paralelo <= "11" & par_conv & ascii_conv & '0';
 	
-	process(clk_conv, serie, load_conv) is 
-		variable cont : integer range 0 to 10 := 0; 
-	begin 
-		if(rising_edge(clk_conv) and load_conv = '1') then
-			serie <= paralelo(cont);
-			if (cont < 10) then
-				cont:= cont + 1;
-			elsif (cont = 10) then
-				cont:= 0;
-			end if;
-		elsif(rising_edge(clk_conv) and load_conv = '0') then
-			serie <= '1';
-		end if;
-		out_conv <= serie;
-	end process; 
-	
-	
-	
-
+	shift: shift_register	
+		generic map( N	=> 11);
+		port( 
+		din_sft => paralelo, dout_sft => out_conv, load_sft => load_conv ,rst_sft => rst_conv, clk_sft => clk_conv);	
+		
+		
+--	process(clk_conv, serie, load_conv) is 
+--		variable cont : integer range 0 to 10 := 0; 
+--	begin 
+--		if(rising_edge(clk_conv) and load_conv = '1') then
+--			serie <= paralelo(cont);
+--			if (cont < 10) then
+--				cont:= cont + 1;
+--			elsif (cont = 10) then
+--				cont:= 0;
+--			end if;
+--		elsif(rising_edge(clk_conv) and load_conv = '0') then
+--			serie <= '1';
+--		end if;
+--		out_conv <= serie;
+--	end process; 
 	
 end architecture;
 --------------------------------------------------------
