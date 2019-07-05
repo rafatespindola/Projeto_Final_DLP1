@@ -57,27 +57,6 @@
 # -- Compiling entity shift_register
 # -- Compiling architecture v1 of shift_register
 # 
-vsim work.tx_serial
-# vsim work.tx_serial 
-# //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 3.16.0-77-generic
-# //
-# //  Copyright 1991-2012 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
-# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
-# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
-# //
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.tx_serial(ifsc)
-# Loading work.entrada(ifsc)
-# Loading work.conv_paralelo_serial(ifsc)
-# Loading work.gerador_paridade(gerador_paridade_v1)
-# Loading work.shift_register(v1)
-# Loading work.gera_baudrate(ifsc)
 do tb.do
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
@@ -121,6 +100,15 @@ do tb.do
 # -- Compiling entity shift_register
 # -- Compiling architecture v1 of shift_register
 # vsim work.tx_serial 
+# //  ModelSim ALTERA 10.1d Nov  2 2012 Linux 4.9.0-9-amd64
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -131,6 +119,10 @@ do tb.do
 # Loading work.gerador_paridade(gerador_paridade_v1)
 # Loading work.shift_register(v1)
 # Loading work.gera_baudrate(ifsc)
+force -freeze sim:/tx_serial/load_tx 1 0
+run 1ms
+force -freeze sim:/tx_serial/load_tx 0 0
+run 10ms
 force -freeze sim:/tx_serial/load_tx 1 0
 run 1ms
 force -freeze sim:/tx_serial/load_tx 0 0

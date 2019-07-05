@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for tx_serial
-Fri Jul  5 12:15:31 2019
+Fri Jul  5 13:59:49 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -20,8 +20,8 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
  12. Setup: 'sel_baudrate_tx[0]'
  13. Hold: 'clk_tx'
  14. Hold: 'sel_baudrate_tx[0]'
- 15. Minimum Pulse Width: 'clk_tx'
- 16. Minimum Pulse Width: 'sel_baudrate_tx[0]'
+ 15. Minimum Pulse Width: 'sel_baudrate_tx[0]'
+ 16. Minimum Pulse Width: 'clk_tx'
  17. Setup Times
  18. Hold Times
  19. Clock to Output Times
@@ -74,8 +74,8 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 2           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 2           ;
@@ -83,6 +83,7 @@ applicable agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ; < 0.1%      ;
+;     Processors 3-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -101,8 +102,8 @@ applicable agreement for further details.
 +------------+-----------------+--------------------+-------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name         ; Note                                                  ;
 +------------+-----------------+--------------------+-------------------------------------------------------+
-; 217.39 MHz ; 217.39 MHz      ; clk_tx             ;                                                       ;
-; 532.2 MHz  ; 372.02 MHz      ; sel_baudrate_tx[0] ; limit due to high minimum pulse width violation (tch) ;
+; 212.9 MHz  ; 212.9 MHz       ; clk_tx             ;                                                       ;
+; 359.71 MHz ; 300.12 MHz      ; sel_baudrate_tx[0] ; limit due to high minimum pulse width violation (tch) ;
 +------------+-----------------+--------------------+-------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -112,8 +113,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------+--------+---------------+
 ; Clock              ; Slack  ; End Point TNS ;
 +--------------------+--------+---------------+
-; clk_tx             ; -3.600 ; -304.678      ;
-; sel_baudrate_tx[0] ; -0.879 ; -5.719        ;
+; clk_tx             ; -3.697 ; -309.809      ;
+; sel_baudrate_tx[0] ; -1.780 ; -31.865       ;
 +--------------------+--------+---------------+
 
 
@@ -122,8 +123,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------+-------+---------------+
 ; Clock              ; Slack ; End Point TNS ;
 +--------------------+-------+---------------+
-; clk_tx             ; 0.044 ; 0.000         ;
-; sel_baudrate_tx[0] ; 0.690 ; 0.000         ;
+; clk_tx             ; 0.208 ; 0.000         ;
+; sel_baudrate_tx[0] ; 0.363 ; 0.000         ;
 +--------------------+-------+---------------+
 
 
@@ -144,170 +145,225 @@ No paths to report.
 +--------------------+--------+---------------+
 ; Clock              ; Slack  ; End Point TNS ;
 +--------------------+--------+---------------+
+; sel_baudrate_tx[0] ; -1.166 ; -61.787       ;
 ; clk_tx             ; -1.155 ; -145.019      ;
-; sel_baudrate_tx[0] ; -1.155 ; -31.539       ;
 +--------------------+--------+---------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Setup: 'clk_tx'                                                                                                                              ;
-+--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack  ; From Node                     ; To Node                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
-; -3.600 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[19] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.571      ;
-; -3.600 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[18] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.571      ;
-; -3.600 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[20] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.571      ;
-; -3.600 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[21] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.571      ;
-; -3.600 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[22] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.571      ;
-; -3.600 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[23] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.571      ;
-; -3.600 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[25] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.571      ;
-; -3.600 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[24] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.571      ;
-; -3.600 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[26] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.571      ;
-; -3.574 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[0]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.545      ;
-; -3.574 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[1]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.545      ;
-; -3.574 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[2]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.545      ;
-; -3.574 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[3]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.545      ;
-; -3.574 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[7]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.545      ;
-; -3.574 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[4]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.545      ;
-; -3.574 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[5]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.545      ;
-; -3.574 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[6]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.545      ;
-; -3.561 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[0]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.532      ;
-; -3.561 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[1]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.532      ;
-; -3.561 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[2]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.532      ;
-; -3.561 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[3]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.532      ;
-; -3.561 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[7]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.532      ;
-; -3.561 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[4]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.532      ;
-; -3.561 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[5]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.532      ;
-; -3.561 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[6]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.532      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[8]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[9]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[10]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[11]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[12]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[13]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[14]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[15]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[16]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.560 ; gera_baudrate:gdb|cnt_05[14]  ; gera_baudrate:gdb|cnt_05[17]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.531      ;
-; -3.554 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[19] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.525      ;
-; -3.554 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[18] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.525      ;
-; -3.554 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[20] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.525      ;
-; -3.554 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[21] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.525      ;
-; -3.554 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[22] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.525      ;
-; -3.554 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[23] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.525      ;
-; -3.554 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[25] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.525      ;
-; -3.554 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[24] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.525      ;
-; -3.554 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[26] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.525      ;
-; -3.553 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[0]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.524      ;
-; -3.553 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[1]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.524      ;
-; -3.553 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[2]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.524      ;
-; -3.553 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[3]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.524      ;
-; -3.553 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[4]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.524      ;
-; -3.553 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[5]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.524      ;
-; -3.553 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[6]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.524      ;
-; -3.553 ; gera_baudrate:gdb|cnt_025[0]  ; gera_baudrate:gdb|cnt_025[7]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.524      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[8]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[9]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[10]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[11]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[12]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[13]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[14]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[15]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[16]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.547 ; gera_baudrate:gdb|cnt_05[13]  ; gera_baudrate:gdb|cnt_05[17]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.518      ;
-; -3.527 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[19] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.498      ;
-; -3.527 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[18] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.498      ;
-; -3.527 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[20] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.498      ;
-; -3.527 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[21] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.498      ;
-; -3.527 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[22] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.498      ;
-; -3.527 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[23] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.498      ;
-; -3.527 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[25] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.498      ;
-; -3.527 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[24] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.498      ;
-; -3.527 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[26] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.498      ;
-; -3.507 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[0]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.478      ;
-; -3.507 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[1]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.478      ;
-; -3.507 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[2]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.478      ;
-; -3.507 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[3]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.478      ;
-; -3.507 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[4]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.478      ;
-; -3.507 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[5]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.478      ;
-; -3.507 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[6]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.478      ;
-; -3.507 ; gera_baudrate:gdb|cnt_025[26] ; gera_baudrate:gdb|cnt_025[7]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.478      ;
-; -3.500 ; gera_baudrate:gdb|cnt_1[2]    ; gera_baudrate:gdb|cnt_1[17]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.471      ;
-; -3.500 ; gera_baudrate:gdb|cnt_1[2]    ; gera_baudrate:gdb|cnt_1[18]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.471      ;
-; -3.500 ; gera_baudrate:gdb|cnt_1[2]    ; gera_baudrate:gdb|cnt_1[19]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.471      ;
-; -3.500 ; gera_baudrate:gdb|cnt_1[2]    ; gera_baudrate:gdb|cnt_1[23]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.471      ;
-; -3.500 ; gera_baudrate:gdb|cnt_1[2]    ; gera_baudrate:gdb|cnt_1[20]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.471      ;
-; -3.500 ; gera_baudrate:gdb|cnt_1[2]    ; gera_baudrate:gdb|cnt_1[21]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.471      ;
-; -3.500 ; gera_baudrate:gdb|cnt_1[2]    ; gera_baudrate:gdb|cnt_1[22]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.471      ;
-; -3.500 ; gera_baudrate:gdb|cnt_1[2]    ; gera_baudrate:gdb|cnt_1[24]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.471      ;
-; -3.480 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[0]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.451      ;
-; -3.480 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[1]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.451      ;
-; -3.480 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[2]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.451      ;
-; -3.480 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[3]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.451      ;
-; -3.480 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[4]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.451      ;
-; -3.480 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[5]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.451      ;
-; -3.480 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[6]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.451      ;
-; -3.480 ; gera_baudrate:gdb|cnt_025[24] ; gera_baudrate:gdb|cnt_025[7]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.451      ;
-; -3.478 ; gera_baudrate:gdb|cnt_05[7]   ; gera_baudrate:gdb|cnt_05[0]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.449      ;
-; -3.478 ; gera_baudrate:gdb|cnt_05[7]   ; gera_baudrate:gdb|cnt_05[1]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.449      ;
-; -3.478 ; gera_baudrate:gdb|cnt_05[7]   ; gera_baudrate:gdb|cnt_05[2]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.449      ;
-; -3.478 ; gera_baudrate:gdb|cnt_05[7]   ; gera_baudrate:gdb|cnt_05[3]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.449      ;
-; -3.478 ; gera_baudrate:gdb|cnt_05[7]   ; gera_baudrate:gdb|cnt_05[7]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.449      ;
-+--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk_tx'                                                                                                                             ;
++--------+------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                    ; To Node                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; -3.697 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[17]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.668      ;
+; -3.697 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[18]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.668      ;
+; -3.697 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[19]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.668      ;
+; -3.697 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[23]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.668      ;
+; -3.697 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[20]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.668      ;
+; -3.697 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[21]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.668      ;
+; -3.697 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[22]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.668      ;
+; -3.697 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[24]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.668      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[7]    ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[8]    ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[9]    ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[10]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[11]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[15]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[12]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[13]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[14]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.692 ; gera_baudrate:gdb|cnt_1[9]   ; gera_baudrate:gdb|cnt_1[16]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.663      ;
+; -3.621 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[17]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.592      ;
+; -3.621 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[18]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.592      ;
+; -3.621 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[19]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.592      ;
+; -3.621 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[23]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.592      ;
+; -3.621 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[20]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.592      ;
+; -3.621 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[21]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.592      ;
+; -3.621 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[22]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.592      ;
+; -3.621 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[24]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.592      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[7]    ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[8]    ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[9]    ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[10]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[11]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[15]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[12]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[13]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[14]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.616 ; gera_baudrate:gdb|cnt_1[10]  ; gera_baudrate:gdb|cnt_1[16]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.587      ;
+; -3.587 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[0]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.558      ;
+; -3.587 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[1]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.558      ;
+; -3.587 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[2]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.558      ;
+; -3.587 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[3]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.558      ;
+; -3.587 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[7]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.558      ;
+; -3.587 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[4]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.558      ;
+; -3.587 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[5]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.558      ;
+; -3.587 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[6]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.558      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[8]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[9]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[10]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[11]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[12]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[13]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[14]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[15]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[16]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.585 ; gera_baudrate:gdb|cnt_05[20] ; gera_baudrate:gdb|cnt_05[17]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.556      ;
+; -3.556 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[17]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.527      ;
+; -3.556 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[18]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.527      ;
+; -3.556 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[19]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.527      ;
+; -3.556 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[23]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.527      ;
+; -3.556 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[20]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.527      ;
+; -3.556 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[21]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.527      ;
+; -3.556 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[22]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.527      ;
+; -3.556 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[24]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.527      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[7]    ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[8]    ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[9]    ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[10]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[11]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[15]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[12]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[13]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[14]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.551 ; gera_baudrate:gdb|cnt_1[8]   ; gera_baudrate:gdb|cnt_1[16]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.522      ;
+; -3.536 ; gera_baudrate:gdb|cnt_025[7] ; gera_baudrate:gdb|cnt_025[19] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.507      ;
+; -3.536 ; gera_baudrate:gdb|cnt_025[7] ; gera_baudrate:gdb|cnt_025[18] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.507      ;
+; -3.536 ; gera_baudrate:gdb|cnt_025[7] ; gera_baudrate:gdb|cnt_025[20] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.507      ;
+; -3.536 ; gera_baudrate:gdb|cnt_025[7] ; gera_baudrate:gdb|cnt_025[21] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.507      ;
+; -3.536 ; gera_baudrate:gdb|cnt_025[7] ; gera_baudrate:gdb|cnt_025[22] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.507      ;
+; -3.536 ; gera_baudrate:gdb|cnt_025[7] ; gera_baudrate:gdb|cnt_025[23] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.507      ;
+; -3.536 ; gera_baudrate:gdb|cnt_025[7] ; gera_baudrate:gdb|cnt_025[25] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.507      ;
+; -3.536 ; gera_baudrate:gdb|cnt_025[7] ; gera_baudrate:gdb|cnt_025[24] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.507      ;
+; -3.536 ; gera_baudrate:gdb|cnt_025[7] ; gera_baudrate:gdb|cnt_025[26] ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.507      ;
+; -3.524 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[0]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.495      ;
+; -3.524 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[1]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.495      ;
+; -3.524 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[2]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.495      ;
+; -3.524 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[3]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.495      ;
+; -3.524 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[7]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.495      ;
+; -3.524 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[4]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.495      ;
+; -3.524 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[5]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.495      ;
+; -3.524 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[6]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.495      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[8]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[9]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[10]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[11]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[12]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[13]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[14]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[15]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[16]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.522 ; gera_baudrate:gdb|cnt_05[0]  ; gera_baudrate:gdb|cnt_05[17]  ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.493      ;
+; -3.477 ; gera_baudrate:gdb|cnt_1[11]  ; gera_baudrate:gdb|cnt_1[17]   ; clk_tx       ; clk_tx      ; 1.000        ; 0.000      ; 4.448      ;
++--------+------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Setup: 'sel_baudrate_tx[0]'                                                                                                                                                                           ;
-+--------+-----------------------------------------------------+-----------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
-; Slack  ; From Node                                           ; To Node                                             ; Launch Clock       ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
-+--------+-----------------------------------------------------+-----------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
-; -0.879 ; entrada:ent|load_out_ent[4]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.740      ;
-; -0.783 ; entrada:ent|load_out_ent[3]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.644      ;
-; -0.662 ; entrada:ent|load_out_ent[6]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.523      ;
-; -0.504 ; entrada:ent|load_out_ent[5]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.365      ;
-; -0.492 ; entrada:ent|cont[2]                                 ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.353      ;
-; -0.458 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[6]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.319      ;
-; -0.389 ; entrada:ent|cont[1]                                 ; entrada:ent|cont[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.250      ;
-; -0.388 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[1]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.249      ;
-; -0.388 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[5]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.249      ;
-; -0.385 ; entrada:ent|cont[0]                                 ; entrada:ent|cont[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.246      ;
-; -0.385 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[4]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.246      ;
-; -0.381 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[3]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.242      ;
-; -0.374 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[0]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.235      ;
-; -0.345 ; entrada:ent|load_out_ent[0]                         ; conv_paralelo_serial:conv|shift_register:shift|q[1] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.206      ;
-; -0.338 ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; conv_paralelo_serial:conv|shift_register:shift|q[7] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.199      ;
-; -0.334 ; entrada:ent|load_out_ent[1]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.195      ;
-; -0.271 ; entrada:ent|cont[2]                                 ; conv_paralelo_serial:conv|shift_register:shift|q[3] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.132      ;
-; -0.269 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[6]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.130      ;
-; -0.263 ; entrada:ent|load_out_ent[1]                         ; conv_paralelo_serial:conv|shift_register:shift|q[2] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.124      ;
-; -0.252 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[0]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.113      ;
-; -0.251 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[3]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.112      ;
-; -0.249 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[4]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.110      ;
-; -0.247 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[6]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.108      ;
-; -0.246 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[1]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.107      ;
-; -0.244 ; entrada:ent|cont[0]                                 ; entrada:ent|cont[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.105      ;
-; -0.242 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[0]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.103      ;
-; -0.239 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[3]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.100      ;
-; -0.237 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[4]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.098      ;
-; -0.232 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[1]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.093      ;
-; -0.232 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[5]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.093      ;
-; -0.230 ; entrada:ent|cont[2]                                 ; entrada:ent|cont[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.091      ;
-; -0.215 ; entrada:ent|load_out_ent[0]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 1.076      ;
-; -0.126 ; entrada:ent|load_out_ent[5]                         ; conv_paralelo_serial:conv|shift_register:shift|q[6] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.987      ;
-; -0.124 ; entrada:ent|load_out_ent[3]                         ; conv_paralelo_serial:conv|shift_register:shift|q[4] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.985      ;
-; -0.122 ; entrada:ent|load_out_ent[4]                         ; conv_paralelo_serial:conv|shift_register:shift|q[5] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.983      ;
-; -0.115 ; entrada:ent|load_out_ent[6]                         ; conv_paralelo_serial:conv|shift_register:shift|q[7] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.976      ;
-; -0.103 ; entrada:ent|cont[0]                                 ; entrada:ent|cont[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.964      ;
-; -0.101 ; conv_paralelo_serial:conv|shift_register:shift|q[5] ; conv_paralelo_serial:conv|shift_register:shift|q[4] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.962      ;
-; -0.100 ; conv_paralelo_serial:conv|shift_register:shift|q[6] ; conv_paralelo_serial:conv|shift_register:shift|q[5] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.961      ;
-; -0.100 ; conv_paralelo_serial:conv|shift_register:shift|q[7] ; conv_paralelo_serial:conv|shift_register:shift|q[6] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.961      ;
-; 0.045  ; conv_paralelo_serial:conv|shift_register:shift|q[3] ; conv_paralelo_serial:conv|shift_register:shift|q[2] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.816      ;
-; 0.048  ; conv_paralelo_serial:conv|shift_register:shift|q[2] ; conv_paralelo_serial:conv|shift_register:shift|q[1] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.813      ;
-; 0.049  ; conv_paralelo_serial:conv|shift_register:shift|q[1] ; conv_paralelo_serial:conv|shift_register:shift|q[0] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.812      ;
-; 0.049  ; entrada:ent|cont[1]                                 ; entrada:ent|cont[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.812      ;
-; 0.049  ; conv_paralelo_serial:conv|shift_register:shift|q[4] ; conv_paralelo_serial:conv|shift_register:shift|q[3] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.110     ; 0.812      ;
-+--------+-----------------------------------------------------+-----------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'sel_baudrate_tx[0]'                                                                                                                                                                             ;
++--------+------------------------------------------------------+------------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
+; Slack  ; From Node                                            ; To Node                                              ; Launch Clock       ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------------------+------------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
+; -1.780 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.319      ;
+; -1.780 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.319      ;
+; -1.780 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.319      ;
+; -1.780 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.319      ;
+; -1.633 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.172      ;
+; -1.633 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.172      ;
+; -1.633 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.172      ;
+; -1.633 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.172      ;
+; -1.591 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.130      ;
+; -1.591 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.130      ;
+; -1.591 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.130      ;
+; -1.591 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.130      ;
+; -1.556 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.095      ;
+; -1.549 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.088      ;
+; -1.549 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.088      ;
+; -1.549 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.088      ;
+; -1.549 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.088      ;
+; -1.509 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.048      ;
+; -1.509 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.048      ;
+; -1.509 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.048      ;
+; -1.509 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.048      ;
+; -1.500 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont2[3]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.039      ;
+; -1.492 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 2.031      ;
+; -1.428 ; entrada:ent|load_out_ent[4]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.967      ;
+; -1.420 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont2[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.959      ;
+; -1.419 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.958      ;
+; -1.357 ; entrada:ent|load_out_ent[5]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.896      ;
+; -1.351 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.890      ;
+; -1.273 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont2[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.812      ;
+; -1.272 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.811      ;
+; -1.268 ; entrada:ent|load_out_ent[2]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.807      ;
+; -1.232 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[6]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.771      ;
+; -1.231 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[3]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.770      ;
+; -1.230 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[1]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.769      ;
+; -1.229 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[4]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.768      ;
+; -1.229 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.768      ;
+; -1.227 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[0]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.766      ;
+; -1.226 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[3]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.765      ;
+; -1.223 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[1]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.762      ;
+; -1.220 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[2]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.759      ;
+; -1.219 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont2[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.758      ;
+; -1.218 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.757      ;
+; -1.197 ; entrada:ent|load_out_ent[6]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.736      ;
+; -1.189 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont2[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.728      ;
+; -1.188 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.727      ;
+; -1.160 ; entrada:ent|cont[2]                                  ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.699      ;
+; -1.159 ; entrada:ent|cont[2]                                  ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.698      ;
+; -1.136 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont2[3]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.675      ;
+; -1.132 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont2[3]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.671      ;
+; -1.130 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[3]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.669      ;
+; -1.129 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[0]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.668      ;
+; -1.129 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[1]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.668      ;
+; -1.129 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[6]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.668      ;
+; -1.127 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[4]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.666      ;
+; -1.126 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[5]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.665      ;
+; -1.123 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[2]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.662      ;
+; -1.122 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont2[3]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.661      ;
+; -1.117 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.656      ;
+; -1.063 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.602      ;
+; -1.056 ; entrada:ent|load_out_ent[3]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.595      ;
+; -1.051 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[3]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.590      ;
+; -1.051 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[6]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.590      ;
+; -1.050 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[1]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.589      ;
+; -1.048 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[4]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.587      ;
+; -1.045 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[0]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.584      ;
+; -1.044 ; entrada:ent|load_out_ent[1]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.583      ;
+; -1.043 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[5]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.582      ;
+; -1.040 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[2]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.579      ;
+; -1.008 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.547      ;
+; -1.007 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.546      ;
+; -1.006 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.545      ;
+; -1.005 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[4]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.544      ;
+; -1.004 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[2]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.543      ;
+; -0.905 ; entrada:ent|load_out_ent[0]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.444      ;
+; -0.874 ; entrada:ent|cont[0]                                  ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.413      ;
+; -0.873 ; entrada:ent|cont[0]                                  ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.412      ;
+; -0.871 ; entrada:ent|cont[0]                                  ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.410      ;
+; -0.868 ; entrada:ent|cont[0]                                  ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.407      ;
+; -0.830 ; entrada:ent|load_out_ent[4]                          ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.369      ;
+; -0.829 ; entrada:ent|load_out_ent[3]                          ; conv_paralelo_serial:conv|shift_register:shift|q[4]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.368      ;
+; -0.825 ; conv_paralelo_serial:conv|shift_register:shift|q[1]  ; conv_paralelo_serial:conv|shift_register:shift|q[0]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.364      ;
+; -0.820 ; entrada:ent|load_out_ent[2]                          ; conv_paralelo_serial:conv|shift_register:shift|q[3]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.359      ;
+; -0.801 ; entrada:ent|cont[3]                                  ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.340      ;
+; -0.800 ; entrada:ent|cont[3]                                  ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.339      ;
+; -0.796 ; entrada:ent|cont[3]                                  ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.335      ;
+; -0.796 ; entrada:ent|cont[3]                                  ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.335      ;
+; -0.775 ; entrada:ent|load_out_ent[5]                          ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.314      ;
+; -0.721 ; entrada:ent|cont[3]                                  ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.260      ;
+; -0.633 ; entrada:ent|cont[1]                                  ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.172      ;
+; -0.627 ; entrada:ent|load_out_ent[1]                          ; conv_paralelo_serial:conv|shift_register:shift|q[2]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.166      ;
+; -0.627 ; entrada:ent|load_out_ent[6]                          ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.166      ;
+; -0.623 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|pulso ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.162      ;
+; -0.615 ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.154      ;
+; -0.613 ; conv_paralelo_serial:conv|shift_register:shift|q[3]  ; conv_paralelo_serial:conv|shift_register:shift|q[2]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.152      ;
+; -0.493 ; entrada:ent|load_out_ent[0]                          ; conv_paralelo_serial:conv|shift_register:shift|q[1]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.032      ;
+; -0.492 ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.031      ;
+; -0.491 ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ; conv_paralelo_serial:conv|shift_register:shift|q[4]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.030      ;
+; -0.490 ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 1.029      ;
+; -0.446 ; entrada:ent|cont[1]                                  ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 0.985      ;
+; -0.444 ; entrada:ent|cont[1]                                  ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 1.000        ; -0.432     ; 0.983      ;
++--------+------------------------------------------------------+------------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -315,25 +371,25 @@ No paths to report.
 +-------+--------------------------------+-------------------------------------+--------------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                      ; To Node                             ; Launch Clock       ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+--------------------------------+-------------------------------------+--------------------+-------------+--------------+------------+------------+
-; 0.044 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd1 ; sel_baudrate_tx[0] ; clk_tx      ; 0.000        ; 2.129      ; 2.185      ;
-; 0.060 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd2 ; sel_baudrate_tx[0] ; clk_tx      ; 0.000        ; 2.129      ; 2.201      ;
-; 0.061 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd3 ; sel_baudrate_tx[0] ; clk_tx      ; 0.000        ; 2.129      ; 2.202      ;
-; 0.076 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd4 ; sel_baudrate_tx[0] ; clk_tx      ; 0.000        ; 2.129      ; 2.217      ;
-; 0.544 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd1 ; sel_baudrate_tx[0] ; clk_tx      ; -0.500       ; 2.129      ; 2.185      ;
-; 0.560 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd2 ; sel_baudrate_tx[0] ; clk_tx      ; -0.500       ; 2.129      ; 2.201      ;
-; 0.561 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd3 ; sel_baudrate_tx[0] ; clk_tx      ; -0.500       ; 2.129      ; 2.202      ;
-; 0.576 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd4 ; sel_baudrate_tx[0] ; clk_tx      ; -0.500       ; 2.129      ; 2.217      ;
+; 0.208 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd1 ; sel_baudrate_tx[0] ; clk_tx      ; 0.000        ; 2.110      ; 2.330      ;
+; 0.244 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd3 ; sel_baudrate_tx[0] ; clk_tx      ; 0.000        ; 2.110      ; 2.366      ;
+; 0.244 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd4 ; sel_baudrate_tx[0] ; clk_tx      ; 0.000        ; 2.110      ; 2.366      ;
+; 0.245 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd2 ; sel_baudrate_tx[0] ; clk_tx      ; 0.000        ; 2.110      ; 2.367      ;
+; 0.708 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd1 ; sel_baudrate_tx[0] ; clk_tx      ; -0.500       ; 2.110      ; 2.330      ;
+; 0.744 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd3 ; sel_baudrate_tx[0] ; clk_tx      ; -0.500       ; 2.110      ; 2.366      ;
+; 0.744 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd4 ; sel_baudrate_tx[0] ; clk_tx      ; -0.500       ; 2.110      ; 2.366      ;
+; 0.745 ; sel_baudrate_tx[0]             ; gera_baudrate:gdb|led_baudrate_gbd2 ; sel_baudrate_tx[0] ; clk_tx      ; -0.500       ; 2.110      ; 2.367      ;
 ; 0.822 ; gera_baudrate:gdb|cnt_9600[11] ; gera_baudrate:gdb|cnt_9600[11]      ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 0.834      ;
-; 0.947 ; gera_baudrate:gdb|clk_1        ; gera_baudrate:gdb|clk_1             ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 0.959      ;
-; 0.951 ; gera_baudrate:gdb|clk_9600     ; gera_baudrate:gdb|clk_9600          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 0.963      ;
-; 1.016 ; gera_baudrate:gdb|cnt_9600[4]  ; gera_baudrate:gdb|cnt_9600[4]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.028      ;
-; 1.016 ; gera_baudrate:gdb|cnt_1[5]     ; gera_baudrate:gdb|cnt_1[5]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.028      ;
+; 0.952 ; gera_baudrate:gdb|clk_1        ; gera_baudrate:gdb|clk_1             ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 0.964      ;
+; 0.953 ; gera_baudrate:gdb|clk_9600     ; gera_baudrate:gdb|clk_9600          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 0.965      ;
+; 1.016 ; gera_baudrate:gdb|clk_025      ; gera_baudrate:gdb|clk_025           ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.028      ;
 ; 1.018 ; gera_baudrate:gdb|cnt_1[11]    ; gera_baudrate:gdb|cnt_1[11]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.030      ;
 ; 1.018 ; gera_baudrate:gdb|cnt_1[15]    ; gera_baudrate:gdb|cnt_1[15]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.030      ;
 ; 1.018 ; gera_baudrate:gdb|cnt_05[12]   ; gera_baudrate:gdb|cnt_05[12]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.030      ;
 ; 1.018 ; gera_baudrate:gdb|cnt_05[16]   ; gera_baudrate:gdb|cnt_05[16]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.030      ;
 ; 1.018 ; gera_baudrate:gdb|cnt_025[12]  ; gera_baudrate:gdb|cnt_025[12]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.030      ;
 ; 1.018 ; gera_baudrate:gdb|cnt_025[16]  ; gera_baudrate:gdb|cnt_025[16]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.030      ;
+; 1.020 ; gera_baudrate:gdb|cnt_9600[1]  ; gera_baudrate:gdb|cnt_9600[1]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.032      ;
 ; 1.020 ; gera_baudrate:gdb|cnt_1[7]     ; gera_baudrate:gdb|cnt_1[7]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.032      ;
 ; 1.020 ; gera_baudrate:gdb|cnt_1[12]    ; gera_baudrate:gdb|cnt_1[12]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.032      ;
 ; 1.020 ; gera_baudrate:gdb|cnt_05[8]    ; gera_baudrate:gdb|cnt_05[8]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.032      ;
@@ -341,25 +397,31 @@ No paths to report.
 ; 1.020 ; gera_baudrate:gdb|cnt_025[8]   ; gera_baudrate:gdb|cnt_025[8]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.032      ;
 ; 1.020 ; gera_baudrate:gdb|cnt_025[13]  ; gera_baudrate:gdb|cnt_025[13]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.032      ;
 ; 1.022 ; gera_baudrate:gdb|cnt_9600[10] ; gera_baudrate:gdb|cnt_9600[10]      ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.034      ;
-; 1.022 ; gera_baudrate:gdb|cnt_1[21]    ; gera_baudrate:gdb|cnt_1[21]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.034      ;
+; 1.022 ; gera_baudrate:gdb|cnt_1[5]     ; gera_baudrate:gdb|cnt_1[5]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.034      ;
 ; 1.022 ; gera_baudrate:gdb|cnt_05[22]   ; gera_baudrate:gdb|cnt_05[22]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.034      ;
-; 1.022 ; gera_baudrate:gdb|cnt_025[26]  ; gera_baudrate:gdb|cnt_025[26]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.034      ;
+; 1.023 ; gera_baudrate:gdb|cnt_9600[4]  ; gera_baudrate:gdb|cnt_9600[4]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.035      ;
 ; 1.023 ; gera_baudrate:gdb|cnt_1[10]    ; gera_baudrate:gdb|cnt_1[10]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.035      ;
+; 1.023 ; gera_baudrate:gdb|cnt_05[3]    ; gera_baudrate:gdb|cnt_05[3]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.035      ;
 ; 1.023 ; gera_baudrate:gdb|cnt_05[11]   ; gera_baudrate:gdb|cnt_05[11]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.035      ;
+; 1.023 ; gera_baudrate:gdb|cnt_05[18]   ; gera_baudrate:gdb|cnt_05[18]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.035      ;
 ; 1.023 ; gera_baudrate:gdb|cnt_025[11]  ; gera_baudrate:gdb|cnt_025[11]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.035      ;
-; 1.027 ; gera_baudrate:gdb|cnt_1[17]    ; gera_baudrate:gdb|cnt_1[17]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.039      ;
+; 1.024 ; gera_baudrate:gdb|cnt_1[17]    ; gera_baudrate:gdb|cnt_1[17]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.036      ;
+; 1.026 ; gera_baudrate:gdb|cnt_05[6]    ; gera_baudrate:gdb|cnt_05[6]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.038      ;
+; 1.026 ; gera_baudrate:gdb|cnt_025[1]   ; gera_baudrate:gdb|cnt_025[1]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.038      ;
+; 1.026 ; gera_baudrate:gdb|cnt_025[26]  ; gera_baudrate:gdb|cnt_025[26]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.038      ;
+; 1.027 ; gera_baudrate:gdb|cnt_1[1]     ; gera_baudrate:gdb|cnt_1[1]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.039      ;
+; 1.027 ; gera_baudrate:gdb|cnt_025[2]   ; gera_baudrate:gdb|cnt_025[2]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.039      ;
 ; 1.027 ; gera_baudrate:gdb|cnt_025[18]  ; gera_baudrate:gdb|cnt_025[18]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.039      ;
-; 1.027 ; gera_baudrate:gdb|cnt_025[22]  ; gera_baudrate:gdb|cnt_025[22]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.039      ;
-; 1.028 ; gera_baudrate:gdb|cnt_05[18]   ; gera_baudrate:gdb|cnt_05[18]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.040      ;
+; 1.028 ; gera_baudrate:gdb|cnt_9600[0]  ; gera_baudrate:gdb|cnt_9600[0]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.040      ;
+; 1.029 ; gera_baudrate:gdb|cnt_1[2]     ; gera_baudrate:gdb|cnt_1[2]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.041      ;
+; 1.030 ; gera_baudrate:gdb|cnt_1[0]     ; gera_baudrate:gdb|cnt_1[0]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.042      ;
+; 1.030 ; gera_baudrate:gdb|cnt_1[20]    ; gera_baudrate:gdb|cnt_1[20]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.042      ;
+; 1.030 ; gera_baudrate:gdb|cnt_05[23]   ; gera_baudrate:gdb|cnt_05[23]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.042      ;
+; 1.031 ; gera_baudrate:gdb|cnt_025[22]  ; gera_baudrate:gdb|cnt_025[22]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.043      ;
 ; 1.031 ; gera_baudrate:gdb|cnt_025[23]  ; gera_baudrate:gdb|cnt_025[23]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.043      ;
-; 1.033 ; gera_baudrate:gdb|cnt_1[22]    ; gera_baudrate:gdb|cnt_1[22]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.045      ;
-; 1.033 ; gera_baudrate:gdb|cnt_05[23]   ; gera_baudrate:gdb|cnt_05[23]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.045      ;
 ; 1.034 ; gera_baudrate:gdb|cnt_9600[6]  ; gera_baudrate:gdb|cnt_9600[6]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.046      ;
-; 1.035 ; gera_baudrate:gdb|cnt_1[20]    ; gera_baudrate:gdb|cnt_1[20]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.047      ;
-; 1.037 ; gera_baudrate:gdb|cnt_05[21]   ; gera_baudrate:gdb|cnt_05[21]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.049      ;
 ; 1.037 ; gera_baudrate:gdb|cnt_025[21]  ; gera_baudrate:gdb|cnt_025[21]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.049      ;
 ; 1.040 ; gera_baudrate:gdb|cnt_9600[9]  ; gera_baudrate:gdb|cnt_9600[9]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.052      ;
-; 1.135 ; gera_baudrate:gdb|cnt_9600[5]  ; gera_baudrate:gdb|cnt_9600[5]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
 ; 1.135 ; gera_baudrate:gdb|cnt_1[6]     ; gera_baudrate:gdb|cnt_1[6]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
 ; 1.135 ; gera_baudrate:gdb|cnt_1[4]     ; gera_baudrate:gdb|cnt_1[4]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
 ; 1.135 ; gera_baudrate:gdb|cnt_1[13]    ; gera_baudrate:gdb|cnt_1[13]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
@@ -367,6 +429,7 @@ No paths to report.
 ; 1.135 ; gera_baudrate:gdb|cnt_1[24]    ; gera_baudrate:gdb|cnt_1[24]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
 ; 1.135 ; gera_baudrate:gdb|cnt_05[14]   ; gera_baudrate:gdb|cnt_05[14]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
 ; 1.135 ; gera_baudrate:gdb|cnt_05[24]   ; gera_baudrate:gdb|cnt_05[24]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
+; 1.135 ; gera_baudrate:gdb|cnt_05[25]   ; gera_baudrate:gdb|cnt_05[25]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
 ; 1.135 ; gera_baudrate:gdb|cnt_025[14]  ; gera_baudrate:gdb|cnt_025[14]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
 ; 1.135 ; gera_baudrate:gdb|cnt_025[24]  ; gera_baudrate:gdb|cnt_025[24]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.147      ;
 ; 1.136 ; gera_baudrate:gdb|cnt_1[8]     ; gera_baudrate:gdb|cnt_1[8]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.148      ;
@@ -374,101 +437,257 @@ No paths to report.
 ; 1.136 ; gera_baudrate:gdb|cnt_05[19]   ; gera_baudrate:gdb|cnt_05[19]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.148      ;
 ; 1.136 ; gera_baudrate:gdb|cnt_025[9]   ; gera_baudrate:gdb|cnt_025[9]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.148      ;
 ; 1.136 ; gera_baudrate:gdb|cnt_025[19]  ; gera_baudrate:gdb|cnt_025[19]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.148      ;
+; 1.139 ; gera_baudrate:gdb|cnt_9600[5]  ; gera_baudrate:gdb|cnt_9600[5]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.151      ;
 ; 1.139 ; gera_baudrate:gdb|cnt_1[9]     ; gera_baudrate:gdb|cnt_1[9]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.151      ;
 ; 1.139 ; gera_baudrate:gdb|cnt_1[18]    ; gera_baudrate:gdb|cnt_1[18]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.151      ;
 ; 1.139 ; gera_baudrate:gdb|cnt_05[10]   ; gera_baudrate:gdb|cnt_05[10]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.151      ;
 ; 1.139 ; gera_baudrate:gdb|cnt_025[10]  ; gera_baudrate:gdb|cnt_025[10]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.151      ;
-; 1.139 ; gera_baudrate:gdb|clk_025      ; gera_baudrate:gdb|clk_025           ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.151      ;
+; 1.140 ; gera_baudrate:gdb|cnt_1[3]     ; gera_baudrate:gdb|cnt_1[3]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
 ; 1.140 ; gera_baudrate:gdb|cnt_1[14]    ; gera_baudrate:gdb|cnt_1[14]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
 ; 1.140 ; gera_baudrate:gdb|cnt_1[16]    ; gera_baudrate:gdb|cnt_1[16]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
 ; 1.140 ; gera_baudrate:gdb|cnt_05[15]   ; gera_baudrate:gdb|cnt_05[15]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
 ; 1.140 ; gera_baudrate:gdb|cnt_05[17]   ; gera_baudrate:gdb|cnt_05[17]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
-; 1.140 ; gera_baudrate:gdb|cnt_05[25]   ; gera_baudrate:gdb|cnt_05[25]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
+; 1.140 ; gera_baudrate:gdb|cnt_025[4]   ; gera_baudrate:gdb|cnt_025[4]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
 ; 1.140 ; gera_baudrate:gdb|cnt_025[15]  ; gera_baudrate:gdb|cnt_025[15]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
 ; 1.140 ; gera_baudrate:gdb|cnt_025[17]  ; gera_baudrate:gdb|cnt_025[17]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
 ; 1.140 ; gera_baudrate:gdb|cnt_025[25]  ; gera_baudrate:gdb|cnt_025[25]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.152      ;
+; 1.144 ; gera_baudrate:gdb|cnt_9600[3]  ; gera_baudrate:gdb|cnt_9600[3]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.156      ;
 ; 1.144 ; gera_baudrate:gdb|cnt_9600[7]  ; gera_baudrate:gdb|cnt_9600[7]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.156      ;
 ; 1.144 ; gera_baudrate:gdb|cnt_025[20]  ; gera_baudrate:gdb|cnt_025[20]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.156      ;
 ; 1.145 ; gera_baudrate:gdb|cnt_1[23]    ; gera_baudrate:gdb|cnt_1[23]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.157      ;
-; 1.145 ; gera_baudrate:gdb|cnt_05[20]   ; gera_baudrate:gdb|cnt_05[20]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.157      ;
+; 1.147 ; gera_baudrate:gdb|cnt_025[5]   ; gera_baudrate:gdb|cnt_025[5]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.159      ;
 ; 1.151 ; gera_baudrate:gdb|cnt_9600[8]  ; gera_baudrate:gdb|cnt_9600[8]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.163      ;
-; 1.182 ; gera_baudrate:gdb|cnt_9600[2]  ; gera_baudrate:gdb|cnt_9600[2]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.194      ;
+; 1.152 ; gera_baudrate:gdb|cnt_05[7]    ; gera_baudrate:gdb|cnt_05[7]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.164      ;
+; 1.153 ; gera_baudrate:gdb|cnt_05[0]    ; gera_baudrate:gdb|cnt_05[0]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.165      ;
+; 1.181 ; gera_baudrate:gdb|cnt_05[1]    ; gera_baudrate:gdb|cnt_05[1]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.193      ;
+; 1.181 ; gera_baudrate:gdb|cnt_05[21]   ; gera_baudrate:gdb|cnt_05[21]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.193      ;
 ; 1.182 ; gera_baudrate:gdb|cnt_05[4]    ; gera_baudrate:gdb|cnt_05[4]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.194      ;
-; 1.182 ; gera_baudrate:gdb|cnt_025[4]   ; gera_baudrate:gdb|cnt_025[4]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.194      ;
-; 1.189 ; gera_baudrate:gdb|cnt_05[1]    ; gera_baudrate:gdb|cnt_05[1]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.201      ;
-; 1.190 ; gera_baudrate:gdb|cnt_1[3]     ; gera_baudrate:gdb|cnt_1[3]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.202      ;
-; 1.192 ; gera_baudrate:gdb|cnt_1[0]     ; gera_baudrate:gdb|cnt_1[0]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.204      ;
-; 1.192 ; gera_baudrate:gdb|cnt_025[1]   ; gera_baudrate:gdb|cnt_025[1]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.204      ;
-; 1.300 ; gera_baudrate:gdb|cnt_05[6]    ; gera_baudrate:gdb|cnt_05[6]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.312      ;
+; 1.190 ; gera_baudrate:gdb|cnt_9600[2]  ; gera_baudrate:gdb|cnt_9600[2]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.202      ;
 ; 1.300 ; gera_baudrate:gdb|cnt_025[6]   ; gera_baudrate:gdb|cnt_025[6]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.312      ;
-; 1.302 ; gera_baudrate:gdb|cnt_9600[1]  ; gera_baudrate:gdb|cnt_9600[1]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.314      ;
-; 1.302 ; gera_baudrate:gdb|cnt_05[3]    ; gera_baudrate:gdb|cnt_05[3]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.314      ;
+; 1.302 ; gera_baudrate:gdb|cnt_1[22]    ; gera_baudrate:gdb|cnt_1[22]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.314      ;
 ; 1.302 ; gera_baudrate:gdb|cnt_025[3]   ; gera_baudrate:gdb|cnt_025[3]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.314      ;
-; 1.319 ; gera_baudrate:gdb|cnt_1[2]     ; gera_baudrate:gdb|cnt_1[2]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.331      ;
-; 1.455 ; gera_baudrate:gdb|cnt_9600[3]  ; gera_baudrate:gdb|cnt_9600[3]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.467      ;
-; 1.459 ; gera_baudrate:gdb|cnt_9600[0]  ; gera_baudrate:gdb|cnt_9600[0]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.471      ;
-; 1.470 ; gera_baudrate:gdb|cnt_1[1]     ; gera_baudrate:gdb|cnt_1[1]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.482      ;
-; 1.474 ; gera_baudrate:gdb|cnt_025[5]   ; gera_baudrate:gdb|cnt_025[5]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.486      ;
-; 1.478 ; gera_baudrate:gdb|cnt_9600[4]  ; gera_baudrate:gdb|cnt_9600[5]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.490      ;
-; 1.478 ; gera_baudrate:gdb|cnt_1[5]     ; gera_baudrate:gdb|cnt_1[6]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.490      ;
 ; 1.480 ; gera_baudrate:gdb|cnt_1[15]    ; gera_baudrate:gdb|cnt_1[16]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.492      ;
-; 1.480 ; gera_baudrate:gdb|cnt_05[5]    ; gera_baudrate:gdb|cnt_05[5]         ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.492      ;
 ; 1.480 ; gera_baudrate:gdb|cnt_05[16]   ; gera_baudrate:gdb|cnt_05[17]        ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.492      ;
 ; 1.480 ; gera_baudrate:gdb|cnt_025[16]  ; gera_baudrate:gdb|cnt_025[17]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.492      ;
+; 1.482 ; gera_baudrate:gdb|cnt_9600[1]  ; gera_baudrate:gdb|cnt_9600[2]       ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.494      ;
+; 1.482 ; gera_baudrate:gdb|cnt_1[7]     ; gera_baudrate:gdb|cnt_1[8]          ; clk_tx             ; clk_tx      ; 0.000        ; 0.000      ; 1.494      ;
 +-------+--------------------------------+-------------------------------------+--------------------+-------------+--------------+------------+------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Hold: 'sel_baudrate_tx[0]'                                                                                                                                                                           ;
-+-------+-----------------------------------------------------+-----------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
-; Slack ; From Node                                           ; To Node                                             ; Launch Clock       ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
-+-------+-----------------------------------------------------+-----------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
-; 0.690 ; conv_paralelo_serial:conv|shift_register:shift|q[1] ; conv_paralelo_serial:conv|shift_register:shift|q[0] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.812      ;
-; 0.690 ; entrada:ent|cont[1]                                 ; entrada:ent|cont[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.812      ;
-; 0.690 ; conv_paralelo_serial:conv|shift_register:shift|q[4] ; conv_paralelo_serial:conv|shift_register:shift|q[3] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.812      ;
-; 0.691 ; conv_paralelo_serial:conv|shift_register:shift|q[2] ; conv_paralelo_serial:conv|shift_register:shift|q[1] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.813      ;
-; 0.694 ; conv_paralelo_serial:conv|shift_register:shift|q[3] ; conv_paralelo_serial:conv|shift_register:shift|q[2] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.816      ;
-; 0.839 ; conv_paralelo_serial:conv|shift_register:shift|q[6] ; conv_paralelo_serial:conv|shift_register:shift|q[5] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.961      ;
-; 0.839 ; conv_paralelo_serial:conv|shift_register:shift|q[7] ; conv_paralelo_serial:conv|shift_register:shift|q[6] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.961      ;
-; 0.840 ; conv_paralelo_serial:conv|shift_register:shift|q[5] ; conv_paralelo_serial:conv|shift_register:shift|q[4] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.962      ;
-; 0.842 ; entrada:ent|cont[0]                                 ; entrada:ent|cont[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.964      ;
-; 0.854 ; entrada:ent|load_out_ent[6]                         ; conv_paralelo_serial:conv|shift_register:shift|q[7] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.976      ;
-; 0.861 ; entrada:ent|load_out_ent[4]                         ; conv_paralelo_serial:conv|shift_register:shift|q[5] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.983      ;
-; 0.863 ; entrada:ent|load_out_ent[3]                         ; conv_paralelo_serial:conv|shift_register:shift|q[4] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.985      ;
-; 0.865 ; entrada:ent|load_out_ent[5]                         ; conv_paralelo_serial:conv|shift_register:shift|q[6] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 0.987      ;
-; 0.954 ; entrada:ent|load_out_ent[0]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.076      ;
-; 0.969 ; entrada:ent|cont[2]                                 ; entrada:ent|cont[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.091      ;
-; 0.971 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[1]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.093      ;
-; 0.971 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[5]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.093      ;
-; 0.976 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[4]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.098      ;
-; 0.978 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[3]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.100      ;
-; 0.981 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[0]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.103      ;
-; 0.983 ; entrada:ent|cont[0]                                 ; entrada:ent|cont[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.105      ;
-; 0.985 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[1]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.107      ;
-; 0.986 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[6]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.108      ;
-; 0.988 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[4]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.110      ;
-; 0.990 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[3]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.112      ;
-; 0.991 ; entrada:ent|cont[0]                                 ; entrada:ent|load_out_ent[0]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.113      ;
-; 1.002 ; entrada:ent|load_out_ent[1]                         ; conv_paralelo_serial:conv|shift_register:shift|q[2] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.124      ;
-; 1.008 ; entrada:ent|cont[2]                                 ; entrada:ent|load_out_ent[6]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.130      ;
-; 1.010 ; entrada:ent|cont[2]                                 ; conv_paralelo_serial:conv|shift_register:shift|q[3] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.132      ;
-; 1.073 ; entrada:ent|load_out_ent[1]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.195      ;
-; 1.077 ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; conv_paralelo_serial:conv|shift_register:shift|q[7] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.199      ;
-; 1.084 ; entrada:ent|load_out_ent[0]                         ; conv_paralelo_serial:conv|shift_register:shift|q[1] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.206      ;
-; 1.113 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[0]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.235      ;
-; 1.120 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[3]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.242      ;
-; 1.124 ; entrada:ent|cont[0]                                 ; entrada:ent|cont[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.246      ;
-; 1.124 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[4]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.246      ;
-; 1.127 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[1]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.249      ;
-; 1.127 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[5]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.249      ;
-; 1.128 ; entrada:ent|cont[1]                                 ; entrada:ent|cont[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.250      ;
-; 1.197 ; entrada:ent|cont[1]                                 ; entrada:ent|load_out_ent[6]                         ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.319      ;
-; 1.231 ; entrada:ent|cont[2]                                 ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.353      ;
-; 1.243 ; entrada:ent|load_out_ent[5]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.365      ;
-; 1.401 ; entrada:ent|load_out_ent[6]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.523      ;
-; 1.522 ; entrada:ent|load_out_ent[3]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.644      ;
-; 1.618 ; entrada:ent|load_out_ent[4]                         ; conv_paralelo_serial:conv|shift_register:shift|q[8] ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.110      ; 1.740      ;
-+-------+-----------------------------------------------------+-----------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'sel_baudrate_tx[0]'                                                                                                                                                                             ;
++-------+------------------------------------------------------+------------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
+; Slack ; From Node                                            ; To Node                                              ; Launch Clock       ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------------+------------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
+; 0.363 ; conv_paralelo_serial:conv|shift_register:shift|flag  ; conv_paralelo_serial:conv|shift_register:shift|pulso ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 0.807      ;
+; 0.368 ; conv_paralelo_serial:conv|shift_register:shift|q[4]  ; conv_paralelo_serial:conv|shift_register:shift|q[3]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 0.812      ;
+; 0.379 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 0.823      ;
+; 0.379 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont2[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 0.823      ;
+; 0.520 ; conv_paralelo_serial:conv|shift_register:shift|q[2]  ; conv_paralelo_serial:conv|shift_register:shift|q[1]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 0.964      ;
+; 0.530 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[0]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 0.974      ;
+; 0.536 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont2[3]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 0.980      ;
+; 0.539 ; entrada:ent|cont[1]                                  ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 0.983      ;
+; 0.541 ; entrada:ent|cont[1]                                  ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 0.985      ;
+; 0.585 ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.029      ;
+; 0.586 ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ; conv_paralelo_serial:conv|shift_register:shift|q[4]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.030      ;
+; 0.587 ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.031      ;
+; 0.588 ; entrada:ent|load_out_ent[0]                          ; conv_paralelo_serial:conv|shift_register:shift|q[1]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.032      ;
+; 0.590 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont2[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.034      ;
+; 0.708 ; conv_paralelo_serial:conv|shift_register:shift|q[3]  ; conv_paralelo_serial:conv|shift_register:shift|q[2]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.152      ;
+; 0.710 ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.154      ;
+; 0.718 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|pulso ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.162      ;
+; 0.722 ; entrada:ent|load_out_ent[1]                          ; conv_paralelo_serial:conv|shift_register:shift|q[2]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.166      ;
+; 0.722 ; entrada:ent|load_out_ent[6]                          ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.166      ;
+; 0.728 ; entrada:ent|cont[1]                                  ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.172      ;
+; 0.816 ; entrada:ent|cont[3]                                  ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.260      ;
+; 0.870 ; entrada:ent|load_out_ent[5]                          ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.314      ;
+; 0.891 ; entrada:ent|cont[3]                                  ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.335      ;
+; 0.891 ; entrada:ent|cont[3]                                  ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.335      ;
+; 0.895 ; entrada:ent|cont[3]                                  ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.339      ;
+; 0.896 ; entrada:ent|cont[3]                                  ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.340      ;
+; 0.915 ; entrada:ent|load_out_ent[2]                          ; conv_paralelo_serial:conv|shift_register:shift|q[3]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.359      ;
+; 0.920 ; conv_paralelo_serial:conv|shift_register:shift|q[1]  ; conv_paralelo_serial:conv|shift_register:shift|q[0]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.364      ;
+; 0.924 ; entrada:ent|load_out_ent[3]                          ; conv_paralelo_serial:conv|shift_register:shift|q[4]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.368      ;
+; 0.925 ; entrada:ent|load_out_ent[4]                          ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.369      ;
+; 0.963 ; entrada:ent|cont[0]                                  ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.407      ;
+; 0.966 ; entrada:ent|cont[0]                                  ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.410      ;
+; 0.968 ; entrada:ent|cont[0]                                  ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.412      ;
+; 0.969 ; entrada:ent|cont[0]                                  ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.413      ;
+; 1.000 ; entrada:ent|load_out_ent[0]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.444      ;
+; 1.099 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[2]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.543      ;
+; 1.100 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[4]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.544      ;
+; 1.101 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.545      ;
+; 1.102 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.546      ;
+; 1.103 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.547      ;
+; 1.135 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[2]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.579      ;
+; 1.138 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[5]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.582      ;
+; 1.139 ; entrada:ent|load_out_ent[1]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.583      ;
+; 1.140 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[0]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.584      ;
+; 1.143 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[4]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.587      ;
+; 1.145 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[1]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.589      ;
+; 1.146 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[3]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.590      ;
+; 1.146 ; entrada:ent|cont[1]                                  ; entrada:ent|load_out_ent[6]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.590      ;
+; 1.151 ; entrada:ent|load_out_ent[3]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.595      ;
+; 1.156 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont2[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.600      ;
+; 1.158 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.602      ;
+; 1.159 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.603      ;
+; 1.176 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont2[3]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.620      ;
+; 1.212 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.656      ;
+; 1.218 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[2]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.662      ;
+; 1.221 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[5]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.665      ;
+; 1.222 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[4]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.666      ;
+; 1.224 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[0]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.668      ;
+; 1.224 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[1]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.668      ;
+; 1.224 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[6]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.668      ;
+; 1.225 ; entrada:ent|cont[2]                                  ; entrada:ent|load_out_ent[3]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.669      ;
+; 1.227 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont2[3]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.671      ;
+; 1.231 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont2[3]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.675      ;
+; 1.254 ; entrada:ent|cont[2]                                  ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.698      ;
+; 1.255 ; entrada:ent|cont[2]                                  ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.699      ;
+; 1.283 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.727      ;
+; 1.292 ; entrada:ent|load_out_ent[6]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.736      ;
+; 1.315 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[2]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.759      ;
+; 1.318 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[1]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.762      ;
+; 1.321 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[3]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.765      ;
+; 1.322 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[0]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.766      ;
+; 1.324 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[4]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.768      ;
+; 1.324 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.768      ;
+; 1.325 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[1]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.769      ;
+; 1.326 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[3]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.770      ;
+; 1.327 ; entrada:ent|cont[0]                                  ; entrada:ent|load_out_ent[6]                          ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.771      ;
+; 1.363 ; entrada:ent|load_out_ent[2]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.807      ;
+; 1.367 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.811      ;
+; 1.368 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont2[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.812      ;
+; 1.446 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.890      ;
+; 1.452 ; entrada:ent|load_out_ent[5]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.896      ;
+; 1.514 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont2[0]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.958      ;
+; 1.515 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont2[1]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.959      ;
+; 1.523 ; entrada:ent|load_out_ent[4]                          ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 1.967      ;
+; 1.587 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.031      ;
+; 1.595 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont2[3]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.039      ;
+; 1.604 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.048      ;
+; 1.604 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.048      ;
+; 1.604 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.048      ;
+; 1.604 ; entrada:ent|cont2[0]                                 ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.048      ;
+; 1.644 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.088      ;
+; 1.644 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.088      ;
+; 1.644 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.088      ;
+; 1.644 ; entrada:ent|cont2[1]                                 ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.088      ;
+; 1.651 ; entrada:ent|cont2[2]                                 ; entrada:ent|cont2[2]                                 ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.095      ;
+; 1.674 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.118      ;
+; 1.674 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont[2]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.118      ;
+; 1.674 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont[3]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.118      ;
+; 1.674 ; conv_paralelo_serial:conv|shift_register:shift|pulso ; entrada:ent|cont[1]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.118      ;
+; 1.728 ; entrada:ent|cont2[3]                                 ; entrada:ent|cont[0]                                  ; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 0.000        ; 0.432      ; 2.172      ;
++-------+------------------------------------------------------+------------------------------------------------------+--------------------+--------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'sel_baudrate_tx[0]'                                                                                                          ;
++--------+--------------+----------------+------------------+--------------------+------------+------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock              ; Clock Edge ; Target                                               ;
++--------+--------------+----------------+------------------+--------------------+------------+------------------------------------------------------+
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|flag  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|flag  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|pulso ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|pulso ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[0]  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[0]  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[1]  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[1]  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[2]  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[2]  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[3]  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[3]  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[4]  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[4]  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[5]  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[6]  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[7]  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[8]  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont2[0]                                 ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont2[0]                                 ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont2[1]                                 ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont2[1]                                 ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont2[2]                                 ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont2[2]                                 ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont2[3]                                 ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont2[3]                                 ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[0]                                  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[0]                                  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[1]                                  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[1]                                  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[2]                                  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[2]                                  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[3]                                  ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[3]                                  ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[0]                          ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[0]                          ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[1]                          ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[1]                          ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[2]                          ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[2]                          ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[3]                          ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[3]                          ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[4]                          ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[4]                          ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[5]                          ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[5]                          ;
+; -1.166 ; 0.068        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[6]                          ;
+; -1.166 ; 0.068        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[6]                          ;
+; -1.155 ; 1.000        ; 2.155          ; Port Rate        ; sel_baudrate_tx[0] ; Rise       ; sel_baudrate_tx[0]                                   ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|flag|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|flag|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|pulso|clk                                 ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|pulso|clk                                 ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[0]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[0]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[1]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[1]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[2]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[2]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[3]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[3]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[4]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[4]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[5]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[5]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[6]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[6]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[7]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[7]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[8]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[8]|clk                                  ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont2[0]|clk                                     ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont2[0]|clk                                     ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont2[1]|clk                                     ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont2[1]|clk                                     ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont2[2]|clk                                     ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont2[2]|clk                                     ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont2[3]|clk                                     ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont2[3]|clk                                     ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont[0]|clk                                      ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont[0]|clk                                      ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont[1]|clk                                      ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont[1]|clk                                      ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont[2]|clk                                      ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont[2]|clk                                      ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont[3]|clk                                      ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont[3]|clk                                      ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[0]|clk                              ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[0]|clk                              ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[1]|clk                              ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[1]|clk                              ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[2]|clk                              ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[2]|clk                              ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[3]|clk                              ;
+; 0.068  ; 0.068        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[3]|clk                              ;
+; 0.068  ; 0.068        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[4]|clk                              ;
++--------+--------------+----------------+------------------+--------------------+------------+------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -579,115 +798,18 @@ No paths to report.
 +--------+--------------+----------------+------------------+--------+------------+-------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Minimum Pulse Width: 'sel_baudrate_tx[0]'                                                                                                         ;
-+--------+--------------+----------------+------------------+--------------------+------------+-----------------------------------------------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock              ; Clock Edge ; Target                                              ;
-+--------+--------------+----------------+------------------+--------------------+------------+-----------------------------------------------------+
-; -1.155 ; 1.000        ; 2.155          ; Port Rate        ; sel_baudrate_tx[0] ; Rise       ; sel_baudrate_tx[0]                                  ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[0] ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[0] ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[1] ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[1] ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[2] ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[2] ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[3] ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[3] ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[4] ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[4] ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[5] ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[5] ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[6] ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[6] ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[7] ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[7] ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[8] ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv_paralelo_serial:conv|shift_register:shift|q[8] ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[0]                                 ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[0]                                 ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[1]                                 ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[1]                                 ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[2]                                 ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|cont[2]                                 ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[0]                         ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[0]                         ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[1]                         ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[1]                         ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[3]                         ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[3]                         ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[4]                         ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[4]                         ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[5]                         ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[5]                         ;
-; -0.844 ; 0.390        ; 1.234          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[6]                         ;
-; -0.844 ; 0.390        ; 1.234          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; entrada:ent|load_out_ent[6]                         ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[0]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[0]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[1]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[1]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[2]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[2]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[3]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[3]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[4]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[4]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[5]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[5]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[6]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[6]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[7]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[7]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[8]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; conv|shift|q[8]|clk                                 ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont[0]|clk                                     ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont[0]|clk                                     ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont[1]|clk                                     ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont[1]|clk                                     ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|cont[2]|clk                                     ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|cont[2]|clk                                     ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[0]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[0]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[1]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[1]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[3]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[3]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[4]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[4]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[5]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[5]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[6]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; ent|load_out_ent[6]|clk                             ;
-; 0.390  ; 0.390        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0|combout                                    ;
-; 0.390  ; 0.390        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0|combout                                    ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0|datac                                      ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0|datac                                      ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0|datad                                      ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0|datad                                      ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0~0|combout                                  ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0~0|combout                                  ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0~0|datab                                    ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0~0|datab                                    ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0~1|combout                                  ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0~1|combout                                  ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0~1|datac                                    ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; gdb|Mux0~1|datac                                    ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; sel_baudrate_tx[0] ; Rise       ; sel_baudrate_tx[0]|combout                          ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; sel_baudrate_tx[0] ; Rise       ; sel_baudrate_tx[0]|combout                          ;
-+--------+--------------+----------------+------------------+--------------------+------------+-----------------------------------------------------+
-
-
 +----------------------------------------------------------------------------------------------+
 ; Setup Times                                                                                  ;
 +---------------------+--------------------+--------+--------+------------+--------------------+
 ; Data Port           ; Clock Port         ; Rise   ; Fall   ; Clock Edge ; Clock Reference    ;
 +---------------------+--------------------+--------+--------+------------+--------------------+
-; rst_tx              ; clk_tx             ; 2.183  ; 2.183  ; Rise       ; clk_tx             ;
-; sel_baudrate_tx[*]  ; clk_tx             ; 3.193  ; 3.193  ; Rise       ; clk_tx             ;
-;  sel_baudrate_tx[0] ; clk_tx             ; 0.117  ; 0.117  ; Rise       ; clk_tx             ;
-;  sel_baudrate_tx[1] ; clk_tx             ; 3.193  ; 3.193  ; Rise       ; clk_tx             ;
-; enable_tx           ; sel_baudrate_tx[0] ; -0.173 ; -0.173 ; Rise       ; sel_baudrate_tx[0] ;
-; load_tx             ; sel_baudrate_tx[0] ; -0.054 ; -0.054 ; Rise       ; sel_baudrate_tx[0] ;
-; sel_paridade_tx     ; sel_baudrate_tx[0] ; -1.260 ; -1.260 ; Rise       ; sel_baudrate_tx[0] ;
+; rst_tx              ; clk_tx             ; 2.226  ; 2.226  ; Rise       ; clk_tx             ;
+; sel_baudrate_tx[*]  ; clk_tx             ; 3.856  ; 3.856  ; Rise       ; clk_tx             ;
+;  sel_baudrate_tx[0] ; clk_tx             ; 0.286  ; 0.286  ; Rise       ; clk_tx             ;
+;  sel_baudrate_tx[1] ; clk_tx             ; 3.856  ; 3.856  ; Rise       ; clk_tx             ;
+; enable_tx           ; sel_baudrate_tx[0] ; 0.220  ; 0.220  ; Rise       ; sel_baudrate_tx[0] ;
+; load_tx             ; sel_baudrate_tx[0] ; -1.192 ; -1.192 ; Rise       ; sel_baudrate_tx[0] ;
+; sel_paridade_tx     ; sel_baudrate_tx[0] ; -0.958 ; -0.958 ; Rise       ; sel_baudrate_tx[0] ;
 +---------------------+--------------------+--------+--------+------------+--------------------+
 
 
@@ -696,46 +818,46 @@ No paths to report.
 +---------------------+--------------------+--------+--------+------------+--------------------+
 ; Data Port           ; Clock Port         ; Rise   ; Fall   ; Clock Edge ; Clock Reference    ;
 +---------------------+--------------------+--------+--------+------------+--------------------+
-; rst_tx              ; clk_tx             ; -0.116 ; -0.116 ; Rise       ; clk_tx             ;
-; sel_baudrate_tx[*]  ; clk_tx             ; -0.044 ; -0.044 ; Rise       ; clk_tx             ;
-;  sel_baudrate_tx[0] ; clk_tx             ; -0.044 ; -0.044 ; Rise       ; clk_tx             ;
-;  sel_baudrate_tx[1] ; clk_tx             ; -3.150 ; -3.150 ; Rise       ; clk_tx             ;
-; enable_tx           ; sel_baudrate_tx[0] ; 0.701  ; 0.701  ; Rise       ; sel_baudrate_tx[0] ;
-; load_tx             ; sel_baudrate_tx[0] ; 1.741  ; 1.741  ; Rise       ; sel_baudrate_tx[0] ;
-; sel_paridade_tx     ; sel_baudrate_tx[0] ; 1.411  ; 1.411  ; Rise       ; sel_baudrate_tx[0] ;
+; rst_tx              ; clk_tx             ; -0.121 ; -0.121 ; Rise       ; clk_tx             ;
+; sel_baudrate_tx[*]  ; clk_tx             ; -0.208 ; -0.208 ; Rise       ; clk_tx             ;
+;  sel_baudrate_tx[0] ; clk_tx             ; -0.208 ; -0.208 ; Rise       ; clk_tx             ;
+;  sel_baudrate_tx[1] ; clk_tx             ; -3.813 ; -3.813 ; Rise       ; clk_tx             ;
+; enable_tx           ; sel_baudrate_tx[0] ; 1.346  ; 1.346  ; Rise       ; sel_baudrate_tx[0] ;
+; load_tx             ; sel_baudrate_tx[0] ; 1.943  ; 1.943  ; Rise       ; sel_baudrate_tx[0] ;
+; sel_paridade_tx     ; sel_baudrate_tx[0] ; 1.431  ; 1.431  ; Rise       ; sel_baudrate_tx[0] ;
 +---------------------+--------------------+--------+--------+------------+--------------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Clock to Output Times                                                                   ;
-+------------------+--------------------+-------+-------+------------+--------------------+
-; Data Port        ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
-+------------------+--------------------+-------+-------+------------+--------------------+
-; baudrate_tx      ; clk_tx             ; 7.961 ; 7.961 ; Rise       ; clk_tx             ;
-; led_baudrate_tx1 ; clk_tx             ; 5.443 ; 5.443 ; Rise       ; clk_tx             ;
-; led_baudrate_tx2 ; clk_tx             ; 5.150 ; 5.150 ; Rise       ; clk_tx             ;
-; led_baudrate_tx3 ; clk_tx             ; 5.154 ; 5.154 ; Rise       ; clk_tx             ;
-; led_baudrate_tx4 ; clk_tx             ; 5.153 ; 5.153 ; Rise       ; clk_tx             ;
-; baudrate_tx      ; sel_baudrate_tx[0] ; 6.693 ; 6.693 ; Rise       ; sel_baudrate_tx[0] ;
-; out_tx           ; sel_baudrate_tx[0] ; 9.572 ; 9.572 ; Rise       ; sel_baudrate_tx[0] ;
-; baudrate_tx      ; sel_baudrate_tx[0] ; 6.693 ; 6.693 ; Fall       ; sel_baudrate_tx[0] ;
-+------------------+--------------------+-------+-------+------------+--------------------+
++-------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                     ;
++------------------+--------------------+--------+--------+------------+--------------------+
+; Data Port        ; Clock Port         ; Rise   ; Fall   ; Clock Edge ; Clock Reference    ;
++------------------+--------------------+--------+--------+------------+--------------------+
+; baudrate_tx      ; clk_tx             ; 8.792  ; 8.792  ; Rise       ; clk_tx             ;
+; led_baudrate_tx1 ; clk_tx             ; 5.144  ; 5.144  ; Rise       ; clk_tx             ;
+; led_baudrate_tx2 ; clk_tx             ; 4.894  ; 4.894  ; Rise       ; clk_tx             ;
+; led_baudrate_tx3 ; clk_tx             ; 4.899  ; 4.899  ; Rise       ; clk_tx             ;
+; led_baudrate_tx4 ; clk_tx             ; 4.896  ; 4.896  ; Rise       ; clk_tx             ;
+; baudrate_tx      ; sel_baudrate_tx[0] ; 7.196  ; 7.196  ; Rise       ; sel_baudrate_tx[0] ;
+; out_tx           ; sel_baudrate_tx[0] ; 10.526 ; 10.526 ; Rise       ; sel_baudrate_tx[0] ;
+; baudrate_tx      ; sel_baudrate_tx[0] ; 7.196  ; 7.196  ; Fall       ; sel_baudrate_tx[0] ;
++------------------+--------------------+--------+--------+------------+--------------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Minimum Clock to Output Times                                                           ;
-+------------------+--------------------+-------+-------+------------+--------------------+
-; Data Port        ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
-+------------------+--------------------+-------+-------+------------+--------------------+
-; baudrate_tx      ; clk_tx             ; 7.441 ; 7.441 ; Rise       ; clk_tx             ;
-; led_baudrate_tx1 ; clk_tx             ; 5.443 ; 5.443 ; Rise       ; clk_tx             ;
-; led_baudrate_tx2 ; clk_tx             ; 5.150 ; 5.150 ; Rise       ; clk_tx             ;
-; led_baudrate_tx3 ; clk_tx             ; 5.154 ; 5.154 ; Rise       ; clk_tx             ;
-; led_baudrate_tx4 ; clk_tx             ; 5.153 ; 5.153 ; Rise       ; clk_tx             ;
-; baudrate_tx      ; sel_baudrate_tx[0] ; 6.583 ; 6.583 ; Rise       ; sel_baudrate_tx[0] ;
-; out_tx           ; sel_baudrate_tx[0] ; 9.462 ; 9.462 ; Rise       ; sel_baudrate_tx[0] ;
-; baudrate_tx      ; sel_baudrate_tx[0] ; 6.583 ; 6.583 ; Fall       ; sel_baudrate_tx[0] ;
-+------------------+--------------------+-------+-------+------------+--------------------+
++-------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                             ;
++------------------+--------------------+--------+--------+------------+--------------------+
+; Data Port        ; Clock Port         ; Rise   ; Fall   ; Clock Edge ; Clock Reference    ;
++------------------+--------------------+--------+--------+------------+--------------------+
+; baudrate_tx      ; clk_tx             ; 7.293  ; 7.293  ; Rise       ; clk_tx             ;
+; led_baudrate_tx1 ; clk_tx             ; 5.144  ; 5.144  ; Rise       ; clk_tx             ;
+; led_baudrate_tx2 ; clk_tx             ; 4.894  ; 4.894  ; Rise       ; clk_tx             ;
+; led_baudrate_tx3 ; clk_tx             ; 4.899  ; 4.899  ; Rise       ; clk_tx             ;
+; led_baudrate_tx4 ; clk_tx             ; 4.896  ; 4.896  ; Rise       ; clk_tx             ;
+; baudrate_tx      ; sel_baudrate_tx[0] ; 6.764  ; 6.764  ; Rise       ; sel_baudrate_tx[0] ;
+; out_tx           ; sel_baudrate_tx[0] ; 10.094 ; 10.094 ; Rise       ; sel_baudrate_tx[0] ;
+; baudrate_tx      ; sel_baudrate_tx[0] ; 6.764  ; 6.764  ; Fall       ; sel_baudrate_tx[0] ;
++------------------+--------------------+--------+--------+------------+--------------------+
 
 
 +------------------------------------------------------------+
@@ -743,7 +865,7 @@ No paths to report.
 +--------------------+-------------+-------+----+----+-------+
 ; Input Port         ; Output Port ; RR    ; RF ; FR ; FF    ;
 +--------------------+-------------+-------+----+----+-------+
-; sel_baudrate_tx[1] ; baudrate_tx ; 8.847 ;    ;    ; 8.847 ;
+; sel_baudrate_tx[1] ; baudrate_tx ; 9.034 ;    ;    ; 9.034 ;
 +--------------------+-------------+-------+----+----+-------+
 
 
@@ -752,7 +874,7 @@ No paths to report.
 +--------------------+-------------+-------+----+----+-------+
 ; Input Port         ; Output Port ; RR    ; RF ; FR ; FF    ;
 +--------------------+-------------+-------+----+----+-------+
-; sel_baudrate_tx[1] ; baudrate_tx ; 8.847 ;    ;    ; 8.847 ;
+; sel_baudrate_tx[1] ; baudrate_tx ; 9.034 ;    ;    ; 9.034 ;
 +--------------------+-------------+-------+----+----+-------+
 
 
@@ -763,7 +885,7 @@ No paths to report.
 +--------------------+--------------------+----------+----------+----------+----------+
 ; clk_tx             ; clk_tx             ; 4224     ; 0        ; 0        ; 0        ;
 ; sel_baudrate_tx[0] ; clk_tx             ; 4        ; 4        ; 0        ; 0        ;
-; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 45       ; 0        ; 0        ; 0        ;
+; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 115      ; 0        ; 0        ; 0        ;
 +--------------------+--------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -775,7 +897,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +--------------------+--------------------+----------+----------+----------+----------+
 ; clk_tx             ; clk_tx             ; 4224     ; 0        ; 0        ; 0        ;
 ; sel_baudrate_tx[0] ; clk_tx             ; 4        ; 4        ; 0        ; 0        ;
-; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 45       ; 0        ; 0        ; 0        ;
+; sel_baudrate_tx[0] ; sel_baudrate_tx[0] ; 115      ; 0        ; 0        ; 0        ;
 +--------------------+--------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -800,7 +922,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 6     ; 6    ;
-; Unconstrained Input Port Paths  ; 137   ; 137  ;
+; Unconstrained Input Port Paths  ; 127   ; 127  ;
 ; Unconstrained Output Ports      ; 6     ; 6    ;
 ; Unconstrained Output Port Paths ; 11    ; 11   ;
 +---------------------------------+-------+------+
@@ -812,10 +934,10 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri Jul  5 12:15:29 2019
+    Info: Processing started: Fri Jul  5 13:59:48 2019
 Info: Command: quartus_sta tx_serial -c tx_serial
 Info: qsta_default_script.tcl version: #1
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'tx_serial.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
@@ -823,30 +945,30 @@ Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name sel_baudrate_tx[0] sel_baudrate_tx[0]
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.600
+Info (332146): Worst-case setup slack is -3.697
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -3.600      -304.678 clk_tx 
-    Info (332119):    -0.879        -5.719 sel_baudrate_tx[0] 
-Info (332146): Worst-case hold slack is 0.044
+    Info (332119):    -3.697      -309.809 clk_tx 
+    Info (332119):    -1.780       -31.865 sel_baudrate_tx[0] 
+Info (332146): Worst-case hold slack is 0.208
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):     0.044         0.000 clk_tx 
-    Info (332119):     0.690         0.000 sel_baudrate_tx[0] 
+    Info (332119):     0.208         0.000 clk_tx 
+    Info (332119):     0.363         0.000 sel_baudrate_tx[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -1.155
+Info (332146): Worst-case minimum pulse width slack is -1.166
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
+    Info (332119):    -1.166       -61.787 sel_baudrate_tx[0] 
     Info (332119):    -1.155      -145.019 clk_tx 
-    Info (332119):    -1.155       -31.539 sel_baudrate_tx[0] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 296 megabytes
-    Info: Processing ended: Fri Jul  5 12:15:31 2019
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 310 megabytes
+    Info: Processing ended: Fri Jul  5 13:59:49 2019
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

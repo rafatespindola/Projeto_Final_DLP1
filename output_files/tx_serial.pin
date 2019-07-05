@@ -64,17 +64,17 @@ CHIP  "tx_serial"  ASSIGNED TO AN: EP1C3T144C6
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
-out_tx                       : 1         : output : 3.3-V LVTTL       :         : 1         : N              
-load_tx                      : 2         : input  : 3.3-V LVTTL       :         : 1         : N              
-ssd7_tx[4]                   : 3         : output : 3.3-V LVTTL       :         : 1         : N              
-GND*                         : 4         :        :                   :         : 1         :                
-ssd7_tx[6]                   : 5         : output : 3.3-V LVTTL       :         : 1         : N              
-led_baudrate_tx3             : 6         : output : 3.3-V LVTTL       :         : 1         : N              
-led_baudrate_tx4             : 7         : output : 3.3-V LVTTL       :         : 1         : N              
+ssd3_tx[6]                   : 1         : output : 3.3-V LVTTL       :         : 1         : N              
+ssd7_tx[1]                   : 2         : output : 3.3-V LVTTL       :         : 1         : N              
+ssd2_tx[2]                   : 3         : output : 3.3-V LVTTL       :         : 1         : N              
+ssd7_tx[3]                   : 4         : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : 5         :        :                   :         : 1         :                
+ssd8_tx[3]                   : 6         : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : 7         :        :                   :         : 1         :                
 VCCIO1                       : 8         : power  :                   : 3.3V    : 1         :                
 GND                          : 9         : gnd    :                   :         :           :                
-led_baudrate_tx2             : 10        : output : 3.3-V LVTTL       :         : 1         : N              
-sel_baudrate_tx[0]           : 11        : input  : 3.3-V LVTTL       :         : 1         : N              
+ssd8_tx[4]                   : 10        : output : 3.3-V LVTTL       :         : 1         : N              
+ssd2_tx[5]                   : 11        : output : 3.3-V LVTTL       :         : 1         : N              
 ~nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 12        : input  : 3.3-V LVTTL       :         : 1         : N              
 DATA0                        : 13        : input  :                   :         : 1         :                
 nCONFIG                      : 14        :        :                   :         : 1         :                
@@ -89,122 +89,122 @@ MSEL0                        : 22        :        :                   :         
 MSEL1                        : 23        :        :                   :         : 1         :                
 DCLK                         : 24        : bidir  :                   :         : 1         :                
 ~ASDO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 25        : input  : 3.3-V LVTTL       :         : 1         : N              
-sel_baudrate_tx[1]           : 26        : input  : 3.3-V LVTTL       :         : 1         : N              
-led_baudrate_tx1             : 27        : output : 3.3-V LVTTL       :         : 1         : N              
+ssd4_tx[6]                   : 26        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : 27        :        :                   :         : 1         :                
 GND*                         : 28        :        :                   :         : 1         :                
 VCCIO1                       : 29        : power  :                   : 3.3V    : 1         :                
 GND                          : 30        : gnd    :                   :         :           :                
-ssd3_tx[2]                   : 31        : output : 3.3-V LVTTL       :         : 1         : N              
-GND*                         : 32        :        :                   :         : 1         :                
-ssd5_tx[3]                   : 33        : output : 3.3-V LVTTL       :         : 1         : N              
-ssd2_tx[4]                   : 34        : output : 3.3-V LVTTL       :         : 1         : N              
-ssd6_tx[4]                   : 35        : output : 3.3-V LVTTL       :         : 1         : N              
-ssd5_tx[0]                   : 36        : output : 3.3-V LVTTL       :         : 1         : N              
-ssd4_tx[0]                   : 37        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd8_tx[2]                   : 38        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd7_tx[2]                   : 39        : output : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : 40        :        :                   :         : 4         :                
+ssd2_tx[4]                   : 31        : output : 3.3-V LVTTL       :         : 1         : N              
+ssd4_tx[0]                   : 32        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : 33        :        :                   :         : 1         :                
+GND*                         : 34        :        :                   :         : 1         :                
+ssd6_tx[2]                   : 35        : output : 3.3-V LVTTL       :         : 1         : N              
+ssd1_tx[3]                   : 36        : output : 3.3-V LVTTL       :         : 1         : N              
+ssd7_tx[2]                   : 37        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd5_tx[0]                   : 38        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd5_tx[4]                   : 39        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd2_tx[0]                   : 40        : output : 3.3-V LVTTL       :         : 4         : N              
 ssd2_tx[1]                   : 41        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd6_tx[5]                   : 42        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd8_tx[6]                   : 42        : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : 43        : gnd    :                   :         :           :                
 VCCIO4                       : 44        : power  :                   : 3.3V    : 4         :                
 GND                          : 45        : gnd    :                   :         :           :                
 VCCINT                       : 46        : power  :                   : 1.5V    :           :                
-ssd7_tx[3]                   : 47        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd8_tx[1]                   : 48        : output : 3.3-V LVTTL       :         : 4         : N              
-baudrate_tx                  : 49        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd6_tx[1]                   : 50        : output : 3.3-V LVTTL       :         : 4         : N              
+baudrate_tx                  : 47        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd6_tx[0]                   : 48        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd8_tx[0]                   : 49        : output : 3.3-V LVTTL       :         : 4         : N              
+sel_paridade_tx              : 50        : input  : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : 51        :        :                   :         : 4         :                
-GND*                         : 52        :        :                   :         : 4         :                
-ssd2_tx[2]                   : 53        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd4_tx[3]                   : 54        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd4_tx[1]                   : 55        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd4_tx[6]                   : 56        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd3_tx[6]                   : 57        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd4_tx[4]                   : 58        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd6_tx[0]                   : 59        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd1_tx[0]                   : 60        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd1_tx[3]                   : 61        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd6_tx[6]                   : 62        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd3_tx[1]                   : 52        : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : 53        :        :                   :         : 4         :                
+sel_baudrate_tx[1]           : 54        : input  : 3.3-V LVTTL       :         : 4         : N              
+sel_baudrate_tx[0]           : 55        : input  : 3.3-V LVTTL       :         : 4         : N              
+led_baudrate_tx2             : 56        : output : 3.3-V LVTTL       :         : 4         : N              
+led_baudrate_tx4             : 57        : output : 3.3-V LVTTL       :         : 4         : N              
+led_baudrate_tx3             : 58        : output : 3.3-V LVTTL       :         : 4         : N              
+led_baudrate_tx1             : 59        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd6_tx[5]                   : 60        : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : 61        :        :                   :         : 4         :                
+ssd2_tx[3]                   : 62        : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : 63        : gnd    :                   :         :           :                
 VCCINT                       : 64        : power  :                   : 1.5V    :           :                
 GND                          : 65        : gnd    :                   :         :           :                
 VCCIO4                       : 66        : power  :                   : 3.3V    : 4         :                
 GND*                         : 67        :        :                   :         : 4         :                
-ssd7_tx[1]                   : 68        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd1_tx[5]                   : 69        : output : 3.3-V LVTTL       :         : 4         : N              
-ssd2_tx[5]                   : 70        : output : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : 71        :        :                   :         : 4         :                
-GND*                         : 72        :        :                   :         : 4         :                
-ssd6_tx[2]                   : 73        : output : 3.3-V LVTTL       :         : 3         : N              
-ssd6_tx[3]                   : 74        : output : 3.3-V LVTTL       :         : 3         : N              
+ssd6_tx[3]                   : 68        : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : 69        :        :                   :         : 4         :                
+ssd2_tx[6]                   : 70        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd3_tx[5]                   : 71        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd6_tx[1]                   : 72        : output : 3.3-V LVTTL       :         : 4         : N              
+ssd4_tx[2]                   : 73        : output : 3.3-V LVTTL       :         : 3         : N              
+ssd6_tx[6]                   : 74        : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : 75        :        :                   :         : 3         :                
-ssd7_tx[0]                   : 76        : output : 3.3-V LVTTL       :         : 3         : N              
-ssd3_tx[0]                   : 77        : output : 3.3-V LVTTL       :         : 3         : N              
-ssd2_tx[0]                   : 78        : output : 3.3-V LVTTL       :         : 3         : N              
+ssd6_tx[4]                   : 76        : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : 77        :        :                   :         : 3         :                
+ssd4_tx[3]                   : 78        : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : 79        :        :                   :         : 3         :                
 GND                          : 80        : gnd    :                   :         :           :                
 VCCIO3                       : 81        : power  :                   : 3.3V    : 3         :                
-GND*                         : 82        :        :                   :         : 3         :                
-GND*                         : 83        :        :                   :         : 3         :                
-ssd2_tx[6]                   : 84        : output : 3.3-V LVTTL       :         : 3         : N              
-ssd8_tx[6]                   : 85        : output : 3.3-V LVTTL       :         : 3         : N              
+ssd3_tx[4]                   : 82        : output : 3.3-V LVTTL       :         : 3         : N              
+ssd4_tx[4]                   : 83        : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : 84        :        :                   :         : 3         :                
+ssd3_tx[2]                   : 85        : output : 3.3-V LVTTL       :         : 3         : N              
 CONF_DONE                    : 86        :        :                   :         : 3         :                
 nSTATUS                      : 87        :        :                   :         : 3         :                
 TCK                          : 88        : input  :                   :         : 3         :                
 TMS                          : 89        : input  :                   :         : 3         :                
 TDO                          : 90        : output :                   :         : 3         :                
-ssd3_tx[4]                   : 91        : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : 91        :        :                   :         : 3         :                
 GND+                         : 92        :        :                   :         : 3         :                
 GND+                         : 93        :        :                   :         : 3         :                
-GND*                         : 94        :        :                   :         : 3         :                
+ssd7_tx[0]                   : 94        : output : 3.3-V LVTTL       :         : 3         : N              
 TDI                          : 95        : input  :                   :         : 3         :                
-ssd8_tx[5]                   : 96        : output : 3.3-V LVTTL       :         : 3         : N              
-ssd1_tx[4]                   : 97        : output : 3.3-V LVTTL       :         : 3         : N              
-ssd3_tx[1]                   : 98        : output : 3.3-V LVTTL       :         : 3         : N              
-GND*                         : 99        :        :                   :         : 3         :                
-GND*                         : 100       :        :                   :         : 3         :                
+ssd7_tx[5]                   : 96        : output : 3.3-V LVTTL       :         : 3         : N              
+ssd1_tx[5]                   : 97        : output : 3.3-V LVTTL       :         : 3         : N              
+ssd1_tx[2]                   : 98        : output : 3.3-V LVTTL       :         : 3         : N              
+ssd5_tx[5]                   : 99        : output : 3.3-V LVTTL       :         : 3         : N              
+ssd7_tx[6]                   : 100       : output : 3.3-V LVTTL       :         : 3         : N              
 GND                          : 101       : gnd    :                   :         :           :                
 VCCIO3                       : 102       : power  :                   : 3.3V    : 3         :                
 GND*                         : 103       :        :                   :         : 3         :                
-ssd5_tx[4]                   : 104       : output : 3.3-V LVTTL       :         : 3         : N              
-ssd2_tx[3]                   : 105       : output : 3.3-V LVTTL       :         : 3         : N              
-GND*                         : 106       :        :                   :         : 3         :                
+ssd5_tx[6]                   : 104       : output : 3.3-V LVTTL       :         : 3         : N              
+ssd1_tx[0]                   : 105       : output : 3.3-V LVTTL       :         : 3         : N              
+ssd1_tx[6]                   : 106       : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : 107       :        :                   :         : 3         :                
-GND*                         : 108       :        :                   :         : 3         :                
+ssd7_tx[4]                   : 108       : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : 109       :        :                   :         : 2         :                
-ssd4_tx[5]                   : 110       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd1_tx[2]                   : 111       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd5_tx[5]                   : 112       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd1_tx[1]                   : 113       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd4_tx[2]                   : 114       : output : 3.3-V LVTTL       :         : 2         : N              
+ssd3_tx[0]                   : 110       : output : 3.3-V LVTTL       :         : 2         : N              
+ssd8_tx[1]                   : 111       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : 112       :        :                   :         : 2         :                
+GND*                         : 113       :        :                   :         : 2         :                
+ssd5_tx[1]                   : 114       : output : 3.3-V LVTTL       :         : 2         : N              
 VCCIO2                       : 115       : power  :                   : 3.3V    : 2         :                
 GND                          : 116       : gnd    :                   :         :           :                
 VCCINT                       : 117       : power  :                   : 1.5V    :           :                
 GND                          : 118       : gnd    :                   :         :           :                
-GND*                         : 119       :        :                   :         : 2         :                
-ssd3_tx[5]                   : 120       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd8_tx[4]                   : 121       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd8_tx[3]                   : 122       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd3_tx[3]                   : 123       : output : 3.3-V LVTTL       :         : 2         : N              
-GND*                         : 124       :        :                   :         : 2         :                
-GND*                         : 125       :        :                   :         : 2         :                
+ssd8_tx[5]                   : 119       : output : 3.3-V LVTTL       :         : 2         : N              
+ssd1_tx[4]                   : 120       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : 121       :        :                   :         : 2         :                
+ssd5_tx[2]                   : 122       : output : 3.3-V LVTTL       :         : 2         : N              
+ssd4_tx[5]                   : 123       : output : 3.3-V LVTTL       :         : 2         : N              
+ssd4_tx[1]                   : 124       : output : 3.3-V LVTTL       :         : 2         : N              
+ssd3_tx[3]                   : 125       : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : 126       :        :                   :         : 2         :                
-ssd5_tx[1]                   : 127       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd8_tx[0]                   : 128       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd7_tx[5]                   : 129       : output : 3.3-V LVTTL       :         : 2         : N              
-ssd5_tx[2]                   : 130       : output : 3.3-V LVTTL       :         : 2         : N              
-GND*                         : 131       :        :                   :         : 2         :                
+load_tx                      : 127       : input  : 3.3-V LVTTL       :         : 2         : N              
+enable_tx                    : 128       : input  : 3.3-V LVTTL       :         : 2         : N              
+ssd1_tx[1]                   : 129       : output : 3.3-V LVTTL       :         : 2         : N              
+out_tx                       : 130       : output : 3.3-V LVTTL       :         : 2         : N              
+ssd8_tx[2]                   : 131       : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : 132       :        :                   :         : 2         :                
 GND*                         : 133       :        :                   :         : 2         :                
-ssd1_tx[6]                   : 134       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : 134       :        :                   :         : 2         :                
 VCCINT                       : 135       : power  :                   : 1.5V    :           :                
 GND                          : 136       : gnd    :                   :         :           :                
 VCCIO2                       : 137       : power  :                   : 3.3V    : 2         :                
 GND                          : 138       : gnd    :                   :         :           :                
-GND*                         : 139       :        :                   :         : 2         :                
+ssd5_tx[3]                   : 139       : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : 140       :        :                   :         : 2         :                
-ssd5_tx[6]                   : 141       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : 141       :        :                   :         : 2         :                
 GND*                         : 142       :        :                   :         : 2         :                
-sel_paridade_tx              : 143       : input  : 3.3-V LVTTL       :         : 2         : N              
-enable_tx                    : 144       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : 143       :        :                   :         : 2         :                
+GND*                         : 144       :        :                   :         : 2         :                

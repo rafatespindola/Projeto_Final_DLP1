@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 d/home/aluno/Projeto_Final_DLP1/simulation/modelsim
 Econv_paralelo_serial
-Z1 w1562335449
+Z1 w1562343294
 Z2 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
 Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z4 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
@@ -16,7 +16,7 @@ L5
 VJnHCniICzFe]X7lfBIfbK0
 Z8 OV;C;10.1d;51
 31
-Z9 !s108 1562339766.038384
+Z9 !s108 1562346008.888629
 Z10 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/conv_paralelo_serial.vhd|
 Z11 !s107 /home/aluno/Projeto_Final_DLP1/conv_paralelo_serial.vhd|
 Z12 o-93 -work work -O0
@@ -38,10 +38,10 @@ R10
 R11
 R12
 R13
-!s100 S968[gN:JRAa`nc@WEG843
+!s100 gdl=3hbkOUf^eA[ge<=fK0
 !i10b 1
 Eentrada
-Z14 w1562339709
+Z14 w1562345978
 R2
 R3
 R4
@@ -53,7 +53,7 @@ L5
 V_fl6bnKdR8Hj2TLQnB:T51
 R8
 31
-Z17 !s108 1562339766.000681
+Z17 !s108 1562346008.852677
 Z18 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/entrada.vhd|
 Z19 !s107 /home/aluno/Projeto_Final_DLP1/entrada.vhd|
 R12
@@ -65,9 +65,9 @@ R2
 R3
 R4
 DEx4 work 7 entrada 0 22 _fl6bnKdR8Hj2TLQnB:T51
-l31
+l32
 L28
-V>7GO4zB>Jc^aXeiOc;F770
+VzR1Pb7UAiO?nD00WMKW601
 R8
 31
 R17
@@ -75,24 +75,24 @@ R18
 R19
 R12
 R13
-!s100 e6E_FiSLN8<eEi<bl`E3I1
+!s100 o;eFICkS1nNg^<gQhR0<52
 !i10b 1
 Egera_baudrate
-Z20 w1562335448
+R1
 R2
 R3
 R4
 R5
-Z21 8/home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd
-Z22 F/home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd
+Z20 8/home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd
+Z21 F/home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd
 l0
 L5
 VlZJVV`D^R1_9>l3D`c`U93
 R8
 31
-Z23 !s108 1562339765.963212
-Z24 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd|
-Z25 !s107 /home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd|
+Z22 !s108 1562346008.809719
+Z23 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd|
+Z24 !s107 /home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd|
 R12
 R13
 !s100 g0MCD[UTho9Am76H0PVSi1
@@ -107,29 +107,29 @@ L22
 VTTa@@VNce[`I_hTDPmFCi0
 R8
 31
+R22
 R23
 R24
-R25
 R12
 R13
 !s100 @=G8jjVa097VG<]gC^lA42
 !i10b 1
 Egerador_paridade
-R20
+R1
 R2
 R3
 R4
 R5
-Z26 8/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd
-Z27 F/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd
+Z25 8/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd
+Z26 F/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd
 l0
 L5
 VVAO@U_Oc4E5>3Pmd0i[QC2
 R8
 31
-Z28 !s108 1562339766.112167
-Z29 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd|
-Z30 !s107 /home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd|
+Z27 !s108 1562346008.974476
+Z28 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd|
+Z29 !s107 /home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd|
 R12
 R13
 !s100 LlHY9hazgo_HOkZ:hC2AN3
@@ -145,19 +145,19 @@ VmZFeFlj6S?2fCEfmEgF6_1
 !s100 >dCng10m_BAmKU7P]0PAa2
 R8
 31
+R27
 R28
 R29
-R30
 R12
 R13
 !i10b 1
 Eshift_register
-Z31 w1562335455
+Z30 w1562345287
 R3
 R2
 R5
-Z32 8/home/aluno/Projeto_Final_DLP1/shift_register.vhd
-Z33 F/home/aluno/Projeto_Final_DLP1/shift_register.vhd
+Z31 8/home/aluno/Projeto_Final_DLP1/shift_register.vhd
+Z32 F/home/aluno/Projeto_Final_DLP1/shift_register.vhd
 l0
 L4
 VPZBzECd`No9oE4_a2]h@I1
@@ -165,43 +165,43 @@ VPZBzECd`No9oE4_a2]h@I1
 R8
 31
 !i10b 1
-Z34 !s108 1562339766.148355
-Z35 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/shift_register.vhd|
-Z36 !s107 /home/aluno/Projeto_Final_DLP1/shift_register.vhd|
+Z33 !s108 1562346009.020831
+Z34 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/shift_register.vhd|
+Z35 !s107 /home/aluno/Projeto_Final_DLP1/shift_register.vhd|
 R12
 R13
 Av1
 R3
 R2
-Z37 DEx4 work 14 shift_register 0 22 PZBzECd`No9oE4_a2]h@I1
-l17
+Z36 DEx4 work 14 shift_register 0 22 PZBzECd`No9oE4_a2]h@I1
+l18
 L16
-Z38 V5?N07iK3Wj0aKgJJjS?583
-Z39 !s100 Pz7;n;dLRZ6I57@YaibCz0
+Z37 V7;=:3b7`M[UoZYCJhhO@h0
+Z38 !s100 c3z^TUD5aP3jHaUl6;`4e2
 R8
 31
 !i10b 1
+R33
 R34
 R35
-R36
 R12
 R13
 Etx_serial
-Z40 w1562338719
+Z39 w1562343295
 R2
 R3
 R4
 R5
-Z41 8/home/aluno/Projeto_Final_DLP1/tx_serial.vhd
-Z42 F/home/aluno/Projeto_Final_DLP1/tx_serial.vhd
+Z40 8/home/aluno/Projeto_Final_DLP1/tx_serial.vhd
+Z41 F/home/aluno/Projeto_Final_DLP1/tx_serial.vhd
 l0
 L5
 VCQd]GS63e@SiBe=LFlkd=2
 R8
 31
-Z43 !s108 1562339766.074984
-Z44 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/tx_serial.vhd|
-Z45 !s107 /home/aluno/Projeto_Final_DLP1/tx_serial.vhd|
+Z42 !s108 1562346008.928681
+Z43 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/tx_serial.vhd|
+Z44 !s107 /home/aluno/Projeto_Final_DLP1/tx_serial.vhd|
 R12
 R13
 !s100 L]9^EogHzM8<]_QO9iWSK2
@@ -216,9 +216,9 @@ L36
 V0zDdNea>kfChIJ?_5E7P:2
 R8
 31
+R42
 R43
 R44
-R45
 R12
 R13
 !s100 7Qd1Wl<cMR;6zU3XhHk;U3

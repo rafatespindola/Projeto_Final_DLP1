@@ -28,7 +28,7 @@ end entity;
 architecture ifsc of entrada is
 	type ssd_array is array (7 downto 0) of std_logic_vector(6 downto 0); -- Array de caracteres ASCII
 	signal ssd: ssd_array;
-	signal tmp: integer range 1 to 8;
+	signal pulso: std_logic := '0';
 begin	
 
 	process(msg) is
@@ -78,38 +78,49 @@ begin
 		ssd7_ent <= ssd(6);
 		ssd8_ent <= ssd(7);
 	
-	process(clk_ent, enable_ent, tmp) is 
+	--Criando pulso de load
+	process (clk_ent, load_ent) is
+		variable flag: integer range 0 to 1 := 0;
+	begin
+		if(rising_edge(clk_ent)) then
+			if (load_ent = '1' and flag = 0) then
+				pulso <= '1';
+				flag  :=  1;
+			elsif (load_ent = '1' and flag = 1) then
+				pulso <= '0';
+			elsif (load_ent = '0') then
+				flag   :=  0;
+			end if;
+		end if;
+	end process;
+	
+	process(clk_ent, enable_ent) is 
 		variable cont: integer range 1 to 8:= 1; 
-		--variable cont2: integer range 0 to 11:= 11; -- contador migue
+		variable cont2: integer range 0 to 11:= 11; -- contador migue
 		variable letra_slv: std_logic_vector(6 downto 0);
 		variable char: character;
 	begin 
 		if(rising_edge(clk_ent) and enable_ent = '1') then
-			cont:= tmp;
 			char := msg(cont);
 			letra_slv := std_logic_vector(to_unsigned(character'pos(char),7));
 			load_out_ent <= letra_slv;
---			if (load_ent = '1') then
---				load_out_ent <= letra_slv;
---				cont2:= 0;
---			end if;
---			if(cont2 /= 11) then
---				cont2:= cont2 + 1;
---			else
---				cont2:= 11;
---			end if;
+			if (pulso = '1') then
+				load_out_ent <= letra_slv;
+				cont2:= 0;
+			end if;
+			if(cont2 = 10) then
+				if (cont < 8) then
+					cont := cont + 1;
+					cont2 := 11;
+				else
+					cont := 1;
+				end if;
+			elsif(cont2 /= 11) then
+				cont2 := cont2 + 1;
+			else
+				cont2 := 11;
+			end if;
 		end if;
-	end process;
-
-	process (load_ent, tmp)
-		variable cont: integer range 0 to 8:= 0;
-	begin
-		if (not load_ent and load_ent and cont < 8 ) then
-			cont := cont + 1;
-		else 
-			cont:= 1;
-		end if;
-		tmp <= cont;
 	end process;
 	
 end architecture;

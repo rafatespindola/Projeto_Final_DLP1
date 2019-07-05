@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tx_serial
-Fri Jul  5 12:51:45 2019
+Fri Jul  5 13:59:42 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -10,7 +10,22 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |tx_serial
+ 14. Parameter Settings for User Entity Instance: entrada:ent
+ 15. Parameter Settings for User Entity Instance: conv_paralelo_serial:conv
+ 16. Parameter Settings for User Entity Instance: conv_paralelo_serial:conv|gerador_paridade:paridade
+ 17. Parameter Settings for User Entity Instance: conv_paralelo_serial:conv|shift_register:shift
+ 18. Port Connectivity Checks: "conv_paralelo_serial:conv|shift_register:shift"
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -36,16 +51,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +-----------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Fri Jul  5 12:51:45 2019                ;
+; Analysis & Synthesis Status ; Successful - Fri Jul  5 13:59:42 2019            ;
 ; Quartus II 32-bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name               ; tx_serial                                        ;
 ; Top-level Entity Name       ; tx_serial                                        ;
 ; Family                      ; Cyclone                                          ;
-; Total logic elements        ; N/A until Partition Merge                        ;
-; Total pins                  ; N/A until Partition Merge                        ;
-; Total virtual pins          ; N/A until Partition Merge                        ;
-; Total memory bits           ; N/A until Partition Merge                        ;
-; Total PLLs                  ; N/A until Partition Merge                        ;
+; Total logic elements        ; 166                                              ;
+; Total pins                  ; 69                                               ;
+; Total virtual pins          ; 0                                                ;
+; Total memory bits           ; 0                                                ;
+; Total PLLs                  ; 0                                                ;
 +-----------------------------+--------------------------------------------------+
 
 
@@ -136,16 +151,225 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 2           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                            ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; gera_baudrate.vhd                ; yes             ; User VHDL File  ; /home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd        ;         ;
+; entrada.vhd                      ; yes             ; User VHDL File  ; /home/aluno/Projeto_Final_DLP1/entrada.vhd              ;         ;
+; conv_paralelo_serial.vhd         ; yes             ; User VHDL File  ; /home/aluno/Projeto_Final_DLP1/conv_paralelo_serial.vhd ;         ;
+; tx_serial.vhd                    ; yes             ; User VHDL File  ; /home/aluno/Projeto_Final_DLP1/tx_serial.vhd            ;         ;
+; gerador_paridade.vhd             ; yes             ; User VHDL File  ; /home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd     ;         ;
+; shift_register.vhd               ; yes             ; User VHDL File  ; /home/aluno/Projeto_Final_DLP1/shift_register.vhd       ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+
+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Total logic elements                        ; 166    ;
+;     -- Combinational with no register       ; 42     ;
+;     -- Register only                        ; 1      ;
+;     -- Combinational with a register        ; 123    ;
+;                                             ;        ;
+; Logic element usage by number of LUT inputs ;        ;
+;     -- 4 input functions                    ; 40     ;
+;     -- 3 input functions                    ; 24     ;
+;     -- 2 input functions                    ; 97     ;
+;     -- 1 input functions                    ; 4      ;
+;     -- 0 input functions                    ; 0      ;
+;                                             ;        ;
+; Logic elements by mode                      ;        ;
+;     -- normal mode                          ; 80     ;
+;     -- arithmetic mode                      ; 86     ;
+;     -- qfbk mode                            ; 0      ;
+;     -- register cascade mode                ; 0      ;
+;     -- synchronous clear/load mode          ; 90     ;
+;     -- asynchronous clear/load mode         ; 9      ;
+;                                             ;        ;
+; Total registers                             ; 124    ;
+; Total logic cells in carry chains           ; 90     ;
+; I/O pins                                    ; 69     ;
+; Maximum fan-out node                        ; clk_tx ;
+; Maximum fan-out                             ; 98     ;
+; Total fan-out                               ; 675    ;
+; Average fan-out                             ; 2.87   ;
++---------------------------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
++--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------+--------------+
+; Compilation Hierarchy Node     ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                       ; Library Name ;
++--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------+--------------+
+; |tx_serial                     ; 166 (0)     ; 124          ; 0           ; 69   ; 0            ; 42 (0)       ; 1 (0)             ; 123 (0)          ; 90 (0)          ; 0 (0)      ; |tx_serial                                                ; work         ;
+;    |conv_paralelo_serial:conv| ; 13 (0)      ; 11           ; 0           ; 0    ; 0            ; 2 (0)        ; 1 (0)             ; 10 (0)           ; 0 (0)           ; 0 (0)      ; |tx_serial|conv_paralelo_serial:conv                      ; work         ;
+;       |shift_register:shift|   ; 13 (13)     ; 11           ; 0           ; 0    ; 0            ; 2 (2)        ; 1 (1)             ; 10 (10)          ; 0 (0)           ; 0 (0)      ; |tx_serial|conv_paralelo_serial:conv|shift_register:shift ; work         ;
+;    |entrada:ent|               ; 19 (19)     ; 15           ; 0           ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 15 (15)          ; 0 (0)           ; 0 (0)      ; |tx_serial|entrada:ent                                    ; work         ;
+;    |gera_baudrate:gdb|         ; 134 (134)   ; 98           ; 0           ; 0    ; 0            ; 36 (36)      ; 0 (0)             ; 98 (98)          ; 90 (90)         ; 0 (0)      ; |tx_serial|gera_baudrate:gdb                              ; work         ;
++--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                        ;
++--------------------------------------------------------+------------------------------------------------------------------+
+; Register name                                          ; Reason for Removal                                               ;
++--------------------------------------------------------+------------------------------------------------------------------+
+; conv_paralelo_serial:conv|shift_register:shift|q[9,10] ; Stuck at VCC due to stuck port data_in                           ;
+; entrada:ent|flag                                       ; Merged with conv_paralelo_serial:conv|shift_register:shift|flag  ;
+; entrada:ent|pulso                                      ; Merged with conv_paralelo_serial:conv|shift_register:shift|pulso ;
+; Total Number of Removed Registers = 4                  ;                                                                  ;
++--------------------------------------------------------+------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                            ;
++------------------------------------------------------+---------------------------+-----------------------------------------------------+
+; Register name                                        ; Reason for Removal        ; Registers Removed due to This Register              ;
++------------------------------------------------------+---------------------------+-----------------------------------------------------+
+; conv_paralelo_serial:conv|shift_register:shift|q[10] ; Stuck at VCC              ; conv_paralelo_serial:conv|shift_register:shift|q[9] ;
+;                                                      ; due to stuck port data_in ;                                                     ;
++------------------------------------------------------+---------------------------+-----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 124   ;
+; Number of registers using Synchronous Clear  ; 90    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 9     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 15    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------+
+; Inverted Register Statistics                                  ;
++-----------------------------------------------------+---------+
+; Inverted Register                                   ; Fan out ;
++-----------------------------------------------------+---------+
+; conv_paralelo_serial:conv|shift_register:shift|q[0] ; 1       ;
+; conv_paralelo_serial:conv|shift_register:shift|q[1] ; 1       ;
+; gera_baudrate:gdb|clk_9600                          ; 2       ;
+; gera_baudrate:gdb|clk_1                             ; 2       ;
+; gera_baudrate:gdb|clk_05                            ; 2       ;
+; gera_baudrate:gdb|clk_025                           ; 2       ;
+; conv_paralelo_serial:conv|shift_register:shift|q[2] ; 1       ;
+; entrada:ent|cont[0]                                 ; 10      ;
+; conv_paralelo_serial:conv|shift_register:shift|q[3] ; 1       ;
+; entrada:ent|cont2[1]                                ; 4       ;
+; entrada:ent|cont2[3]                                ; 3       ;
+; entrada:ent|cont2[0]                                ; 5       ;
+; conv_paralelo_serial:conv|shift_register:shift|q[4] ; 1       ;
+; conv_paralelo_serial:conv|shift_register:shift|q[5] ; 1       ;
+; conv_paralelo_serial:conv|shift_register:shift|q[6] ; 1       ;
+; conv_paralelo_serial:conv|shift_register:shift|q[7] ; 1       ;
+; conv_paralelo_serial:conv|shift_register:shift|q[8] ; 1       ;
+; Total number of inverted registers = 17             ;         ;
++-----------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |tx_serial|gera_baudrate:gdb|cnt_9600[10]      ;
+; 3:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |tx_serial|gera_baudrate:gdb|cnt_1[9]          ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |tx_serial|gera_baudrate:gdb|cnt_05[9]         ;
+; 3:1                ; 27 bits   ; 54 LEs        ; 27 LEs               ; 27 LEs                 ; Yes        ; |tx_serial|gera_baudrate:gdb|cnt_025[22]       ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |tx_serial|gera_baudrate:gdb|led_baudrate_gbd3 ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |tx_serial|entrada:ent|cont2[1]                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |tx_serial ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; N              ; 4     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: entrada:ent ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 8     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: conv_paralelo_serial:conv ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; n              ; 4     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: conv_paralelo_serial:conv|gerador_paridade:paridade ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; n              ; 7     ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: conv_paralelo_serial:conv|shift_register:shift ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 11    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Port Connectivity Checks: "conv_paralelo_serial:conv|shift_register:shift" ;
++----------------+-------+----------+----------------------------------------+
+; Port           ; Type  ; Severity ; Details                                ;
++----------------+-------+----------+----------------------------------------+
+; din_sft[10..9] ; Input ; Info     ; Stuck at VCC                           ;
+; din_sft[0]     ; Input ; Info     ; Stuck at GND                           ;
++----------------+-------+----------+----------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -154,9 +378,9 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri Jul  5 12:51:43 2019
+    Info: Processing started: Fri Jul  5 13:59:40 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tx_serial -c tx_serial
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file gera_baudrate.vhd
     Info (12022): Found design unit 1: gera_baudrate-ifsc
     Info (12023): Found entity 1: gera_baudrate
@@ -175,11 +399,82 @@ Info (12021): Found 2 design units, including 1 entities, in source file gerador
 Info (12021): Found 2 design units, including 1 entities, in source file shift_register.vhd
     Info (12022): Found design unit 1: shift_register-v1
     Info (12023): Found entity 1: shift_register
-Error (10476): VHDL error at entrada.vhd(107): type of identifier "load_ent" does not agree with its usage as "boolean" type File: /home/aluno/Projeto_Final_DLP1/entrada.vhd Line: 107
-Error: Quartus II 32-bit Analysis & Synthesis was unsuccessful. 1 error, 0 warnings
-    Error: Peak virtual memory: 356 megabytes
-    Error: Processing ended: Fri Jul  5 12:51:45 2019
-    Error: Elapsed time: 00:00:02
-    Error: Total CPU time (on all processors): 00:00:02
+Info (12127): Elaborating entity "tx_serial" for the top level hierarchy
+Info (12128): Elaborating entity "entrada" for hierarchy "entrada:ent"
+Info (12128): Elaborating entity "conv_paralelo_serial" for hierarchy "conv_paralelo_serial:conv"
+Info (12128): Elaborating entity "gerador_paridade" for hierarchy "conv_paralelo_serial:conv|gerador_paridade:paridade"
+Info (12128): Elaborating entity "shift_register" for hierarchy "conv_paralelo_serial:conv|shift_register:shift"
+Info (12128): Elaborating entity "gera_baudrate" for hierarchy "gera_baudrate:gdb"
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer gera_baudrate:gdb|Mux0
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ssd1_tx[0]" is stuck at VCC
+    Warning (13410): Pin "ssd1_tx[1]" is stuck at GND
+    Warning (13410): Pin "ssd1_tx[2]" is stuck at VCC
+    Warning (13410): Pin "ssd1_tx[3]" is stuck at VCC
+    Warning (13410): Pin "ssd1_tx[4]" is stuck at VCC
+    Warning (13410): Pin "ssd1_tx[5]" is stuck at VCC
+    Warning (13410): Pin "ssd1_tx[6]" is stuck at GND
+    Warning (13410): Pin "ssd2_tx[0]" is stuck at GND
+    Warning (13410): Pin "ssd2_tx[1]" is stuck at VCC
+    Warning (13410): Pin "ssd2_tx[2]" is stuck at VCC
+    Warning (13410): Pin "ssd2_tx[3]" is stuck at VCC
+    Warning (13410): Pin "ssd2_tx[4]" is stuck at GND
+    Warning (13410): Pin "ssd2_tx[5]" is stuck at GND
+    Warning (13410): Pin "ssd2_tx[6]" is stuck at GND
+    Warning (13410): Pin "ssd3_tx[0]" is stuck at VCC
+    Warning (13410): Pin "ssd3_tx[1]" is stuck at VCC
+    Warning (13410): Pin "ssd3_tx[2]" is stuck at VCC
+    Warning (13410): Pin "ssd3_tx[3]" is stuck at GND
+    Warning (13410): Pin "ssd3_tx[4]" is stuck at GND
+    Warning (13410): Pin "ssd3_tx[5]" is stuck at VCC
+    Warning (13410): Pin "ssd3_tx[6]" is stuck at VCC
+    Warning (13410): Pin "ssd4_tx[0]" is stuck at GND
+    Warning (13410): Pin "ssd4_tx[1]" is stuck at GND
+    Warning (13410): Pin "ssd4_tx[2]" is stuck at GND
+    Warning (13410): Pin "ssd4_tx[3]" is stuck at GND
+    Warning (13410): Pin "ssd4_tx[4]" is stuck at VCC
+    Warning (13410): Pin "ssd4_tx[5]" is stuck at VCC
+    Warning (13410): Pin "ssd4_tx[6]" is stuck at GND
+    Warning (13410): Pin "ssd5_tx[0]" is stuck at VCC
+    Warning (13410): Pin "ssd5_tx[1]" is stuck at GND
+    Warning (13410): Pin "ssd5_tx[2]" is stuck at VCC
+    Warning (13410): Pin "ssd5_tx[3]" is stuck at VCC
+    Warning (13410): Pin "ssd5_tx[4]" is stuck at GND
+    Warning (13410): Pin "ssd5_tx[5]" is stuck at VCC
+    Warning (13410): Pin "ssd5_tx[6]" is stuck at VCC
+    Warning (13410): Pin "ssd6_tx[0]" is stuck at VCC
+    Warning (13410): Pin "ssd6_tx[1]" is stuck at GND
+    Warning (13410): Pin "ssd6_tx[2]" is stuck at GND
+    Warning (13410): Pin "ssd6_tx[3]" is stuck at VCC
+    Warning (13410): Pin "ssd6_tx[4]" is stuck at VCC
+    Warning (13410): Pin "ssd6_tx[5]" is stuck at VCC
+    Warning (13410): Pin "ssd6_tx[6]" is stuck at VCC
+    Warning (13410): Pin "ssd7_tx[0]" is stuck at VCC
+    Warning (13410): Pin "ssd7_tx[1]" is stuck at VCC
+    Warning (13410): Pin "ssd7_tx[2]" is stuck at GND
+    Warning (13410): Pin "ssd7_tx[3]" is stuck at GND
+    Warning (13410): Pin "ssd7_tx[4]" is stuck at VCC
+    Warning (13410): Pin "ssd7_tx[5]" is stuck at VCC
+    Warning (13410): Pin "ssd7_tx[6]" is stuck at GND
+    Warning (13410): Pin "ssd8_tx[0]" is stuck at VCC
+    Warning (13410): Pin "ssd8_tx[1]" is stuck at VCC
+    Warning (13410): Pin "ssd8_tx[2]" is stuck at GND
+    Warning (13410): Pin "ssd8_tx[3]" is stuck at VCC
+    Warning (13410): Pin "ssd8_tx[4]" is stuck at VCC
+    Warning (13410): Pin "ssd8_tx[5]" is stuck at GND
+    Warning (13410): Pin "ssd8_tx[6]" is stuck at VCC
+Info (18000): Registers with preset signals will power-up high
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 235 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 62 output pins
+    Info (21061): Implemented 166 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 59 warnings
+    Info: Peak virtual memory: 354 megabytes
+    Info: Processing ended: Fri Jul  5 13:59:42 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 
