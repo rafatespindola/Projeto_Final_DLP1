@@ -69,9 +69,10 @@ architecture ifsc of tx_serial is
 		generic(N: natural:= 8);
 		port(
 			--------------in--------------
-			clk_ent  : in  std_logic;
-			load_ent : in  std_logic;                      -- button para carregar a palavra ao conversor serial
-			msg : in String := "dLP12345";
+			clk_ent    : in  std_logic;
+			enable_ent: in  std_logic;                      -- button para carregar a palavra ao conversor serial
+			load_ent: in std_logic;
+			msg        : in  String := "dLP12345";
 			--------------out--------------
 			ssd1_ent : out std_logic_vector(6 downto 0);   -- Primeiro display
 			ssd2_ent : out std_logic_vector(6 downto 0);   -- Segundo  display
@@ -92,7 +93,7 @@ begin
 
 	ent : entrada
 		generic map(N=> 8)
-		port map(clk_ent => clk_baud, load_ent => enable_tx, msg => "dLP12345", ssd1_ent => ssd1_tx, ssd2_ent => ssd2_tx, ssd3_ent => ssd3_tx, ssd4_ent => ssd4_tx, ssd5_ent => ssd5_tx, ssd6_ent => ssd6_tx, ssd7_ent => ssd7_tx, ssd8_ent => ssd8_tx, load_out_ent => to_conv);
+		port map(clk_ent => clk_baud, enable_ent => enable_tx, load_ent => load_tx, msg => "dLP12345", ssd1_ent => ssd1_tx, ssd2_ent => ssd2_tx, ssd3_ent => ssd3_tx, ssd4_ent => ssd4_tx, ssd5_ent => ssd5_tx, ssd6_ent => ssd6_tx, ssd7_ent => ssd7_tx, ssd8_ent => ssd8_tx, load_out_ent => to_conv);
 	
 	conv: conv_paralelo_serial
 		generic map(N=> 4)

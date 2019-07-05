@@ -5,7 +5,10 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vcom -93 -work work {/home/rafael.te/Projeto_Final_DLP1/conv_paralelo_serial.vhd}
-vcom -93 -work work {/home/rafael.te/Projeto_Final_DLP1/gerador_paridade.vhd}
-vcom -93 -work work {/home/rafael.te/Projeto_Final_DLP1/shift_register.vhd}
+vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd}
+vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/entrada.vhd}
+vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/conv_paralelo_serial.vhd}
+vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/tx_serial.vhd}
+vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd}
+vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/shift_register.vhd}
 

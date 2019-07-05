@@ -57,6 +57,7 @@ begin
 		port map( 
 		din_sft => paralelo, dout_sft => out_conv, load_sft => load_conv ,rst_sft => rst_conv, clk_sft => clk_conv);	
 		
+	
 		
 --	process(clk_conv, serie, load_conv) is 
 --		variable cont : integer range 0 to 10 := 0; 

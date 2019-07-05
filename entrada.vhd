@@ -3,12 +3,13 @@ use ieee.numeric_std.all;
 use ieee.std_logic_1164.all;
 --------------------------------------------------------
 entity entrada is 							   			   -- Entradas e saidas com "ent" no final
-  
+
 	generic (N: natural:= 8);
 	port(
 		--------------in--------------
 		clk_ent  : in  std_logic;
-		load_ent : in  std_logic;                       -- chave H p carregar a palavra ao conversor serial
+		enable_ent: in  std_logic;                       -- chave H p carregar a palavra ao conversor serial
+		load_ent : in std_logic;
 		msg      : in String (1 to 8):= "dLP12345";
 		--------------out--------------
 		ssd1_ent : out std_logic_vector(6 downto 0);    -- Primeiro display
@@ -27,6 +28,7 @@ end entity;
 architecture ifsc of entrada is
 	type ssd_array is array (7 downto 0) of std_logic_vector(6 downto 0); -- Array de caracteres ASCII
 	signal ssd: ssd_array;
+	signal tmp: integer range 1 to 8;
 begin	
 
 	process(msg) is
@@ -75,27 +77,40 @@ begin
 		ssd6_ent <= ssd(5);
 		ssd7_ent <= ssd(6);
 		ssd8_ent <= ssd(7);
- 	
-	process(clk_ent, load_ent) is 
-		variable cont: integer:= 1; 
-		variable cont2: integer:= 0; -- contador migue
+	
+	process(clk_ent, enable_ent, tmp) is 
+		variable cont: integer range 1 to 8:= 1; 
+		--variable cont2: integer range 0 to 11:= 11; -- contador migue
 		variable letra_slv: std_logic_vector(6 downto 0);
 		variable char: character;
 	begin 
-		if(rising_edge(clk_ent) and load_ent = '1') then
+		if(rising_edge(clk_ent) and enable_ent = '1') then
+			cont:= tmp;
 			char := msg(cont);
 			letra_slv := std_logic_vector(to_unsigned(character'pos(char),7));
 			load_out_ent <= letra_slv;
-			if (cont2 = 10) then
-				cont2:= 0;
-				if (cont = 8) then
-					cont := 1;		
-				else cont:= cont + 1;
-				end if;
-			else cont2:= cont2 +1;
-			end if;
+--			if (load_ent = '1') then
+--				load_out_ent <= letra_slv;
+--				cont2:= 0;
+--			end if;
+--			if(cont2 /= 11) then
+--				cont2:= cont2 + 1;
+--			else
+--				cont2:= 11;
+--			end if;
 		end if;
-	end process; 
+	end process;
+
+	process (load_ent, tmp)
+		variable cont: integer range 0 to 8:= 0;
+	begin
+		if (not load_ent and load_ent and cont < 8 ) then
+			cont := cont + 1;
+		else 
+			cont:= 1;
+		end if;
+		tmp <= cont;
+	end process;
 	
 end architecture;
 --------------------------------------------------------

@@ -7,7 +7,7 @@ entity shift_register is
 	port( 
 		dout_sft: out std_logic;
 		din_sft : in  std_logic_vector(N-1 downto 0);
-		load_sft: in  std_logic;
+		load_sft: in  std_logic; -- load para carregar a letra
 		rst_sft : in  std_logic;
 		clk_sft : in  std_logic
 	);
