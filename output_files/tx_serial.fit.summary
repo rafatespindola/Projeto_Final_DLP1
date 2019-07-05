@@ -1,4 +1,4 @@
-Fitter Status : Successful - Fri Jul  5 13:59:45 2019
+Fitter Status : Successful - Fri Jul  5 14:24:36 2019
 Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : tx_serial
 Top-level Entity Name : tx_serial
@@ -6,7 +6,7 @@ Family : Cyclone
 Device : EP1C3T144C6
 Timing Models : Final
 Total logic elements : 166 / 2,910 ( 6 % )
-Total pins : 69 / 104 ( 66 % )
+Total pins : 71 / 104 ( 68 % )
 Total virtual pins : 0
 Total memory bits : 0 / 59,904 ( 0 % )
 Total PLLs : 0 / 1 ( 0 % )

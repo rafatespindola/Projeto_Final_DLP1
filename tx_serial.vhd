@@ -8,27 +8,29 @@ entity tx_serial is 											      -- Entradas e saidas com "tx" no final
 
 	port(
 		--------------in--------------
-		clk_tx          : in std_logic;
-		rst_tx          : in std_logic;
-		enable_tx       : in std_logic;
-		load_tx         : in std_logic;  
-		sel_paridade_tx : in std_logic;
-		sel_baudrate_tx : in std_logic_vector(1 downto 0);
+		clk_tx           : in std_logic;
+		rst_tx           : in std_logic;
+		enable_tx        : in std_logic;
+		load_tx          : in std_logic;  
+		sel_paridade_tx  : in std_logic;
+		sel_baudrate_tx  : in std_logic_vector(1 downto 0);
 		--------------out--------------
-		out_tx          : out std_logic;-- Saida com os 11 bits em serie 1 por vez
-		ssd1_tx         : out std_logic_vector(6 downto 0); -- Primeiro display
-		ssd2_tx         : out std_logic_vector(6 downto 0); -- Segundo  display
-		ssd3_tx         : out std_logic_vector(6 downto 0); -- Terceiro display
-		ssd4_tx         : out std_logic_vector(6 downto 0); -- Quarto   display
-		ssd5_tx         : out std_logic_vector(6 downto 0); -- Quinto   display
-		ssd6_tx         : out std_logic_vector(6 downto 0); -- Sexto    display
-		ssd7_tx         : out std_logic_vector(6 downto 0); -- Setimo   display
-		ssd8_tx         : out std_logic_vector(6 downto 0); -- Oitavo   display
-		baudrate_tx     : out std_logic;  			          -- Essa eh a saida de 'clock'para a placa de recepcao
-		led_baudrate_tx1: out std_logic;                    -- Baudrate 9600
-		led_baudrate_tx2: out std_logic;                    -- Baudrate 1
-		led_baudrate_tx3: out std_logic;                    -- Baudrate 1/2
-		led_baudrate_tx4: out std_logic                     -- Baudrate 1/4
+		out_tx           : out std_logic;-- Saida com os 11 bits em serie 1 por vez
+		ssd1_tx          : out std_logic_vector(6 downto 0); -- Primeiro display
+		ssd2_tx          : out std_logic_vector(6 downto 0); -- Segundo  display
+		ssd3_tx          : out std_logic_vector(6 downto 0); -- Terceiro display
+		ssd4_tx          : out std_logic_vector(6 downto 0); -- Quarto   display
+		ssd5_tx          : out std_logic_vector(6 downto 0); -- Quinto   display
+		ssd6_tx          : out std_logic_vector(6 downto 0); -- Sexto    display
+		ssd7_tx          : out std_logic_vector(6 downto 0); -- Setimo   display
+		ssd8_tx          : out std_logic_vector(6 downto 0); -- Oitavo   display
+		baudrate_tx      : out std_logic;  			          -- Essa eh a saida de 'clock'para a placa de recepcao
+		led_baudrate_tx1 : out std_logic;                    -- Baudrate 9600
+		led_baudrate_tx2 : out std_logic;                    -- Baudrate 1
+		led_baudrate_tx3 : out std_logic;                    -- Baudrate 1/2
+		led_baudrate_tx4 : out std_logic;                    -- Baudrate 1/4
+		led_pisca_baud_tx: out std_logic;                    -- Piscando baudrate
+		led_pisca_out_tx : out std_logic                     -- Piscando saida tx
 	);
 	
 end entity;
@@ -88,6 +90,7 @@ architecture ifsc of tx_serial is
 
 	signal to_conv : std_logic_vector(6 downto 0);
 	signal clk_baud: std_logic;
+	signal to_out_tx: std_logic;
 	
 begin
 
@@ -97,12 +100,16 @@ begin
 	
 	conv: conv_paralelo_serial
 		generic map(N=> 4)
-		port map(sel_par_conv => sel_paridade_tx, load_conv => load_tx, clk_conv => clk_baud, rst_conv => rst_tx, ascii_conv => to_conv, out_conv => out_tx);
+		port map(sel_par_conv => sel_paridade_tx, load_conv => load_tx, clk_conv => clk_baud, rst_conv => rst_tx, ascii_conv => to_conv, out_conv => to_out_tx);
 
 	gdb : gera_baudrate
 		port map(clk_gbd => clk_tx, rst_gbd => rst_tx, sel_baudrate_gbd => sel_baudrate_tx, baudrate_gbd => clk_baud, led_baudrate_gbd1 => led_baudrate_tx1, led_baudrate_gbd2 => led_baudrate_tx2, led_baudrate_gbd3 => led_baudrate_tx3, led_baudrate_gbd4 => led_baudrate_tx4);
 
 	baudrate_tx <= clk_baud;
+	led_pisca_baud_tx <= clk_baud;
+	led_pisca_out_tx  <= to_out_tx;
+	out_tx <= to_out_tx;
+	
 	
 	
 	

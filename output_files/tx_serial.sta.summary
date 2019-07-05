@@ -3,27 +3,27 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'clk_tx'
-Slack : -3.697
-TNS   : -309.809
+Slack : -3.800
+TNS   : -313.589
 
 Type  : Setup 'sel_baudrate_tx[0]'
-Slack : -1.780
-TNS   : -31.865
+Slack : -1.889
+TNS   : -25.978
 
 Type  : Hold 'clk_tx'
-Slack : 0.208
+Slack : 0.234
 TNS   : 0.000
 
 Type  : Hold 'sel_baudrate_tx[0]'
-Slack : 0.363
+Slack : 0.656
 TNS   : 0.000
-
-Type  : Minimum Pulse Width 'sel_baudrate_tx[0]'
-Slack : -1.166
-TNS   : -61.787
 
 Type  : Minimum Pulse Width 'clk_tx'
 Slack : -1.155
 TNS   : -145.019
+
+Type  : Minimum Pulse Width 'sel_baudrate_tx[0]'
+Slack : -1.155
+TNS   : -47.019
 
 ------------------------------------------------------------

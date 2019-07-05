@@ -70,6 +70,8 @@ led_baudrate_tx1 <= gera_baudrate:gdb.led_baudrate_gbd1
 led_baudrate_tx2 <= gera_baudrate:gdb.led_baudrate_gbd2
 led_baudrate_tx3 <= gera_baudrate:gdb.led_baudrate_gbd3
 led_baudrate_tx4 <= gera_baudrate:gdb.led_baudrate_gbd4
+led_pisca_baud_tx <= gera_baudrate:gdb.baudrate_gbd
+led_pisca_out_tx <= conv_paralelo_serial:conv.out_conv
 
 
 |tx_serial|entrada:ent
