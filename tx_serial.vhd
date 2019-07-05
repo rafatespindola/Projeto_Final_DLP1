@@ -38,7 +38,7 @@ end entity;
 architecture ifsc of tx_serial is
 	--signal tmp1: std_logic_vector(6 downto 0);             -- Passa o caractere em ASCII para o "Conversor para serial"
 	--signal tmp2: std_logic;                                -- Passa o clock ja "Dividivo" para o baudrate escolhido
-	
+	signal not_rst_tx: std_logic;	
 	component gera_baudrate
 		port(
 			--------------in--------------
@@ -103,15 +103,13 @@ begin
 		port map(sel_par_conv => sel_paridade_tx, load_conv => load_tx, clk_conv => clk_baud, rst_conv => rst_tx, ascii_conv => to_conv, out_conv => to_out_tx);
 
 	gdb : gera_baudrate
-		port map(clk_gbd => clk_tx, rst_gbd => rst_tx, sel_baudrate_gbd => sel_baudrate_tx, baudrate_gbd => clk_baud, led_baudrate_gbd1 => led_baudrate_tx1, led_baudrate_gbd2 => led_baudrate_tx2, led_baudrate_gbd3 => led_baudrate_tx3, led_baudrate_gbd4 => led_baudrate_tx4);
+		port map(clk_gbd => clk_tx, rst_gbd => not_rst_tx, sel_baudrate_gbd => sel_baudrate_tx, baudrate_gbd => clk_baud, led_baudrate_gbd1 => led_baudrate_tx1, led_baudrate_gbd2 => led_baudrate_tx2, led_baudrate_gbd3 => led_baudrate_tx3, led_baudrate_gbd4 => led_baudrate_tx4);
 
+	not_rst_tx <= not rst_tx;
 	baudrate_tx <= clk_baud;
 	led_pisca_baud_tx <= clk_baud;
 	led_pisca_out_tx  <= to_out_tx;
 	out_tx <= to_out_tx;
-	
-	
-	
 	
 end architecture;
 --------------------------------------------------------

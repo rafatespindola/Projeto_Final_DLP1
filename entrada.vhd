@@ -32,7 +32,7 @@ architecture ifsc of entrada is
 begin	
 
 	process(msg) is
-		variable char_to_ssd: std_logic_vector(0 to 6);
+		variable char_to_ssd: std_logic_vector(6 downto 0);
 		variable c: character;
 		begin
 			for i in 1 to 8 loop
@@ -41,31 +41,31 @@ begin
 					when 'A' => char_to_ssd := "1110111";
 					when 'b' => char_to_ssd := "0011111";
 					when 'C' => char_to_ssd := "1001110";
-					when 'd' => char_to_ssd := "0111101";
+					when 'd' => char_to_ssd := "1011110";
 					when 'E' => char_to_ssd := "1001111";
 					when 'F' => char_to_ssd := "1000111";
 					when 'G' => char_to_ssd := "1011110";
 					when 'H' => char_to_ssd := "0110111";
 					when 'I' => char_to_ssd := "0000110";
 					when 'J' => char_to_ssd := "0111100";
-					when 'L' => char_to_ssd := "0001110";
+					when 'L' => char_to_ssd := "0111000";
 					when 'O' => char_to_ssd := "1111110";
-					when 'P' => char_to_ssd := "1100111";
+					when 'P' => char_to_ssd := "1110011";
 					when 'S' => char_to_ssd := "1011011";
 					when 'U' => char_to_ssd := "0111110";
 					when '0' => char_to_ssd := "1111110";
-					when '1' => char_to_ssd := "0110000";
-					when '2' => char_to_ssd := "1101101";
-					when '3' => char_to_ssd := "1111001";
-					when '4' => char_to_ssd := "0110011";
-					when '5' => char_to_ssd := "1011011";
+					when '1' => char_to_ssd := "0000110";
+					when '2' => char_to_ssd := "1011011";
+					when '3' => char_to_ssd := "1001111";
+					when '4' => char_to_ssd := "1100110";
+					when '5' => char_to_ssd := "1101101";
 					when '6' => char_to_ssd := "1011111";
 					when '7' => char_to_ssd := "1110000";
 					when '8' => char_to_ssd := "1111111";
 					when '9' => char_to_ssd := "1110011";
 					when others => char_to_ssd := "0000001";
 				end case;
-				ssd(i-1)<= char_to_ssd;
+				ssd(i-1)<= not char_to_ssd;
 			end loop;
 	end process;
 	

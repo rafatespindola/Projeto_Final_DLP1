@@ -37,7 +37,7 @@ begin
 		
 	begin	
 		
-		if(rst_gbd = '1' and rising_edge(clk_gbd)) then
+		if(rst_gbd = '0' and rising_edge(clk_gbd)) then
 			cnt_9600 :=  0;
 			cnt_1    :=  0;
 			cnt_05   :=  0;

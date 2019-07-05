@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tx_serial
-Fri Jul  5 14:24:32 2019
+Fri Jul  5 15:52:55 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -48,20 +48,24 @@ applicable agreement for further details.
 
 
 
-+--------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                   ;
-+-----------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri Jul  5 14:24:32 2019            ;
-; Quartus II 32-bit Version   ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
-; Revision Name               ; tx_serial                                        ;
-; Top-level Entity Name       ; tx_serial                                        ;
-; Family                      ; Cyclone                                          ;
-; Total logic elements        ; 166                                              ;
-; Total pins                  ; 71                                               ;
-; Total virtual pins          ; 0                                                ;
-; Total memory bits           ; 0                                                ;
-; Total PLLs                  ; 0                                                ;
-+-----------------------------+--------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                          ;
++------------------------------------+--------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Jul  5 15:52:55 2019            ;
+; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; tx_serial                                        ;
+; Top-level Entity Name              ; tx_serial                                        ;
+; Family                             ; Cyclone IV E                                     ;
+; Total logic elements               ; 166                                              ;
+;     Total combinational functions  ; 165                                              ;
+;     Dedicated logic registers      ; 124                                              ;
+; Total registers                    ; 124                                              ;
+; Total pins                         ; 71                                               ;
+; Total virtual pins                 ; 0                                                ;
+; Total memory bits                  ; 0                                                ;
+; Embedded Multiplier 9-bit elements ; 0                                                ;
+; Total PLLs                         ; 0                                                ;
++------------------------------------+--------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -69,9 +73,9 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP1C3T144C6        ;                    ;
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
 ; Top-level entity name                                                      ; tx_serial          ; tx_serial          ;
-; Family name                                                                ; Cyclone            ; Cyclone V          ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                                ; Off                ; Off                ;
@@ -91,6 +95,7 @@ applicable agreement for further details.
 ; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
 ; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
 ; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
 ; NOT Gate Push-Back                                                         ; On                 ; On                 ;
 ; Power-Up Don't Care                                                        ; On                 ; On                 ;
 ; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
@@ -109,6 +114,7 @@ applicable agreement for further details.
 ; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
 ; Auto ROM Replacement                                                       ; On                 ; On                 ;
 ; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
 ; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
 ; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
 ; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
@@ -123,6 +129,7 @@ applicable agreement for further details.
 ; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
 ; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
 ; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
 ; Report Parameter Settings                                                  ; On                 ; On                 ;
 ; Report Source Assignments                                                  ; On                 ; On                 ;
 ; Report Connectivity Checks                                                 ; On                 ; On                 ;
@@ -135,7 +142,9 @@ applicable agreement for further details.
 ; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
 ; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
 ; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
 ; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
 ; Synthesis Effort                                                           ; Auto               ; Auto               ;
 ; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
 ; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
@@ -177,52 +186,47 @@ applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
 
 
-+------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary          ;
-+---------------------------------------------+--------+
-; Resource                                    ; Usage  ;
-+---------------------------------------------+--------+
-; Total logic elements                        ; 166    ;
-;     -- Combinational with no register       ; 42     ;
-;     -- Register only                        ; 1      ;
-;     -- Combinational with a register        ; 123    ;
-;                                             ;        ;
-; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 40     ;
-;     -- 3 input functions                    ; 24     ;
-;     -- 2 input functions                    ; 97     ;
-;     -- 1 input functions                    ; 4      ;
-;     -- 0 input functions                    ; 0      ;
-;                                             ;        ;
-; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 80     ;
-;     -- arithmetic mode                      ; 86     ;
-;     -- qfbk mode                            ; 0      ;
-;     -- register cascade mode                ; 0      ;
-;     -- synchronous clear/load mode          ; 90     ;
-;     -- asynchronous clear/load mode         ; 9      ;
-;                                             ;        ;
-; Total registers                             ; 124    ;
-; Total logic cells in carry chains           ; 90     ;
-; I/O pins                                    ; 71     ;
-; Maximum fan-out node                        ; clk_tx ;
-; Maximum fan-out                             ; 98     ;
-; Total fan-out                               ; 677    ;
-; Average fan-out                             ; 2.86   ;
-+---------------------------------------------+--------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 166          ;
+;                                             ;              ;
+; Total combinational functions               ; 165          ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 39           ;
+;     -- 3 input functions                    ; 24           ;
+;     -- <=2 input functions                  ; 102          ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 79           ;
+;     -- arithmetic mode                      ; 86           ;
+;                                             ;              ;
+; Total registers                             ; 124          ;
+;     -- Dedicated logic registers            ; 124          ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 71           ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+; Maximum fan-out node                        ; clk_tx~input ;
+; Maximum fan-out                             ; 98           ;
+; Total fan-out                               ; 869          ;
+; Average fan-out                             ; 2.02         ;
++---------------------------------------------+--------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
-+--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------+--------------+
-; Compilation Hierarchy Node     ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                       ; Library Name ;
-+--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------+--------------+
-; |tx_serial                     ; 166 (0)     ; 124          ; 0           ; 71   ; 0            ; 42 (0)       ; 1 (0)             ; 123 (0)          ; 90 (0)          ; 0 (0)      ; |tx_serial                                                ; work         ;
-;    |conv_paralelo_serial:conv| ; 13 (0)      ; 11           ; 0           ; 0    ; 0            ; 2 (0)        ; 1 (0)             ; 10 (0)           ; 0 (0)           ; 0 (0)      ; |tx_serial|conv_paralelo_serial:conv                      ; work         ;
-;       |shift_register:shift|   ; 13 (13)     ; 11           ; 0           ; 0    ; 0            ; 2 (2)        ; 1 (1)             ; 10 (10)          ; 0 (0)           ; 0 (0)      ; |tx_serial|conv_paralelo_serial:conv|shift_register:shift ; work         ;
-;    |entrada:ent|               ; 19 (19)     ; 15           ; 0           ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 15 (15)          ; 0 (0)           ; 0 (0)      ; |tx_serial|entrada:ent                                    ; work         ;
-;    |gera_baudrate:gdb|         ; 134 (134)   ; 98           ; 0           ; 0    ; 0            ; 36 (36)      ; 0 (0)             ; 98 (98)          ; 90 (90)         ; 0 (0)      ; |tx_serial|gera_baudrate:gdb                              ; work         ;
-+--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
+; Compilation Hierarchy Node     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Library Name ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
+; |tx_serial                     ; 165 (0)           ; 124 (0)      ; 0           ; 0            ; 0       ; 0         ; 71   ; 0            ; |tx_serial                                                ; work         ;
+;    |conv_paralelo_serial:conv| ; 12 (0)            ; 11 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tx_serial|conv_paralelo_serial:conv                      ; work         ;
+;       |shift_register:shift|   ; 12 (12)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tx_serial|conv_paralelo_serial:conv|shift_register:shift ; work         ;
+;    |entrada:ent|               ; 18 (18)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tx_serial|entrada:ent                                    ; work         ;
+;    |gera_baudrate:gdb|         ; 135 (135)         ; 98 (98)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |tx_serial|gera_baudrate:gdb                              ; work         ;
++--------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -232,8 +236,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Register name                                          ; Reason for Removal                                               ;
 +--------------------------------------------------------+------------------------------------------------------------------+
 ; conv_paralelo_serial:conv|shift_register:shift|q[9,10] ; Stuck at VCC due to stuck port data_in                           ;
-; entrada:ent|flag                                       ; Merged with conv_paralelo_serial:conv|shift_register:shift|flag  ;
 ; entrada:ent|pulso                                      ; Merged with conv_paralelo_serial:conv|shift_register:shift|pulso ;
+; entrada:ent|flag                                       ; Merged with conv_paralelo_serial:conv|shift_register:shift|flag  ;
 ; Total Number of Removed Registers = 4                  ;                                                                  ;
 +--------------------------------------------------------+------------------------------------------------------------------+
 
@@ -277,9 +281,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; conv_paralelo_serial:conv|shift_register:shift|q[2] ; 1       ;
 ; entrada:ent|cont[0]                                 ; 10      ;
 ; conv_paralelo_serial:conv|shift_register:shift|q[3] ; 1       ;
-; entrada:ent|cont2[1]                                ; 4       ;
-; entrada:ent|cont2[3]                                ; 3       ;
-; entrada:ent|cont2[0]                                ; 5       ;
+; entrada:ent|cont2[1]                                ; 3       ;
+; entrada:ent|cont2[3]                                ; 2       ;
+; entrada:ent|cont2[0]                                ; 4       ;
 ; conv_paralelo_serial:conv|shift_register:shift|q[4] ; 1       ;
 ; conv_paralelo_serial:conv|shift_register:shift|q[5] ; 1       ;
 ; conv_paralelo_serial:conv|shift_register:shift|q[6] ; 1       ;
@@ -378,7 +382,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri Jul  5 14:24:30 2019
+    Info: Processing started: Fri Jul  5 15:52:53 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tx_serial -c tx_serial
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file gera_baudrate.vhd
@@ -407,64 +411,66 @@ Info (12128): Elaborating entity "shift_register" for hierarchy "conv_paralelo_s
 Info (12128): Elaborating entity "gera_baudrate" for hierarchy "gera_baudrate:gdb"
 Warning (19016): Clock multiplexers are found and protected
     Warning (19017): Found clock multiplexer gera_baudrate:gdb|Mux0
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "ssd1_tx[0]" is stuck at VCC
     Warning (13410): Pin "ssd1_tx[1]" is stuck at GND
-    Warning (13410): Pin "ssd1_tx[2]" is stuck at VCC
-    Warning (13410): Pin "ssd1_tx[3]" is stuck at VCC
-    Warning (13410): Pin "ssd1_tx[4]" is stuck at VCC
+    Warning (13410): Pin "ssd1_tx[2]" is stuck at GND
+    Warning (13410): Pin "ssd1_tx[3]" is stuck at GND
+    Warning (13410): Pin "ssd1_tx[4]" is stuck at GND
     Warning (13410): Pin "ssd1_tx[5]" is stuck at VCC
     Warning (13410): Pin "ssd1_tx[6]" is stuck at GND
-    Warning (13410): Pin "ssd2_tx[0]" is stuck at GND
+    Warning (13410): Pin "ssd2_tx[0]" is stuck at VCC
     Warning (13410): Pin "ssd2_tx[1]" is stuck at VCC
     Warning (13410): Pin "ssd2_tx[2]" is stuck at VCC
-    Warning (13410): Pin "ssd2_tx[3]" is stuck at VCC
+    Warning (13410): Pin "ssd2_tx[3]" is stuck at GND
     Warning (13410): Pin "ssd2_tx[4]" is stuck at GND
     Warning (13410): Pin "ssd2_tx[5]" is stuck at GND
-    Warning (13410): Pin "ssd2_tx[6]" is stuck at GND
-    Warning (13410): Pin "ssd3_tx[0]" is stuck at VCC
-    Warning (13410): Pin "ssd3_tx[1]" is stuck at VCC
+    Warning (13410): Pin "ssd2_tx[6]" is stuck at VCC
+    Warning (13410): Pin "ssd3_tx[0]" is stuck at GND
+    Warning (13410): Pin "ssd3_tx[1]" is stuck at GND
     Warning (13410): Pin "ssd3_tx[2]" is stuck at VCC
-    Warning (13410): Pin "ssd3_tx[3]" is stuck at GND
+    Warning (13410): Pin "ssd3_tx[3]" is stuck at VCC
     Warning (13410): Pin "ssd3_tx[4]" is stuck at GND
-    Warning (13410): Pin "ssd3_tx[5]" is stuck at VCC
-    Warning (13410): Pin "ssd3_tx[6]" is stuck at VCC
-    Warning (13410): Pin "ssd4_tx[0]" is stuck at GND
+    Warning (13410): Pin "ssd3_tx[5]" is stuck at GND
+    Warning (13410): Pin "ssd3_tx[6]" is stuck at GND
+    Warning (13410): Pin "ssd4_tx[0]" is stuck at VCC
     Warning (13410): Pin "ssd4_tx[1]" is stuck at GND
     Warning (13410): Pin "ssd4_tx[2]" is stuck at GND
-    Warning (13410): Pin "ssd4_tx[3]" is stuck at GND
+    Warning (13410): Pin "ssd4_tx[3]" is stuck at VCC
     Warning (13410): Pin "ssd4_tx[4]" is stuck at VCC
     Warning (13410): Pin "ssd4_tx[5]" is stuck at VCC
-    Warning (13410): Pin "ssd4_tx[6]" is stuck at GND
-    Warning (13410): Pin "ssd5_tx[0]" is stuck at VCC
+    Warning (13410): Pin "ssd4_tx[6]" is stuck at VCC
+    Warning (13410): Pin "ssd5_tx[0]" is stuck at GND
     Warning (13410): Pin "ssd5_tx[1]" is stuck at GND
     Warning (13410): Pin "ssd5_tx[2]" is stuck at VCC
-    Warning (13410): Pin "ssd5_tx[3]" is stuck at VCC
+    Warning (13410): Pin "ssd5_tx[3]" is stuck at GND
     Warning (13410): Pin "ssd5_tx[4]" is stuck at GND
     Warning (13410): Pin "ssd5_tx[5]" is stuck at VCC
-    Warning (13410): Pin "ssd5_tx[6]" is stuck at VCC
-    Warning (13410): Pin "ssd6_tx[0]" is stuck at VCC
+    Warning (13410): Pin "ssd5_tx[6]" is stuck at GND
+    Warning (13410): Pin "ssd6_tx[0]" is stuck at GND
     Warning (13410): Pin "ssd6_tx[1]" is stuck at GND
     Warning (13410): Pin "ssd6_tx[2]" is stuck at GND
-    Warning (13410): Pin "ssd6_tx[3]" is stuck at VCC
+    Warning (13410): Pin "ssd6_tx[3]" is stuck at GND
     Warning (13410): Pin "ssd6_tx[4]" is stuck at VCC
     Warning (13410): Pin "ssd6_tx[5]" is stuck at VCC
-    Warning (13410): Pin "ssd6_tx[6]" is stuck at VCC
+    Warning (13410): Pin "ssd6_tx[6]" is stuck at GND
     Warning (13410): Pin "ssd7_tx[0]" is stuck at VCC
-    Warning (13410): Pin "ssd7_tx[1]" is stuck at VCC
+    Warning (13410): Pin "ssd7_tx[1]" is stuck at GND
     Warning (13410): Pin "ssd7_tx[2]" is stuck at GND
-    Warning (13410): Pin "ssd7_tx[3]" is stuck at GND
+    Warning (13410): Pin "ssd7_tx[3]" is stuck at VCC
     Warning (13410): Pin "ssd7_tx[4]" is stuck at VCC
-    Warning (13410): Pin "ssd7_tx[5]" is stuck at VCC
+    Warning (13410): Pin "ssd7_tx[5]" is stuck at GND
     Warning (13410): Pin "ssd7_tx[6]" is stuck at GND
-    Warning (13410): Pin "ssd8_tx[0]" is stuck at VCC
+    Warning (13410): Pin "ssd8_tx[0]" is stuck at GND
     Warning (13410): Pin "ssd8_tx[1]" is stuck at VCC
     Warning (13410): Pin "ssd8_tx[2]" is stuck at GND
-    Warning (13410): Pin "ssd8_tx[3]" is stuck at VCC
+    Warning (13410): Pin "ssd8_tx[3]" is stuck at GND
     Warning (13410): Pin "ssd8_tx[4]" is stuck at VCC
     Warning (13410): Pin "ssd8_tx[5]" is stuck at GND
-    Warning (13410): Pin "ssd8_tx[6]" is stuck at VCC
-Info (18000): Registers with preset signals will power-up high
+    Warning (13410): Pin "ssd8_tx[6]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 237 device resources after synthesis - the final resource count might be different
@@ -472,8 +478,8 @@ Info (21057): Implemented 237 device resources after synthesis - the final resou
     Info (21059): Implemented 64 output pins
     Info (21061): Implemented 166 logic cells
 Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 59 warnings
-    Info: Peak virtual memory: 354 megabytes
-    Info: Processing ended: Fri Jul  5 14:24:32 2019
+    Info: Peak virtual memory: 400 megabytes
+    Info: Processing ended: Fri Jul  5 15:52:55 2019
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

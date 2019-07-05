@@ -1,5 +1,5 @@
 Assembler report for tx_serial
-Fri Jul  5 14:24:38 2019
+Fri Jul  5 15:53:21 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -11,8 +11,7 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   3. Assembler Settings
   4. Assembler Generated Files
   5. Assembler Device Options: tx_serial.sof
-  6. Assembler Device Options: tx_serial.pof
-  7. Assembler Messages
+  6. Assembler Messages
 
 
 
@@ -38,11 +37,11 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Jul  5 14:24:38 2019 ;
+; Assembler Status      ; Successful - Fri Jul  5 15:53:21 2019 ;
 ; Revision Name         ; tx_serial                             ;
 ; Top-level Entity Name ; tx_serial                             ;
-; Family                ; Cyclone                               ;
-; Device                ; EP1C3T144C6                           ;
+; Family                ; Cyclone IV E                          ;
+; Device                ; EP4CE115F29C7                         ;
 +-----------------------+---------------------------------------+
 
 
@@ -60,10 +59,9 @@ applicable agreement for further details.
 ; Clock frequency of the configuration device                                 ; 10 MHZ   ; 10 MHz        ;
 ; Divide clock frequency by                                                   ; 1        ; 1             ;
 ; Auto user code                                                              ; On       ; On            ;
-; Use configuration device                                                    ; On       ; On            ;
+; Use configuration device                                                    ; Off      ; Off           ;
 ; Configuration device                                                        ; Auto     ; Auto          ;
 ; Configuration device auto user code                                         ; Off      ; Off           ;
-; Auto-increment JTAG user code for multiple configuration devices            ; On       ; On            ;
 ; Generate Tabular Text File (.ttf) For Target Device                         ; Off      ; Off           ;
 ; Generate Raw Binary File (.rbf) For Target Device                           ; Off      ; Off           ;
 ; Generate Hexadecimal (Intel-Format) Output File (.hexout) for Target Device ; Off      ; Off           ;
@@ -71,6 +69,7 @@ applicable agreement for further details.
 ; Hexadecimal Output File count direction                                     ; Up       ; Up            ;
 ; Release clears before tri-states                                            ; Off      ; Off           ;
 ; Auto-restart configuration after error                                      ; On       ; On            ;
+; Enable OCT_DONE                                                             ; Off      ; Off           ;
 ; Generate Serial Vector Format File (.svf) for Target Device                 ; Off      ; Off           ;
 ; Generate a JEDEC STAPL Format File (.jam) for Target Device                 ; Off      ; Off           ;
 ; Generate a compressed Jam STAPL Byte Code 2.0 File (.jbc) for Target Device ; Off      ; Off           ;
@@ -84,7 +83,6 @@ applicable agreement for further details.
 ; File Name                 ;
 +---------------------------+
 ; tx_serial.sof             ;
-; tx_serial.pof             ;
 +---------------------------+
 
 
@@ -93,22 +91,10 @@ applicable agreement for further details.
 +----------------+------------------------+
 ; Option         ; Setting                ;
 +----------------+------------------------+
-; Device         ; EP1C3T144C6            ;
-; JTAG usercode  ; 0x0005FA35             ;
-; Checksum       ; 0x0005FA35             ;
+; Device         ; EP4CE115F29C7          ;
+; JTAG usercode  ; 0x00579B00             ;
+; Checksum       ; 0x00579B00             ;
 +----------------+------------------------+
-
-
-+-----------------------------------------+
-; Assembler Device Options: tx_serial.pof ;
-+--------------------+--------------------+
-; Option             ; Setting            ;
-+--------------------+--------------------+
-; Device             ; EPCS1              ;
-; JTAG usercode      ; 0x00000000         ;
-; Checksum           ; 0x01A774F6         ;
-; Compression Ratio  ; 2                  ;
-+--------------------+--------------------+
 
 
 +--------------------+
@@ -117,13 +103,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri Jul  5 14:24:37 2019
+    Info: Processing started: Fri Jul  5 15:53:16 2019
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off tx_serial -c tx_serial
+Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 32-bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 309 megabytes
-    Info: Processing ended: Fri Jul  5 14:24:38 2019
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 342 megabytes
+    Info: Processing ended: Fri Jul  5 15:53:21 2019
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 

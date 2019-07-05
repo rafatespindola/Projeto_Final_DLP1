@@ -1,10 +1,14 @@
-Analysis & Synthesis Status : Successful - Fri Jul  5 14:24:32 2019
+Analysis & Synthesis Status : Successful - Fri Jul  5 15:52:55 2019
 Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : tx_serial
 Top-level Entity Name : tx_serial
-Family : Cyclone
+Family : Cyclone IV E
 Total logic elements : 166
+    Total combinational functions : 165
+    Dedicated logic registers : 124
+Total registers : 124
 Total pins : 71
 Total virtual pins : 0
 Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0

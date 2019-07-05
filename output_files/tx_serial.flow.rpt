@@ -1,5 +1,5 @@
 Flow report for tx_serial
-Fri Jul  5 14:24:41 2019
+Fri Jul  5 15:53:27 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -37,22 +37,26 @@ applicable agreement for further details.
 
 
 
-+------------------------------------------------------------------------------+
-; Flow Summary                                                                 ;
-+---------------------------+--------------------------------------------------+
-; Flow Status               ; Successful - Fri Jul  5 14:24:41 2019            ;
-; Quartus II 32-bit Version ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
-; Revision Name             ; tx_serial                                        ;
-; Top-level Entity Name     ; tx_serial                                        ;
-; Family                    ; Cyclone                                          ;
-; Device                    ; EP1C3T144C6                                      ;
-; Timing Models             ; Final                                            ;
-; Total logic elements      ; 166 / 2,910 ( 6 % )                              ;
-; Total pins                ; 71 / 104 ( 68 % )                                ;
-; Total virtual pins        ; 0                                                ;
-; Total memory bits         ; 0 / 59,904 ( 0 % )                               ;
-; Total PLLs                ; 0 / 1 ( 0 % )                                    ;
-+---------------------------+--------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Flow Summary                                                                          ;
++------------------------------------+--------------------------------------------------+
+; Flow Status                        ; Successful - Fri Jul  5 15:53:27 2019            ;
+; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; tx_serial                                        ;
+; Top-level Entity Name              ; tx_serial                                        ;
+; Family                             ; Cyclone IV E                                     ;
+; Device                             ; EP4CE115F29C7                                    ;
+; Timing Models                      ; Final                                            ;
+; Total logic elements               ; 178 / 114,480 ( < 1 % )                          ;
+;     Total combinational functions  ; 165 / 114,480 ( < 1 % )                          ;
+;     Dedicated logic registers      ; 124 / 114,480 ( < 1 % )                          ;
+; Total registers                    ; 124                                              ;
+; Total pins                         ; 71 / 529 ( 13 % )                                ;
+; Total virtual pins                 ; 0                                                ;
+; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                            ;
+; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                                  ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                                    ;
++------------------------------------+--------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -60,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/05/2019 14:24:31 ;
+; Start date & time ; 07/05/2019 15:52:54 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; tx_serial           ;
 +-------------------+---------------------+
@@ -71,10 +75,16 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 27116745658592.156234747010514 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 27116745658592.156235277424154 ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                             ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                    ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)      ; <None>        ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                             ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                              ; --            ; --          ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing              ; --            ; --          ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing              ; --            ; --          ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                     ; --            ; --          ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                     ; --            ; --          ; --             ;
 ; PARTITION_COLOR                     ; 16764057                       ; --            ; --          ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING          ; --            ; --          ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                         ; --            ; --          ; Top            ;
@@ -87,12 +97,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 354 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:03     ; 1.0                     ; 454 MB              ; 00:00:03                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 309 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:00     ; 1.0                     ; 310 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 298 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:06     ; --                      ; --                  ; 00:00:08                           ;
+; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 400 MB              ; 00:00:02                           ;
+; Fitter                    ; 00:00:17     ; 2.4                     ; 763 MB              ; 00:00:27                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 342 MB              ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 429 MB              ; 00:00:03                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 303 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:28     ; --                      ; --                  ; 00:00:38                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

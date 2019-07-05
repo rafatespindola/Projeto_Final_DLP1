@@ -2,28 +2,76 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Setup 'clk_tx'
-Slack : -3.800
-TNS   : -313.589
+Type  : Slow 1200mV 85C Model Setup 'clk_tx'
+Slack : -3.437
+TNS   : -262.398
 
-Type  : Setup 'sel_baudrate_tx[0]'
-Slack : -1.889
-TNS   : -25.978
+Type  : Slow 1200mV 85C Model Setup 'sel_baudrate_tx[0]'
+Slack : -1.522
+TNS   : -26.953
 
-Type  : Hold 'clk_tx'
-Slack : 0.234
+Type  : Slow 1200mV 85C Model Hold 'clk_tx'
+Slack : -0.150
+TNS   : -0.396
+
+Type  : Slow 1200mV 85C Model Hold 'sel_baudrate_tx[0]'
+Slack : 0.388
 TNS   : 0.000
 
-Type  : Hold 'sel_baudrate_tx[0]'
-Slack : 0.656
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_tx'
+Slack : -3.000
+TNS   : -128.930
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sel_baudrate_tx[0]'
+Slack : -3.000
+TNS   : -45.443
+
+Type  : Slow 1200mV 0C Model Setup 'clk_tx'
+Slack : -3.069
+TNS   : -231.850
+
+Type  : Slow 1200mV 0C Model Setup 'sel_baudrate_tx[0]'
+Slack : -1.315
+TNS   : -22.085
+
+Type  : Slow 1200mV 0C Model Hold 'clk_tx'
+Slack : -0.061
+TNS   : -0.092
+
+Type  : Slow 1200mV 0C Model Hold 'sel_baudrate_tx[0]'
+Slack : 0.341
 TNS   : 0.000
 
-Type  : Minimum Pulse Width 'clk_tx'
-Slack : -1.155
-TNS   : -145.019
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_tx'
+Slack : -3.000
+TNS   : -128.930
 
-Type  : Minimum Pulse Width 'sel_baudrate_tx[0]'
-Slack : -1.155
-TNS   : -47.019
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sel_baudrate_tx[0]'
+Slack : -3.000
+TNS   : -40.824
+
+Type  : Fast 1200mV 0C Model Setup 'clk_tx'
+Slack : -1.110
+TNS   : -76.226
+
+Type  : Fast 1200mV 0C Model Setup 'sel_baudrate_tx[0]'
+Slack : -0.195
+TNS   : -1.425
+
+Type  : Fast 1200mV 0C Model Hold 'clk_tx'
+Slack : -0.271
+TNS   : -0.974
+
+Type  : Fast 1200mV 0C Model Hold 'sel_baudrate_tx[0]'
+Slack : 0.175
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_tx'
+Slack : -3.000
+TNS   : -107.341
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sel_baudrate_tx[0]'
+Slack : -3.000
+TNS   : -45.144
 
 ------------------------------------------------------------
