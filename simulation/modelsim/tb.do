@@ -5,13 +5,15 @@ vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/tx_serial.vhd}
 vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd}
 vcom -93 -work work {/home/aluno/Projeto_Final_DLP1/shift_register.vhd} 
 vsim work.tx_serial
-add wave sim:/tx_serial/*
+#add wave sim:/tx_serial/*
+#add wave -position 3  sim:/tx_serial/ent/pulso
+do tl_wave.do
 force -freeze sim:/tx_serial/clk_tx 1 0, 0 {10000 ps} -r 20ns
 force -freeze sim:/tx_serial/rst_tx 0 0
 force -freeze sim:/tx_serial/enable_tx 1 0
-force -freeze sim:/tx_serial/load_tx 0 0
+force -freeze sim:/tx_serial/load_tx 0 0, 1 10ms, 0 11ms, 1 21ms, 0 22ms
 force -freeze sim:/tx_serial/sel_paridade_tx 0 0
 force -freeze sim:/tx_serial/sel_baudrate_tx 00 0
-run 10ms
+run 32ms
 
 

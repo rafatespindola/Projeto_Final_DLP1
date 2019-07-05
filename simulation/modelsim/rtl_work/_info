@@ -16,7 +16,7 @@ L5
 VJnHCniICzFe]X7lfBIfbK0
 Z8 OV;C;10.1d;51
 31
-Z9 !s108 1562346008.888629
+Z9 !s108 1562346921.706741
 Z10 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/conv_paralelo_serial.vhd|
 Z11 !s107 /home/aluno/Projeto_Final_DLP1/conv_paralelo_serial.vhd|
 Z12 o-93 -work work -O0
@@ -53,7 +53,7 @@ L5
 V_fl6bnKdR8Hj2TLQnB:T51
 R8
 31
-Z17 !s108 1562346008.852677
+Z17 !s108 1562346921.657609
 Z18 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/entrada.vhd|
 Z19 !s107 /home/aluno/Projeto_Final_DLP1/entrada.vhd|
 R12
@@ -90,7 +90,7 @@ L5
 VlZJVV`D^R1_9>l3D`c`U93
 R8
 31
-Z22 !s108 1562346008.809719
+Z22 !s108 1562346921.609162
 Z23 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd|
 Z24 !s107 /home/aluno/Projeto_Final_DLP1/gera_baudrate.vhd|
 R12
@@ -127,7 +127,7 @@ L5
 VVAO@U_Oc4E5>3Pmd0i[QC2
 R8
 31
-Z27 !s108 1562346008.974476
+Z27 !s108 1562346921.795166
 Z28 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd|
 Z29 !s107 /home/aluno/Projeto_Final_DLP1/gerador_paridade.vhd|
 R12
@@ -165,7 +165,7 @@ VPZBzECd`No9oE4_a2]h@I1
 R8
 31
 !i10b 1
-Z33 !s108 1562346009.020831
+Z33 !s108 1562346921.834537
 Z34 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/shift_register.vhd|
 Z35 !s107 /home/aluno/Projeto_Final_DLP1/shift_register.vhd|
 R12
@@ -199,7 +199,7 @@ L5
 VCQd]GS63e@SiBe=LFlkd=2
 R8
 31
-Z42 !s108 1562346008.928681
+Z42 !s108 1562346921.754225
 Z43 !s90 -reportprogress|300|-93|-work|work|/home/aluno/Projeto_Final_DLP1/tx_serial.vhd|
 Z44 !s107 /home/aluno/Projeto_Final_DLP1/tx_serial.vhd|
 R12

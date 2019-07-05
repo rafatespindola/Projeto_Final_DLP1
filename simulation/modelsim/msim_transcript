@@ -127,3 +127,58 @@ force -freeze sim:/tx_serial/load_tx 1 0
 run 1ms
 force -freeze sim:/tx_serial/load_tx 0 0
 run 10ms
+add wave -position 3  sim:/tx_serial/ent/pulso
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/aluno/Projeto_Final_DLP1/simulation/modelsim/tl_wave.do
+do tb.do
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity gera_baudrate
+# -- Compiling architecture ifsc of gera_baudrate
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity entrada
+# -- Compiling architecture ifsc of entrada
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity conv_paralelo_serial
+# -- Compiling architecture ifsc of conv_paralelo_serial
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tx_serial
+# -- Compiling architecture ifsc of tx_serial
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity gerador_paridade
+# -- Compiling architecture gerador_paridade_v1 of gerador_paridade
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity shift_register
+# -- Compiling architecture v1 of shift_register
+# vsim work.tx_serial 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tx_serial(ifsc)
+# Loading work.entrada(ifsc)
+# Loading work.conv_paralelo_serial(ifsc)
+# Loading work.gerador_paridade(gerador_paridade_v1)
+# Loading work.shift_register(v1)
+# Loading work.gera_baudrate(ifsc)
