@@ -1,4 +1,56 @@
-|shift_register
+|conv_paralelo_serial
+sel_par_conv => gerador_paridade:paridade.sel_par
+load_conv => shift_register:shift.load_sft
+clk_conv => shift_register:shift.clk_sft
+rst_conv => shift_register:shift.rst_sft
+ascii_conv[0] => gerador_paridade:paridade.entrada[0]
+ascii_conv[0] => shift_register:shift.din_sft[1]
+ascii_conv[1] => gerador_paridade:paridade.entrada[1]
+ascii_conv[1] => shift_register:shift.din_sft[2]
+ascii_conv[2] => gerador_paridade:paridade.entrada[2]
+ascii_conv[2] => shift_register:shift.din_sft[3]
+ascii_conv[3] => gerador_paridade:paridade.entrada[3]
+ascii_conv[3] => shift_register:shift.din_sft[4]
+ascii_conv[4] => gerador_paridade:paridade.entrada[4]
+ascii_conv[4] => shift_register:shift.din_sft[5]
+ascii_conv[5] => gerador_paridade:paridade.entrada[5]
+ascii_conv[5] => shift_register:shift.din_sft[6]
+ascii_conv[6] => gerador_paridade:paridade.entrada[6]
+ascii_conv[6] => shift_register:shift.din_sft[7]
+out_conv <= shift_register:shift.dout_sft
+
+
+|conv_paralelo_serial|gerador_paridade:paridade
+entrada[0] => cont[0].OUTPUTSELECT
+entrada[1] => cont.OUTPUTSELECT
+entrada[1] => cont.OUTPUTSELECT
+entrada[1] => cont.OUTPUTSELECT
+entrada[1] => cont.OUTPUTSELECT
+entrada[1] => cont.OUTPUTSELECT
+entrada[1] => cont.OUTPUTSELECT
+entrada[2] => cont.OUTPUTSELECT
+entrada[2] => cont.OUTPUTSELECT
+entrada[2] => cont.OUTPUTSELECT
+entrada[2] => cont.OUTPUTSELECT
+entrada[2] => cont.OUTPUTSELECT
+entrada[3] => cont.OUTPUTSELECT
+entrada[3] => cont.OUTPUTSELECT
+entrada[3] => cont.OUTPUTSELECT
+entrada[3] => cont.OUTPUTSELECT
+entrada[4] => cont.OUTPUTSELECT
+entrada[4] => cont.OUTPUTSELECT
+entrada[4] => cont.OUTPUTSELECT
+entrada[5] => cont.OUTPUTSELECT
+entrada[5] => cont.OUTPUTSELECT
+entrada[6] => Add0.IN2
+entrada[6] => cont.DATAA
+sel_par => par_out.IN1
+sel_par => par_out.IN1
+par_out <= par_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|conv_paralelo_serial|shift_register:shift
+dout_sft <= q[0].DB_MAX_OUTPUT_PORT_TYPE
 din_sft[0] => q.DATAB
 din_sft[1] => q.DATAB
 din_sft[2] => q.DATAB
@@ -10,7 +62,6 @@ din_sft[7] => q.DATAB
 din_sft[8] => q.DATAB
 din_sft[9] => q.DATAB
 din_sft[10] => q.DATAB
-dout_sft <= q[0].DB_MAX_OUTPUT_PORT_TYPE
 load_sft => q.OUTPUTSELECT
 load_sft => q.OUTPUTSELECT
 load_sft => q.OUTPUTSELECT

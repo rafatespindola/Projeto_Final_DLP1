@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for tx_serial
-Thu Jul  4 23:49:36 2019
+Fri Jul  5 13:18:05 2019
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -16,9 +16,9 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   8. Recovery Summary
   9. Removal Summary
  10. Minimum Pulse Width Summary
- 11. Setup: 'clk_sft'
- 12. Hold: 'clk_sft'
- 13. Minimum Pulse Width: 'clk_sft'
+ 11. Setup: 'clk_conv'
+ 12. Hold: 'clk_conv'
+ 13. Minimum Pulse Width: 'clk_conv'
  14. Setup Times
  15. Hold Times
  16. Clock to Output Times
@@ -82,41 +82,41 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                              ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
-; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets     ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
-; clk_sft    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk_sft } ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; clk_conv   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk_conv } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Fmax Summary                                                                                      ;
-+------------+-----------------+------------+-------------------------------------------------------+
-; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                  ;
-+------------+-----------------+------------+-------------------------------------------------------+
-; 975.61 MHz ; 405.19 MHz      ; clk_sft    ; limit due to high minimum pulse width violation (tch) ;
-+------------+-----------------+------------+-------------------------------------------------------+
++----------------------------------------------------------------------------------------------------+
+; Fmax Summary                                                                                       ;
++-------------+-----------------+------------+-------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name ; Note                                                  ;
++-------------+-----------------+------------+-------------------------------------------------------+
+; 1009.08 MHz ; 405.19 MHz      ; clk_conv   ; limit due to high minimum pulse width violation (tch) ;
++-------------+-----------------+------------+-------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
 +----------------------------------+
 ; Setup Summary                    ;
-+---------+--------+---------------+
-; Clock   ; Slack  ; End Point TNS ;
-+---------+--------+---------------+
-; clk_sft ; -0.025 ; -0.025        ;
-+---------+--------+---------------+
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; clk_conv ; 0.009 ; 0.000         ;
++----------+-------+---------------+
 
 
-+---------------------------------+
-; Hold Summary                    ;
-+---------+-------+---------------+
-; Clock   ; Slack ; End Point TNS ;
-+---------+-------+---------------+
-; clk_sft ; 0.798 ; 0.000         ;
-+---------+-------+---------------+
++----------------------------------+
+; Hold Summary                     ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; clk_conv ; 0.801 ; 0.000         ;
++----------+-------+---------------+
 
 
 --------------------
@@ -131,146 +131,128 @@ No paths to report.
 No paths to report.
 
 
-+----------------------------------+
-; Minimum Pulse Width Summary      ;
-+---------+--------+---------------+
-; Clock   ; Slack  ; End Point TNS ;
-+---------+--------+---------------+
-; clk_sft ; -1.155 ; -17.303       ;
-+---------+--------+---------------+
++-----------------------------------+
+; Minimum Pulse Width Summary       ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; clk_conv ; -1.155 ; -14.367       ;
++----------+--------+---------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Setup: 'clk_sft'                                                                                   ;
-+--------+-----------+---------+--------------+-------------+--------------+------------+------------+
-; Slack  ; From Node ; To Node ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+--------+-----------+---------+--------------+-------------+--------------+------------+------------+
-; -0.025 ; q[8]      ; q[7]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.996      ;
-; 0.016  ; q[5]      ; q[4]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.955      ;
-; 0.018  ; q[7]      ; q[6]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.953      ;
-; 0.153  ; q[3]      ; q[2]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.818      ;
-; 0.156  ; q[2]      ; q[1]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.815      ;
-; 0.156  ; q[4]      ; q[3]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.815      ;
-; 0.157  ; q[1]      ; q[0]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.814      ;
-; 0.158  ; q[10]     ; q[9]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.813      ;
-; 0.159  ; q[6]      ; q[5]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.812      ;
-; 0.161  ; q[9]      ; q[8]    ; clk_sft      ; clk_sft     ; 1.000        ; 0.000      ; 0.810      ;
-+--------+-----------+---------+--------------+-------------+--------------+------------+------------+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk_conv'                                                                                                                   ;
++-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                 ; To Node                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+; 0.009 ; shift_register:shift|q[5] ; shift_register:shift|q[4] ; clk_conv     ; clk_conv    ; 1.000        ; 0.000      ; 0.962      ;
+; 0.010 ; shift_register:shift|q[6] ; shift_register:shift|q[5] ; clk_conv     ; clk_conv    ; 1.000        ; 0.000      ; 0.961      ;
+; 0.016 ; shift_register:shift|q[1] ; shift_register:shift|q[0] ; clk_conv     ; clk_conv    ; 1.000        ; 0.000      ; 0.955      ;
+; 0.154 ; shift_register:shift|q[8] ; shift_register:shift|q[7] ; clk_conv     ; clk_conv    ; 1.000        ; 0.000      ; 0.817      ;
+; 0.155 ; shift_register:shift|q[7] ; shift_register:shift|q[6] ; clk_conv     ; clk_conv    ; 1.000        ; 0.000      ; 0.816      ;
+; 0.157 ; shift_register:shift|q[3] ; shift_register:shift|q[2] ; clk_conv     ; clk_conv    ; 1.000        ; 0.000      ; 0.814      ;
+; 0.157 ; shift_register:shift|q[4] ; shift_register:shift|q[3] ; clk_conv     ; clk_conv    ; 1.000        ; 0.000      ; 0.814      ;
+; 0.158 ; shift_register:shift|q[2] ; shift_register:shift|q[1] ; clk_conv     ; clk_conv    ; 1.000        ; 0.000      ; 0.813      ;
++-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Hold: 'clk_sft'                                                                                   ;
-+-------+-----------+---------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node ; To Node ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+-----------+---------+--------------+-------------+--------------+------------+------------+
-; 0.798 ; q[9]      ; q[8]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.810      ;
-; 0.800 ; q[6]      ; q[5]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.812      ;
-; 0.801 ; q[10]     ; q[9]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.813      ;
-; 0.802 ; q[1]      ; q[0]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.814      ;
-; 0.803 ; q[2]      ; q[1]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.815      ;
-; 0.803 ; q[4]      ; q[3]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.815      ;
-; 0.806 ; q[3]      ; q[2]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.818      ;
-; 0.941 ; q[7]      ; q[6]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.953      ;
-; 0.943 ; q[5]      ; q[4]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.955      ;
-; 0.984 ; q[8]      ; q[7]    ; clk_sft      ; clk_sft     ; 0.000        ; 0.000      ; 0.996      ;
-+-------+-----------+---------+--------------+-------------+--------------+------------+------------+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk_conv'                                                                                                                    ;
++-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                 ; To Node                   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
+; 0.801 ; shift_register:shift|q[2] ; shift_register:shift|q[1] ; clk_conv     ; clk_conv    ; 0.000        ; 0.000      ; 0.813      ;
+; 0.802 ; shift_register:shift|q[3] ; shift_register:shift|q[2] ; clk_conv     ; clk_conv    ; 0.000        ; 0.000      ; 0.814      ;
+; 0.802 ; shift_register:shift|q[4] ; shift_register:shift|q[3] ; clk_conv     ; clk_conv    ; 0.000        ; 0.000      ; 0.814      ;
+; 0.804 ; shift_register:shift|q[7] ; shift_register:shift|q[6] ; clk_conv     ; clk_conv    ; 0.000        ; 0.000      ; 0.816      ;
+; 0.805 ; shift_register:shift|q[8] ; shift_register:shift|q[7] ; clk_conv     ; clk_conv    ; 0.000        ; 0.000      ; 0.817      ;
+; 0.943 ; shift_register:shift|q[1] ; shift_register:shift|q[0] ; clk_conv     ; clk_conv    ; 0.000        ; 0.000      ; 0.955      ;
+; 0.949 ; shift_register:shift|q[6] ; shift_register:shift|q[5] ; clk_conv     ; clk_conv    ; 0.000        ; 0.000      ; 0.961      ;
+; 0.950 ; shift_register:shift|q[5] ; shift_register:shift|q[4] ; clk_conv     ; clk_conv    ; 0.000        ; 0.000      ; 0.962      ;
++-------+---------------------------+---------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Minimum Pulse Width: 'clk_sft'                                                                     ;
-+--------+--------------+----------------+------------------+---------+------------+-----------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock   ; Clock Edge ; Target          ;
-+--------+--------------+----------------+------------------+---------+------------+-----------------+
-; -1.155 ; 1.000        ; 2.155          ; Port Rate        ; clk_sft ; Rise       ; clk_sft         ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[0]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[0]            ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[10]           ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[10]           ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[1]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[1]            ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[2]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[2]            ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[3]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[3]            ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[4]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[4]            ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[5]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[5]            ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[6]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[6]            ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[7]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[7]            ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[8]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[8]            ;
-; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_sft ; Rise       ; q[9]            ;
-; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_sft ; Rise       ; q[9]            ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; clk_sft|combout ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; clk_sft|combout ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[0]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[0]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[10]|clk       ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[10]|clk       ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[1]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[1]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[2]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[2]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[3]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[3]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[4]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[4]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[5]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[5]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[6]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[6]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[7]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[7]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[8]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[8]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_sft ; Rise       ; q[9]|clk        ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_sft ; Rise       ; q[9]|clk        ;
-+--------+--------------+----------------+------------------+---------+------------+-----------------+
-
-
-+--------------------------------------------------------------------------+
-; Setup Times                                                              ;
-+--------------+------------+-------+-------+------------+-----------------+
-; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+--------------+------------+-------+-------+------------+-----------------+
-; din_sft[*]   ; clk_sft    ; 3.864 ; 3.864 ; Rise       ; clk_sft         ;
-;  din_sft[0]  ; clk_sft    ; 3.343 ; 3.343 ; Rise       ; clk_sft         ;
-;  din_sft[1]  ; clk_sft    ; 3.551 ; 3.551 ; Rise       ; clk_sft         ;
-;  din_sft[2]  ; clk_sft    ; 3.552 ; 3.552 ; Rise       ; clk_sft         ;
-;  din_sft[3]  ; clk_sft    ; 3.382 ; 3.382 ; Rise       ; clk_sft         ;
-;  din_sft[4]  ; clk_sft    ; 3.383 ; 3.383 ; Rise       ; clk_sft         ;
-;  din_sft[5]  ; clk_sft    ; 3.585 ; 3.585 ; Rise       ; clk_sft         ;
-;  din_sft[6]  ; clk_sft    ; 3.415 ; 3.415 ; Rise       ; clk_sft         ;
-;  din_sft[7]  ; clk_sft    ; 3.376 ; 3.376 ; Rise       ; clk_sft         ;
-;  din_sft[8]  ; clk_sft    ; 3.376 ; 3.376 ; Rise       ; clk_sft         ;
-;  din_sft[9]  ; clk_sft    ; 3.538 ; 3.538 ; Rise       ; clk_sft         ;
-;  din_sft[10] ; clk_sft    ; 3.864 ; 3.864 ; Rise       ; clk_sft         ;
-; load_sft     ; clk_sft    ; 3.879 ; 3.879 ; Rise       ; clk_sft         ;
-+--------------+------------+-------+-------+------------+-----------------+
++---------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk_conv'                                                                               ;
++--------+--------------+----------------+------------------+----------+------------+---------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                    ;
++--------+--------------+----------------+------------------+----------+------------+---------------------------+
+; -1.155 ; 1.000        ; 2.155          ; Port Rate        ; clk_conv ; Rise       ; clk_conv                  ;
+; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_conv ; Rise       ; shift_register:shift|q[0] ;
+; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_conv ; Rise       ; shift_register:shift|q[0] ;
+; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_conv ; Rise       ; shift_register:shift|q[1] ;
+; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_conv ; Rise       ; shift_register:shift|q[1] ;
+; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_conv ; Rise       ; shift_register:shift|q[2] ;
+; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_conv ; Rise       ; shift_register:shift|q[2] ;
+; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_conv ; Rise       ; shift_register:shift|q[3] ;
+; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_conv ; Rise       ; shift_register:shift|q[3] ;
+; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_conv ; Rise       ; shift_register:shift|q[4] ;
+; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_conv ; Rise       ; shift_register:shift|q[4] ;
+; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_conv ; Rise       ; shift_register:shift|q[5] ;
+; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_conv ; Rise       ; shift_register:shift|q[5] ;
+; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_conv ; Rise       ; shift_register:shift|q[6] ;
+; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_conv ; Rise       ; shift_register:shift|q[6] ;
+; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_conv ; Rise       ; shift_register:shift|q[7] ;
+; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_conv ; Rise       ; shift_register:shift|q[7] ;
+; -0.734 ; 0.500        ; 1.234          ; High Pulse Width ; clk_conv ; Rise       ; shift_register:shift|q[8] ;
+; -0.734 ; 0.500        ; 1.234          ; Low Pulse Width  ; clk_conv ; Rise       ; shift_register:shift|q[8] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; clk_conv|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; clk_conv|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; shift|q[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; shift|q[0]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; shift|q[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; shift|q[1]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; shift|q[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; shift|q[2]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; shift|q[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; shift|q[3]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; shift|q[4]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; shift|q[4]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; shift|q[5]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; shift|q[5]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; shift|q[6]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; shift|q[6]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; shift|q[7]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; shift|q[7]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk_conv ; Rise       ; shift|q[8]|clk            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk_conv ; Rise       ; shift|q[8]|clk            ;
++--------+--------------+----------------+------------------+----------+------------+---------------------------+
 
 
 +----------------------------------------------------------------------------+
-; Hold Times                                                                 ;
-+--------------+------------+--------+--------+------------+-----------------+
-; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
-+--------------+------------+--------+--------+------------+-----------------+
-; din_sft[*]   ; clk_sft    ; -3.302 ; -3.302 ; Rise       ; clk_sft         ;
-;  din_sft[0]  ; clk_sft    ; -3.302 ; -3.302 ; Rise       ; clk_sft         ;
-;  din_sft[1]  ; clk_sft    ; -3.510 ; -3.510 ; Rise       ; clk_sft         ;
-;  din_sft[2]  ; clk_sft    ; -3.511 ; -3.511 ; Rise       ; clk_sft         ;
-;  din_sft[3]  ; clk_sft    ; -3.341 ; -3.341 ; Rise       ; clk_sft         ;
-;  din_sft[4]  ; clk_sft    ; -3.342 ; -3.342 ; Rise       ; clk_sft         ;
-;  din_sft[5]  ; clk_sft    ; -3.544 ; -3.544 ; Rise       ; clk_sft         ;
-;  din_sft[6]  ; clk_sft    ; -3.374 ; -3.374 ; Rise       ; clk_sft         ;
-;  din_sft[7]  ; clk_sft    ; -3.335 ; -3.335 ; Rise       ; clk_sft         ;
-;  din_sft[8]  ; clk_sft    ; -3.335 ; -3.335 ; Rise       ; clk_sft         ;
-;  din_sft[9]  ; clk_sft    ; -3.497 ; -3.497 ; Rise       ; clk_sft         ;
-;  din_sft[10] ; clk_sft    ; -3.823 ; -3.823 ; Rise       ; clk_sft         ;
-; load_sft     ; clk_sft    ; -3.402 ; -3.402 ; Rise       ; clk_sft         ;
-+--------------+------------+--------+--------+------------+-----------------+
+; Setup Times                                                                ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; ascii_conv[*]  ; clk_conv   ; 4.409 ; 4.409 ; Rise       ; clk_conv        ;
+;  ascii_conv[0] ; clk_conv   ; 3.735 ; 3.735 ; Rise       ; clk_conv        ;
+;  ascii_conv[1] ; clk_conv   ; 3.790 ; 3.790 ; Rise       ; clk_conv        ;
+;  ascii_conv[2] ; clk_conv   ; 3.959 ; 3.959 ; Rise       ; clk_conv        ;
+;  ascii_conv[3] ; clk_conv   ; 3.995 ; 3.995 ; Rise       ; clk_conv        ;
+;  ascii_conv[4] ; clk_conv   ; 4.409 ; 4.409 ; Rise       ; clk_conv        ;
+;  ascii_conv[5] ; clk_conv   ; 4.293 ; 4.293 ; Rise       ; clk_conv        ;
+;  ascii_conv[6] ; clk_conv   ; 4.198 ; 4.198 ; Rise       ; clk_conv        ;
+; load_conv      ; clk_conv   ; 3.685 ; 3.685 ; Rise       ; clk_conv        ;
+; sel_par_conv   ; clk_conv   ; 2.823 ; 2.823 ; Rise       ; clk_conv        ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Hold Times                                                                   ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; ascii_conv[*]  ; clk_conv   ; -3.010 ; -3.010 ; Rise       ; clk_conv        ;
+;  ascii_conv[0] ; clk_conv   ; -3.010 ; -3.010 ; Rise       ; clk_conv        ;
+;  ascii_conv[1] ; clk_conv   ; -3.408 ; -3.408 ; Rise       ; clk_conv        ;
+;  ascii_conv[2] ; clk_conv   ; -3.348 ; -3.348 ; Rise       ; clk_conv        ;
+;  ascii_conv[3] ; clk_conv   ; -3.370 ; -3.370 ; Rise       ; clk_conv        ;
+;  ascii_conv[4] ; clk_conv   ; -3.363 ; -3.363 ; Rise       ; clk_conv        ;
+;  ascii_conv[5] ; clk_conv   ; -3.314 ; -3.314 ; Rise       ; clk_conv        ;
+;  ascii_conv[6] ; clk_conv   ; -3.299 ; -3.299 ; Rise       ; clk_conv        ;
+; load_conv      ; clk_conv   ; -3.635 ; -3.635 ; Rise       ; clk_conv        ;
+; sel_par_conv   ; clk_conv   ; -2.782 ; -2.782 ; Rise       ; clk_conv        ;
++----------------+------------+--------+--------+------------+-----------------+
 
 
 +-----------------------------------------------------------------------+
@@ -278,7 +260,7 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; dout_sft  ; clk_sft    ; 5.133 ; 5.133 ; Rise       ; clk_sft         ;
+; out_conv  ; clk_conv   ; 5.078 ; 5.078 ; Rise       ; clk_conv        ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -287,7 +269,7 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; dout_sft  ; clk_sft    ; 5.133 ; 5.133 ; Rise       ; clk_sft         ;
+; out_conv  ; clk_conv   ; 5.078 ; 5.078 ; Rise       ; clk_conv        ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -296,7 +278,7 @@ No paths to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk_sft    ; clk_sft  ; 10       ; 0        ; 0        ; 0        ;
+; clk_conv   ; clk_conv ; 8        ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -306,7 +288,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk_sft    ; clk_sft  ; 10       ; 0        ; 0        ; 0        ;
+; clk_conv   ; clk_conv ; 8        ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -330,7 +312,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 13    ; 13   ;
+; Unconstrained Input Ports       ; 10    ; 10   ;
 ; Unconstrained Input Port Paths  ; 33    ; 33   ;
 ; Unconstrained Output Ports      ; 1     ; 1    ;
 ; Unconstrained Output Port Paths ; 1     ; 1    ;
@@ -343,37 +325,37 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu Jul  4 23:49:28 2019
+    Info: Processing started: Fri Jul  5 13:16:31 2019
 Info: Command: quartus_sta tx_serial -c tx_serial
 Info: qsta_default_script.tcl version: #1
 Info (11104): Parallel Compilation has detected 40 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 16 of the 20 physical processors detected instead.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'tx_serial.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
-    Info (332105): create_clock -period 1.000 -name clk_sft clk_sft
+    Info (332105): create_clock -period 1.000 -name clk_conv clk_conv
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
-Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.025
+Info (332146): Worst-case setup slack is 0.009
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -0.025        -0.025 clk_sft 
-Info (332146): Worst-case hold slack is 0.798
+    Info (332119):     0.009         0.000 clk_conv 
+Info (332146): Worst-case hold slack is 0.801
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):     0.798         0.000 clk_sft 
+    Info (332119):     0.801         0.000 clk_conv 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
+Critical Warning (332148): Timing requirements not met
 Info (332146): Worst-case minimum pulse width slack is -1.155
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -1.155       -17.303 clk_sft 
+    Info (332119):    -1.155       -14.367 clk_conv 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 308 megabytes
-    Info: Processing ended: Thu Jul  4 23:49:36 2019
-    Info: Elapsed time: 00:00:08
+    Info: Peak virtual memory: 309 megabytes
+    Info: Processing ended: Fri Jul  5 13:18:05 2019
+    Info: Elapsed time: 00:01:34
     Info: Total CPU time (on all processors): 00:00:01
 
 

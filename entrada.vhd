@@ -4,9 +4,7 @@ use ieee.std_logic_1164.all;
 --------------------------------------------------------
 entity entrada is 							   			   -- Entradas e saidas com "ent" no final
   
-	generic (
-		N: natural:= 8);
-	
+	generic (N: natural:= 8);
 	port(
 		--------------in--------------
 		clk_ent  : in  std_logic;

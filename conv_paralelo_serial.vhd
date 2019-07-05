@@ -31,15 +31,14 @@ architecture ifsc of conv_paralelo_serial is
 		);
 	end component;
 	
-	entity shift_register is
-	
-	generic( N	: natural := 11);
-	port( 
-		din_sft : in std_logic_vector(N-1 downto 0);
-		dout_sft: out std_logic;
-		load_sft, rst_sft, clk_sft: in std_logic
-	);
-	end shift_register;
+	component shift_register
+		generic( N	: natural := 11);
+		port( 
+			din_sft : in std_logic_vector(N-1 downto 0);
+			dout_sft: out std_logic;
+			load_sft, rst_sft, clk_sft: in std_logic
+		);
+	end component;
 	
 	signal par_conv: std_logic;
 	signal paralelo: std_logic_vector(10 downto 0);
@@ -54,8 +53,8 @@ begin
 	paralelo <= "11" & par_conv & ascii_conv & '0';
 	
 	shift: shift_register	
-		generic map( N	=> 11);
-		port( 
+		generic map( N	=> 11)
+		port map( 
 		din_sft => paralelo, dout_sft => out_conv, load_sft => load_conv ,rst_sft => rst_conv, clk_sft => clk_conv);	
 		
 		

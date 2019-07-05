@@ -1,18 +1,19 @@
 library ieee;
 use ieee.std_logic_1164.all;
------------------------------------
+---------------------------------------------------
 entity shift_register is
 	
 	generic( N	: natural := 11);
 	port( 
-		din_sft : in std_logic_vector(N-1 downto 0);
 		dout_sft: out std_logic;
-		load_sft, rst_sft, clk_sft: in std_logic
+		din_sft : in  std_logic_vector(N-1 downto 0);
+		load_sft: in  std_logic;
+		rst_sft : in  std_logic;
+		clk_sft : in  std_logic
 	);
 end shift_register;
-
+---------------------------------------------------
 architecture v1 of shift_register is
-
 begin
 
 	process (clk_sft, rst_sft)
@@ -31,3 +32,6 @@ begin
 	end process;
 
 end v1;
+---------------------------------------------------
+
+
